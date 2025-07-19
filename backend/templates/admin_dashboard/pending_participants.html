@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Participantes en attente de validation</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Région</th>
+            <th>Ville</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <table class="table-auto w-full border border-gray-300">
+  <thead>
+    <tr class="bg-gray-100">
+      <th class="px-4 py-2">Nom</th>
+      <th class="px-4 py-2">Email</th>
+      <th class="px-4 py-2">Région</th>
+      <th class="px-4 py-2">Ville</th>
+      <th class="px-4 py-2">Justificatif</th>
+      <th class="px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for participante in participantes %}
+    <tr class="border-t">
+      <td class="px-4 py-2">{{ participante.first_name }} {{ participante.last_name }}</td>
+      <td class="px-4 py-2">{{ participante.email }}</td>
+      <td class="px-4 py-2">{{ participante.region }}</td>
+      <td class="px-4 py-2">{{ participante.ville }}</td>
+      <td class="px-4 py-2">
+        {% if participante.document_justificatif %}
+          <a href="{{ participante.document_justificatif.url }}" target="_blank" class="text-blue-600 underline">Voir le justificatif</a>
+        {% else %}
+          <span class="text-gray-500 italic">Aucun</span>
+        {% endif %}
+      </td>
+      <td class="px-4 py-2 flex gap-2">
+        <form method="post" action="{% url 'validate_participant' participante.id %}">
+          {% csrf_token %}
+          <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded">Valider</button>
+        </form>
+        <form method="post" action="{% url 'reject_participant' participante.id %}">
+          {% csrf_token %}
+          <button type="submit" class="bg-red-500 text-white px-2 py-1 rounded">Rejeter</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+    
+{% endblock %}

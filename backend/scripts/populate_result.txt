@@ -1,0 +1,121 @@
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend>python manage.py makemigrations users
+Migrations for 'users':
+  users\migrations\0001_initial.py
+    + Create model Participante
+    + Create model UserProfile
+    + Create index users_parti_region_99ee47_idx on field(s) region, ville of model participante
+    + Create index users_parti_statut__a4f483_idx on field(s) statut_validation, validated_at of model participante
+    + Create index users_parti_is_acti_cbad83_idx on field(s) is_active, last_activity of model participante
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend>backend>python manage.py migrate
+'backend' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, users
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying users.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sessions.0001_initial... OK
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend>cd scripts
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend\scripts>python populate_db.py
+🚀 POPULATION DE LA BASE DE DONNÉES
+==================================================
+
+👤 Création du superutilisateur...
+   ✅ Superutilisateur créé:
+      - Username: admin
+      - Password: Admin123!@#
+
+👥 Création de 30 utilisatrices de test...
+   ✅ Créé: Victoire Obame (Lastoursville, ogooue_lolo) - validee
+   ✅ Créé: Aline Nyangui (Ndjolé, moyen_ogooue) - validee
+   ✅ Créé: Diane Mbadinga (Mbigou, ngounie) - validee
+   ✅ Créé: Pauline Obame (Okondja, haut_ogooue) - validee
+   ✅ Créé: Delphine Nzengue (Gamba, ogooue_maritime) - rejetee
+   ✅ Créé: Nathalie Nyangui (Mayumba, nyanga) - validee
+   ✅ Créé: Yvette Nzengue (Iboundji, ogooue_lolo) - validee
+   ✅ Créé: Odette Mihindou (Libreville, estuaire) - en_attente
+   ✅ Créé: Odette Bivigou (Mitzic, woleu_ntem) - validee
+   ✅ Créé: Diane Nguema (Minvoul, woleu_ntem) - validee
+   ✅ Créé: Cécile Mboumba (Tchibanga, nyanga) - validee
+   ✅ Créé: Christine Moussavou (Port-Gentil, ogooue_maritime) - validee
+   ✅ Créé: Yvette Moussavou (Mitzic, woleu_ntem) - validee
+   ✅ Créé: Delphine Moussounda (Ovan, ogooue_ivindo) - validee
+   ✅ Créé: Karine Ovono (Mabanda, nyanga) - validee
+   ✅ Créé: Florence Nzoghe (Gamba, ogooue_maritime) - validee
+   ✅ Créé: Yvette Mba (Bitam, woleu_ntem) - validee
+   ✅ Créé: Marie Ondo (Gamba, ogooue_maritime) - rejetee
+   ✅ Créé: Betty Mihindou (Franceville, haut_ogooue) - validee
+   ✅ Créé: Cécile Mabika (Mabanda, nyanga) - validee
+   ✅ Créé: Émilie Mintsa (Booué, ogooue_ivindo) - validee
+   ✅ Créé: Georgette Ella (Tchibanga, nyanga) - validee
+   ✅ Créé: Joséphine Ella (Mitzic, woleu_ntem) - validee
+   ✅ Créé: Victoire Nzoghe (Makokou, ogooue_ivindo) - validee
+   ✅ Créé: Christine Mintsa (Ndjolé, moyen_ogooue) - validee
+   ✅ Créé: Christine Mengue (Ndendé, ngounie) - validee
+   ✅ Créé: Odette Ogoula (Ovan, ogooue_ivindo) - en_attente
+   ✅ Créé: Diane Minko (Tchibanga, nyanga) - validee
+   ✅ Créé: Nathalie Nzengue (Gamba, ogooue_maritime) - en_attente
+   ✅ Créé: Gisèle Ndong (Moanda, haut_ogooue) - validee
+
+✅ 30 utilisatrices créées avec succès!
+
+📅 Création d'événements de test...
+   ⚠️  Module events non encore implémenté
+
+💬 Création de discussions de forum...
+   ⚠️  Module forums non encore implémenté
+
+📚 Création de ressources documentaires...
+   ⚠️  Module resources non encore implémenté
+
+📊 RÉSUMÉ DES DONNÉES CRÉÉES:
+==================================================
+👥 Utilisatrices:
+   - Total: 31
+   - Validées: 26
+   - En attente: 3
+   - Rejetées: 2
+   - Mentors: 12
+
+🌍 Répartition par région:
+   - Estuaire: 2
+   - Haut_Ogooue: 3
+   - Moyen_Ogooue: 2
+   - Ngounie: 2
+   - Nyanga: 6
+   - Ogooue_Ivindo: 4
+   - Ogooue_Lolo: 2
+   - Ogooue_Maritime: 5
+   - Woleu_Ntem: 5
+
+📈 Répartition par expérience:
+   - Aucune: 5
+   - Locale: 6
+   - Regionale: 11
+   - Nationale: 9
+
+✅ Population de la base de données terminée avec succès!
+
+(env) C:\Users\AHMED\dev\plateforme_femmes\backend\scripts>

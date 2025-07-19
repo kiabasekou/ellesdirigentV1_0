@@ -1,0 +1,42 @@
+Comment utiliser ce script :
+Placez ce script dans votre dossier backend/scripts/ (vous pouvez le nommer db_tools.py ou manage_db.py).
+
+Ouvrez votre terminal et naviguez jusqu'au dossier backend/scripts/.
+
+Exemples d'utilisation :
+
+Sauvegarder la base de données :
+Bash
+
+python manage_db.py backup
+python manage_db.py backup my_first_backup
+python manage_db.py backup latest_data --no-media --no-json
+Restaurer une sauvegarde :
+Bash
+
+python manage_db.py restore backup_20250603_130000
+(Remplacez par le nom réel d'une sauvegarde de votre dossier backups)
+Lister les sauvegardes :
+Bash
+
+python manage_db.py list
+Supprimer une sauvegarde :
+Bash
+
+python manage_db.py delete backup_to_remove
+Réinitialiser la base de données (attention, supprime tout !) :
+Bash
+
+python manage_db.py reset
+Vider les données d'une application (ex: 'users') :
+Bash
+
+python manage_db.py truncate users
+Afficher l'aide :
+Bash
+
+python manage_db.py help
+Ce script vous offre un contrôle beaucoup plus complet sur la gestion de votre base de données et de vos fichiers.
+
+
+ Sources
