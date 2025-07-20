@@ -3670,3 +3670,2036 @@ WARNING 2025-07-18 11:38:19,831 basehttp 6552 10608 "POST /api/users/activity/ H
 INFO 2025-07-19 07:10:58,761 basehttp 6552 20280 "OPTIONS /api/users/activity/ HTTP/1.1" 200 0
 WARNING 2025-07-19 07:10:58,777 log 6552 20280 Not Found: /api/users/activity/
 WARNING 2025-07-19 07:10:58,777 basehttp 6552 20280 "POST /api/users/activity/ HTTP/1.1" 404 3468
+INFO 2025-07-19 09:07:07,998 autoreload 6412 14120 Watching for file changes with StatReloader
+INFO 2025-07-19 09:08:51,899 basehttp 6412 13644 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:08:52,768 basehttp 6412 1568 "POST /api/api/auth/login/ HTTP/1.1" 200 702
+INFO 2025-07-19 09:08:53,093 basehttp 6412 13644 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:08:53,093 basehttp 6412 16712 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+WARNING 2025-07-19 09:08:53,166 log 6412 16712 Not Found: /api/notifications/
+WARNING 2025-07-19 09:08:53,167 basehttp 6412 16712 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:08:53,180 log 6412 16712 Not Found: /api/notifications/
+WARNING 2025-07-19 09:08:53,181 basehttp 6412 16712 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-19 09:09:12,466 basehttp 6412 8644 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:12,466 basehttp 6412 16248 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:12,466 basehttp 6412 6636 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:12,472 basehttp 6412 11876 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-19 09:09:12,484 log 6412 6636 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:09:12,484 basehttp 6412 6636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:09:12,500 log 6412 6636 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:09:12,500 basehttp 6412 6636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:09:12,514 log 6412 6636 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:09:12,514 basehttp 6412 6636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:09:12,526 log 6412 6636 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:09:12,527 basehttp 6412 6636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-19 09:09:23,760 basehttp 6412 19972 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:23,761 basehttp 6412 496 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-19 09:09:23,779 log 6412 496 Not Found: /api/events/
+WARNING 2025-07-19 09:09:23,780 basehttp 6412 496 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:09:23,795 log 6412 19972 Not Found: /api/events/
+WARNING 2025-07-19 09:09:23,796 basehttp 6412 19972 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+INFO 2025-07-19 09:09:38,535 basehttp 6412 13632 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:38,536 basehttp 6412 18224 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-19 09:09:38,555 log 6412 18224 Not Found: /api/resources/
+WARNING 2025-07-19 09:09:38,556 basehttp 6412 18224 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:09:38,571 log 6412 13632 Not Found: /api/resources/
+WARNING 2025-07-19 09:09:38,572 basehttp 6412 13632 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+INFO 2025-07-19 09:09:45,558 basehttp 6412 18224 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:45,558 basehttp 6412 13632 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:45,563 basehttp 6412 17304 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:45,569 basehttp 6412 13632 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+WARNING 2025-07-19 09:09:45,596 log 6412 18224 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:09:45,598 log 6412 17304 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:09:45,599 basehttp 6412 18224 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:09:45,599 basehttp 6412 17304 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:09:45,606 log 6412 13632 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:09:45,611 basehttp 6412 13632 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:09:45,633 log 6412 17304 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:09:45,634 log 6412 18224 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:09:45,636 basehttp 6412 17304 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:09:45,636 basehttp 6412 18224 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:09:45,642 log 6412 13632 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:09:45,643 basehttp 6412 13632 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+INFO 2025-07-19 09:09:51,058 basehttp 6412 20708 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,058 basehttp 6412 7612 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,058 basehttp 6412 17112 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,058 basehttp 6412 3096 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,059 basehttp 6412 21076 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,059 basehttp 6412 3264 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,072 basehttp 6412 20708 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,072 basehttp 6412 21076 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,073 basehttp 6412 7612 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-19 09:09:51,074 basehttp 6412 17112 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+WARNING 2025-07-19 09:09:51,129 log 6412 3096 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:09:51,131 log 6412 3264 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:09:51,132 basehttp 6412 3096 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:09:51,134 log 6412 21076 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:09:51,136 log 6412 7612 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:09:51,138 log 6412 20708 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:09:51,140 basehttp 6412 3264 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:09:51,143 basehttp 6412 21076 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:09:51,144 basehttp 6412 7612 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:09:51,145 basehttp 6412 20708 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:09:51,173 log 6412 17112 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:09:51,178 basehttp 6412 17112 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:09:51,180 log 6412 3096 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:09:51,193 basehttp 6412 3096 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:09:51,199 log 6412 3264 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:09:51,201 log 6412 21076 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:09:51,202 basehttp 6412 3264 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:09:51,205 log 6412 7612 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:09:51,206 basehttp 6412 21076 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:09:51,209 basehttp 6412 7612 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:09:56,990 log 6412 7612 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:09:56,992 log 6412 3264 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:09:56,994 log 6412 21076 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:09:56,995 basehttp 6412 7612 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:09:56,995 basehttp 6412 3264 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:09:56,995 basehttp 6412 21076 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:09:57,027 log 6412 3096 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:09:57,029 basehttp 6412 3096 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:09:57,035 log 6412 7612 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:09:57,036 basehttp 6412 7612 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:09:57,040 log 6412 3264 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:09:57,040 basehttp 6412 3264 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:09:59,145 log 6412 10812 Not Found: /api/resources/
+WARNING 2025-07-19 09:09:59,146 basehttp 6412 10812 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:09:59,162 log 6412 10812 Not Found: /api/resources/
+WARNING 2025-07-19 09:09:59,163 basehttp 6412 10812 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:10:01,152 log 6412 10812 Not Found: /api/events/
+WARNING 2025-07-19 09:10:01,153 basehttp 6412 10812 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:10:01,166 log 6412 10812 Not Found: /api/events/
+WARNING 2025-07-19 09:10:01,166 basehttp 6412 10812 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:10:05,369 log 6412 10812 Not Found: /api/resources/
+WARNING 2025-07-19 09:10:05,370 basehttp 6412 10812 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:10:05,385 log 6412 11108 Not Found: /api/resources/
+WARNING 2025-07-19 09:10:05,386 basehttp 6412 11108 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:10:06,136 log 6412 11108 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:10:06,140 log 6412 10812 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:10:06,142 log 6412 15140 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:10:06,144 basehttp 6412 11108 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:10:06,145 basehttp 6412 10812 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:10:06,148 basehttp 6412 15140 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:10:06,177 log 6412 11108 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:10:06,180 log 6412 15140 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:10:06,181 basehttp 6412 11108 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:10:06,184 log 6412 10812 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:10:06,186 basehttp 6412 15140 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:10:06,187 basehttp 6412 10812 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:10:06,719 log 6412 10812 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:10:06,720 basehttp 6412 10812 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:10:06,724 log 6412 11108 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:10:06,729 basehttp 6412 11108 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:10:06,731 log 6412 15140 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:10:06,735 log 6412 21432 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:10:06,739 basehttp 6412 15140 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:10:06,743 basehttp 6412 21432 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:10:06,765 log 6412 10812 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:10:06,773 basehttp 6412 10812 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:10:06,778 log 6412 11108 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:10:06,782 basehttp 6412 11108 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:10:06,785 log 6412 15140 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:10:06,797 basehttp 6412 15140 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:10:06,809 log 6412 21432 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:10:06,812 basehttp 6412 21432 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:10:06,818 log 6412 10812 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:10:06,832 basehttp 6412 10812 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:10:06,846 log 6412 11108 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:10:06,847 basehttp 6412 11108 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:10:07,292 log 6412 21432 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:10:07,294 log 6412 10812 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:10:07,295 basehttp 6412 21432 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:10:07,297 log 6412 11108 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:10:07,298 basehttp 6412 10812 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:10:07,307 basehttp 6412 11108 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:10:07,332 log 6412 21432 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:10:07,334 log 6412 15140 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:10:07,335 basehttp 6412 21432 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:10:07,339 basehttp 6412 15140 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:10:07,344 log 6412 11108 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:10:07,345 basehttp 6412 11108 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:10:07,834 log 6412 11108 Not Found: /api/resources/
+WARNING 2025-07-19 09:10:07,834 basehttp 6412 11108 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:10:07,851 log 6412 11108 Not Found: /api/resources/
+WARNING 2025-07-19 09:10:07,852 basehttp 6412 11108 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:10:08,377 log 6412 11108 Not Found: /api/events/
+WARNING 2025-07-19 09:10:08,378 basehttp 6412 11108 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:10:08,393 log 6412 11108 Not Found: /api/events/
+WARNING 2025-07-19 09:10:08,393 basehttp 6412 11108 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:10:09,276 log 6412 15772 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:10:09,277 basehttp 6412 15772 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:10:09,301 log 6412 15772 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:10:09,302 basehttp 6412 15772 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:10:09,319 log 6412 15772 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:10:09,319 basehttp 6412 15772 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:10:09,331 log 6412 15772 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:10:09,332 basehttp 6412 15772 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:10:11,160 log 6412 15772 Not Found: /api/notifications/
+WARNING 2025-07-19 09:10:11,161 basehttp 6412 15772 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:10:11,175 log 6412 15772 Not Found: /api/notifications/
+WARNING 2025-07-19 09:10:11,176 basehttp 6412 15772 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:11:58,522 log 6412 21356 Not Found: /api/notifications/
+WARNING 2025-07-19 09:11:58,523 basehttp 6412 21356 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:11:58,545 log 6412 21356 Not Found: /api/notifications/
+WARNING 2025-07-19 09:11:58,546 basehttp 6412 21356 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:12:14,926 log 6412 5408 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:12:14,927 basehttp 6412 5408 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:12:14,950 log 6412 5408 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:12:14,951 basehttp 6412 5408 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:12:14,977 log 6412 5408 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:12:14,979 basehttp 6412 5408 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:12:14,998 log 6412 5408 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:12:14,999 basehttp 6412 5408 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:12:17,617 log 6412 5408 Not Found: /api/events/
+WARNING 2025-07-19 09:12:17,624 basehttp 6412 5408 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:12:17,647 log 6412 5408 Not Found: /api/events/
+WARNING 2025-07-19 09:12:17,649 basehttp 6412 5408 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:12:21,685 log 6412 20280 Not Found: /api/resources/
+WARNING 2025-07-19 09:12:21,687 basehttp 6412 20280 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:12:21,708 log 6412 20280 Not Found: /api/resources/
+WARNING 2025-07-19 09:12:21,710 basehttp 6412 20280 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:12:23,666 log 6412 20280 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:12:23,668 basehttp 6412 20280 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:12:23,670 log 6412 16036 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:12:23,677 basehttp 6412 16036 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:12:23,702 log 6412 20280 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:12:23,703 basehttp 6412 20280 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:12:23,713 log 6412 16036 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:12:23,714 basehttp 6412 16036 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:12:23,736 log 6412 20280 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:12:23,738 basehttp 6412 20280 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:12:23,747 log 6412 16036 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:12:23,749 basehttp 6412 16036 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:12:25,542 log 6412 9864 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:12:25,546 basehttp 6412 9864 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:12:25,550 log 6412 16036 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:12:25,559 log 6412 5112 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:12:25,561 log 6412 20280 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:12:25,562 basehttp 6412 16036 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:12:25,564 log 6412 4848 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:12:25,571 basehttp 6412 5112 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:12:25,578 basehttp 6412 20280 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:12:25,584 basehttp 6412 4848 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:12:25,628 log 6412 20280 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:12:25,632 log 6412 9864 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:12:25,635 log 6412 16036 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:12:25,638 log 6412 5112 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:12:25,651 basehttp 6412 20280 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:12:25,653 basehttp 6412 9864 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:12:25,654 basehttp 6412 16036 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:12:25,659 log 6412 4848 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:12:25,664 basehttp 6412 5112 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:12:25,671 basehttp 6412 4848 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:13:28,176 log 6412 13572 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:13:28,178 log 6412 17840 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:13:28,181 basehttp 6412 13572 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:13:28,181 basehttp 6412 17840 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:13:28,184 log 6412 18484 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:13:28,193 log 6412 10828 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:13:28,197 log 6412 15704 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:13:28,205 basehttp 6412 18484 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:13:28,207 basehttp 6412 10828 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:13:28,209 basehttp 6412 15704 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:13:28,219 log 6412 13572 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:13:28,222 basehttp 6412 13572 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:13:28,242 log 6412 17840 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:13:28,245 basehttp 6412 17840 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:13:28,264 log 6412 18484 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:13:28,267 basehttp 6412 18484 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:13:28,275 log 6412 10828 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:13:28,279 log 6412 15704 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:13:28,280 basehttp 6412 15704 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:13:28,280 basehttp 6412 10828 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:13:58,615 log 6412 15888 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:13:58,616 basehttp 6412 15888 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:13:58,636 log 6412 15888 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:13:58,637 basehttp 6412 15888 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:13:58,655 log 6412 15888 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:13:58,656 basehttp 6412 15888 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:13:58,680 log 6412 15888 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:13:58,682 basehttp 6412 15888 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:14:00,183 log 6412 15888 Not Found: /api/events/
+WARNING 2025-07-19 09:14:00,184 basehttp 6412 15888 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:14:00,203 log 6412 16744 Not Found: /api/events/
+WARNING 2025-07-19 09:14:00,204 basehttp 6412 16744 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:14:02,014 log 6412 16744 Not Found: /api/resources/
+WARNING 2025-07-19 09:14:02,015 basehttp 6412 16744 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:14:02,033 log 6412 15888 Not Found: /api/resources/
+WARNING 2025-07-19 09:14:02,033 basehttp 6412 15888 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:14:03,977 log 6412 15888 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:14:03,981 log 6412 16744 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:14:03,982 basehttp 6412 15888 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:14:03,983 basehttp 6412 16744 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:14:04,014 log 6412 15888 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:14:04,015 basehttp 6412 15888 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:14:04,018 log 6412 16744 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:14:04,020 basehttp 6412 16744 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:14:04,051 log 6412 15888 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:14:04,055 log 6412 16744 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:14:04,056 basehttp 6412 15888 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:14:04,057 basehttp 6412 16744 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:14:06,802 log 6412 16744 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:14:06,809 log 6412 18700 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:14:06,811 basehttp 6412 16744 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:14:06,813 basehttp 6412 18700 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:14:06,818 log 6412 17052 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:14:06,828 log 6412 15888 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:14:06,831 basehttp 6412 17052 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:14:06,834 log 6412 3900 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:14:06,834 basehttp 6412 15888 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:14:06,849 log 6412 15356 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:14:06,850 basehttp 6412 3900 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:14:06,861 log 6412 16744 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:14:06,868 basehttp 6412 15356 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:14:06,885 basehttp 6412 16744 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:14:06,895 log 6412 15888 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:14:06,906 log 6412 17052 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:14:06,906 basehttp 6412 15888 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:14:06,915 log 6412 3900 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:14:06,930 basehttp 6412 17052 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:14:06,931 basehttp 6412 3900 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:14:15,811 log 6412 3900 Not Found: /api/resources/
+WARNING 2025-07-19 09:14:15,812 basehttp 6412 3900 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:14:15,833 log 6412 3900 Not Found: /api/resources/
+WARNING 2025-07-19 09:14:15,834 basehttp 6412 3900 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:16:04,035 log 6412 16820 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:16:04,037 log 6412 11500 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:16:04,041 log 6412 9468 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:16:04,042 basehttp 6412 16820 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:04,045 basehttp 6412 11500 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:16:04,047 basehttp 6412 9468 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:16:04,050 log 6412 16884 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:16:04,053 log 6412 19072 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:16:04,066 basehttp 6412 16884 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:16:04,079 basehttp 6412 19072 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:04,116 log 6412 16820 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:16:04,118 log 6412 16884 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:16:04,120 basehttp 6412 16820 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:04,125 basehttp 6412 16884 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:16:04,135 log 6412 11500 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:16:04,139 log 6412 9468 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:16:04,145 log 6412 19072 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:16:04,147 basehttp 6412 11500 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:16:04,147 basehttp 6412 9468 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:16:04,148 basehttp 6412 19072 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:08,924 log 6412 19072 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:16:08,927 log 6412 9468 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:16:08,928 basehttp 6412 19072 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:16:08,929 basehttp 6412 9468 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:16:08,932 log 6412 11500 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:16:08,941 basehttp 6412 11500 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:16:08,973 log 6412 16884 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:16:08,977 log 6412 19072 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:16:08,979 basehttp 6412 16884 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:16:08,979 basehttp 6412 19072 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:16:08,983 log 6412 9468 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:16:08,988 basehttp 6412 9468 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:16:17,650 log 6412 9468 Not Found: /api/resources/
+WARNING 2025-07-19 09:16:17,651 basehttp 6412 9468 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:16:17,671 log 6412 19072 Not Found: /api/resources/
+WARNING 2025-07-19 09:16:17,673 basehttp 6412 19072 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:16:25,228 log 6412 4396 Not Found: /api/events/
+WARNING 2025-07-19 09:16:25,230 basehttp 6412 4396 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:16:25,254 log 6412 4396 Not Found: /api/events/
+WARNING 2025-07-19 09:16:25,256 basehttp 6412 4396 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:16:27,599 log 6412 4396 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:27,600 basehttp 6412 4396 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:27,616 log 6412 4396 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:27,617 basehttp 6412 4396 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:27,635 log 6412 4396 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:27,637 basehttp 6412 4396 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:27,660 log 6412 4396 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:27,661 basehttp 6412 4396 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:31,852 log 6412 10064 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:16:31,866 basehttp 6412 10064 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:16:31,903 log 6412 19660 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:16:31,908 basehttp 6412 19660 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:31,914 log 6412 8928 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:16:31,934 log 6412 10064 Not Found: /api/stats/overview/
+WARNING 2025-07-19 09:16:31,937 log 6412 17624 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:16:31,947 log 6412 5572 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:16:31,952 basehttp 6412 10064 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-19 09:16:31,952 basehttp 6412 8928 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:16:31,954 basehttp 6412 17624 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:16:31,956 basehttp 6412 5572 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:32,007 log 6412 19660 Not Found: /api/stats/forums/
+WARNING 2025-07-19 09:16:32,014 log 6412 10064 Not Found: /api/stats/members/
+WARNING 2025-07-19 09:16:32,014 basehttp 6412 19660 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:32,017 log 6412 17624 Not Found: /api/stats/events/
+WARNING 2025-07-19 09:16:32,018 basehttp 6412 10064 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-19 09:16:32,021 log 6412 8928 Not Found: /api/stats/resources/
+WARNING 2025-07-19 09:16:32,023 basehttp 6412 17624 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-19 09:16:32,025 basehttp 6412 8928 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-19 09:16:32,501 log 6412 17624 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:16:32,502 basehttp 6412 17624 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:16:32,505 log 6412 8928 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:16:32,507 log 6412 10064 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:16:32,515 basehttp 6412 10064 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:16:32,515 basehttp 6412 8928 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:16:32,548 log 6412 19660 Not Found: /api/networking/requests/
+WARNING 2025-07-19 09:16:32,551 basehttp 6412 19660 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-19 09:16:32,556 log 6412 5572 Not Found: /api/networking/members/
+WARNING 2025-07-19 09:16:32,561 log 6412 17624 Not Found: /api/networking/connections/
+WARNING 2025-07-19 09:16:32,562 basehttp 6412 5572 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-19 09:16:32,564 basehttp 6412 17624 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-19 09:16:33,212 log 6412 17624 Not Found: /api/resources/
+WARNING 2025-07-19 09:16:33,213 basehttp 6412 17624 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:16:33,232 log 6412 17624 Not Found: /api/resources/
+WARNING 2025-07-19 09:16:33,234 basehttp 6412 17624 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-19 09:16:34,499 log 6412 17624 Not Found: /api/events/
+WARNING 2025-07-19 09:16:34,501 basehttp 6412 17624 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:16:34,519 log 6412 17624 Not Found: /api/events/
+WARNING 2025-07-19 09:16:34,520 basehttp 6412 17624 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-19 09:16:34,952 log 6412 17624 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:34,952 basehttp 6412 17624 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:34,970 log 6412 17624 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:34,971 basehttp 6412 17624 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:34,993 log 6412 17624 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:34,994 basehttp 6412 17624 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:16:35,016 log 6412 17624 Not Found: /api/forums/categories/
+WARNING 2025-07-19 09:16:35,017 basehttp 6412 17624 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-19 09:20:05,810 log 6412 20800 Not Found: /api/notifications/
+WARNING 2025-07-19 09:20:05,812 basehttp 6412 20800 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-19 09:20:05,836 log 6412 20800 Not Found: /api/notifications/
+WARNING 2025-07-19 09:20:05,837 basehttp 6412 20800 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-19 18:56:03,577 autoreload 18740 4688 Watching for file changes with StatReloader
+INFO 2025-07-20 03:33:40,727 basehttp 18740 9608 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:33:41,597 basehttp 18740 19824 "POST /api/api/auth/login/ HTTP/1.1" 200 702
+INFO 2025-07-20 03:33:41,933 basehttp 18740 10432 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:33:41,933 basehttp 18740 9608 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+WARNING 2025-07-20 03:33:42,020 log 18740 9608 Not Found: /api/notifications/
+WARNING 2025-07-20 03:33:42,021 basehttp 18740 9608 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 03:33:42,035 log 18740 9608 Not Found: /api/notifications/
+WARNING 2025-07-20 03:33:42,038 basehttp 18740 9608 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 03:33:57,371 basehttp 18740 17396 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:33:57,373 basehttp 18740 17564 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+ERROR 2025-07-20 03:33:57,539 log 18740 17564 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:33:57,550 basehttp 18740 17564 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:33:57,614 log 18740 17396 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:33:57,619 basehttp 18740 17396 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+INFO 2025-07-20 03:34:06,972 basehttp 18740 17396 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:34:06,972 basehttp 18740 17564 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:34:06,972 basehttp 18740 16632 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:34:06,976 basehttp 18740 17396 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-20 03:34:06,989 log 18740 16632 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:34:07,010 basehttp 18740 16632 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:34:07,026 log 18740 16632 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:34:07,028 basehttp 18740 16632 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:34:07,047 log 18740 16632 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:34:07,049 basehttp 18740 16632 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:34:07,065 log 18740 16632 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:34:07,067 basehttp 18740 16632 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 03:34:21,196 basehttp 18740 21104 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:34:21,196 basehttp 18740 18800 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:34:21,215 log 18740 18800 Not Found: /api/events/
+WARNING 2025-07-20 03:34:21,219 basehttp 18740 18800 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 03:34:21,241 log 18740 18800 Not Found: /api/events/
+WARNING 2025-07-20 03:34:21,242 basehttp 18740 18800 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+ERROR 2025-07-20 03:34:41,994 log 18740 21160 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:34:42,001 basehttp 18740 21160 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:34:42,064 log 18740 21160 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:34:42,069 basehttp 18740 21160 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:35:06,978 log 18740 21160 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:06,982 basehttp 18740 21160 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:35:07,070 log 18740 18732 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:07,079 basehttp 18740 18732 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+WARNING 2025-07-20 03:35:13,255 log 18740 18732 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:35:13,256 basehttp 18740 18732 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:35:13,274 log 18740 18732 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:35:13,275 basehttp 18740 18732 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:35:13,293 log 18740 18732 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:35:13,294 basehttp 18740 18732 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:35:13,307 log 18740 18732 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:35:13,307 basehttp 18740 18732 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:35:15,495 log 18740 18732 Not Found: /api/events/
+WARNING 2025-07-20 03:35:15,496 basehttp 18740 18732 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 03:35:15,511 log 18740 21160 Not Found: /api/events/
+WARNING 2025-07-20 03:35:15,512 basehttp 18740 21160 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+INFO 2025-07-20 03:35:17,290 basehttp 18740 21160 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:17,290 basehttp 18740 18732 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 03:35:17,309 log 18740 21160 Not Found: /api/resources/
+WARNING 2025-07-20 03:35:17,311 basehttp 18740 21160 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-20 03:35:17,324 log 18740 18732 Not Found: /api/resources/
+WARNING 2025-07-20 03:35:17,325 basehttp 18740 18732 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+INFO 2025-07-20 03:35:21,192 basehttp 18740 18732 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:21,193 basehttp 18740 21160 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:21,195 basehttp 18740 20416 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:21,202 basehttp 18740 18732 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:21,202 basehttp 18740 21160 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:21,207 basehttp 18740 20416 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+WARNING 2025-07-20 03:35:21,232 log 18740 21160 Not Found: /api/networking/members/
+WARNING 2025-07-20 03:35:21,234 basehttp 18740 21160 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-20 03:35:21,242 log 18740 20416 Not Found: /api/networking/connections/
+WARNING 2025-07-20 03:35:21,248 basehttp 18740 20416 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 03:35:21,252 log 18740 18732 Not Found: /api/networking/requests/
+WARNING 2025-07-20 03:35:21,258 log 18740 21160 Not Found: /api/networking/members/
+WARNING 2025-07-20 03:35:21,259 basehttp 18740 21160 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-20 03:35:21,260 basehttp 18740 18732 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-20 03:35:21,283 log 18740 20416 Not Found: /api/networking/connections/
+WARNING 2025-07-20 03:35:21,284 basehttp 18740 20416 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 03:35:21,288 log 18740 18732 Not Found: /api/networking/requests/
+WARNING 2025-07-20 03:35:21,289 basehttp 18740 18732 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+INFO 2025-07-20 03:35:23,821 basehttp 18740 18732 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:23,823 basehttp 18740 20416 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:23,823 basehttp 18740 21160 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:23,824 basehttp 18740 15272 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:35:23,826 basehttp 18740 18732 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:35:23,877 log 18740 20416 Not Found: /api/stats/forums/
+WARNING 2025-07-20 03:35:23,879 log 18740 18732 Not Found: /api/stats/overview/
+WARNING 2025-07-20 03:35:23,881 basehttp 18740 20416 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:35:23,882 log 18740 21160 Not Found: /api/stats/events/
+WARNING 2025-07-20 03:35:23,889 log 18740 15272 Not Found: /api/stats/members/
+WARNING 2025-07-20 03:35:23,890 basehttp 18740 18732 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-20 03:35:23,893 log 18740 11148 Not Found: /api/stats/resources/
+WARNING 2025-07-20 03:35:23,905 basehttp 18740 21160 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:35:23,905 basehttp 18740 15272 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 03:35:23,910 log 18740 356 Not Found: /api/stats/forums/
+WARNING 2025-07-20 03:35:23,924 basehttp 18740 11148 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-20 03:35:23,927 log 18740 20416 Not Found: /api/stats/overview/
+WARNING 2025-07-20 03:35:23,929 log 18740 18732 Not Found: /api/stats/events/
+WARNING 2025-07-20 03:35:23,931 basehttp 18740 356 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:35:23,941 basehttp 18740 20416 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-20 03:35:23,943 basehttp 18740 18732 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:35:23,955 log 18740 15272 Not Found: /api/stats/members/
+WARNING 2025-07-20 03:35:23,956 basehttp 18740 15272 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 03:35:23,963 log 18740 11148 Not Found: /api/stats/resources/
+WARNING 2025-07-20 03:35:23,965 basehttp 18740 11148 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+ERROR 2025-07-20 03:35:33,372 log 18740 11148 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:33,378 basehttp 18740 11148 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:35:33,440 log 18740 15272 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:33,444 basehttp 18740 15272 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:35:54,431 log 18740 15272 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:54,436 basehttp 18740 15272 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:35:54,516 log 18740 11148 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:35:54,522 basehttp 18740 11148 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+WARNING 2025-07-20 03:36:06,050 log 18740 11148 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:36:06,055 basehttp 18740 11148 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:36:06,069 log 18740 11148 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:36:06,070 basehttp 18740 11148 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:36:06,087 log 18740 11148 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:36:06,089 basehttp 18740 11148 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:36:06,106 log 18740 11148 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:36:06,107 basehttp 18740 11148 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 03:36:13,093 basehttp 18740 11148 "OPTIONS /api/forums/categories/1/threads/?sort=recent&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:36:13,104 log 18740 11148 Not Found: /api/forums/categories/1/threads/
+WARNING 2025-07-20 03:36:13,105 basehttp 18740 11148 "GET /api/forums/categories/1/threads/?sort=recent&filter=all HTTP/1.1" 404 3755
+INFO 2025-07-20 03:36:19,193 basehttp 18740 11148 "OPTIONS /api/forums/categories/2/threads/?sort=recent&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:36:19,223 log 18740 11148 Not Found: /api/forums/categories/2/threads/
+WARNING 2025-07-20 03:36:19,233 basehttp 18740 11148 "GET /api/forums/categories/2/threads/?sort=recent&filter=all HTTP/1.1" 404 3755
+WARNING 2025-07-20 03:36:36,686 log 18740 11656 Not Found: /api/events/
+WARNING 2025-07-20 03:36:36,687 basehttp 18740 11656 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 03:36:36,701 log 18740 11656 Not Found: /api/events/
+WARNING 2025-07-20 03:36:36,703 basehttp 18740 11656 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+ERROR 2025-07-20 03:36:40,685 log 18740 11656 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:36:40,691 basehttp 18740 11656 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:36:40,762 log 18740 15164 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:36:40,768 basehttp 18740 15164 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+INFO 2025-07-20 03:38:36,524 basehttp 18740 18232 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:37,297 basehttp 18740 15400 "POST /api/api/auth/login/ HTTP/1.1" 200 702
+INFO 2025-07-20 03:38:37,657 basehttp 18740 20080 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:37,657 basehttp 18740 18232 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+WARNING 2025-07-20 03:38:37,677 log 18740 20080 Not Found: /api/notifications/
+WARNING 2025-07-20 03:38:37,678 basehttp 18740 20080 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 03:38:37,689 log 18740 20080 Not Found: /api/notifications/
+WARNING 2025-07-20 03:38:37,690 basehttp 18740 20080 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 03:38:46,663 basehttp 18740 20080 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:46,663 basehttp 18740 18232 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+ERROR 2025-07-20 03:38:46,749 log 18740 18232 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:38:46,755 basehttp 18740 18232 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+ERROR 2025-07-20 03:38:46,842 log 18740 20080 Internal Server Error: /api/training/formations/mes_formations/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_inscriptionformation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\training\views.py", line 114, in mes_formations
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_inscriptionformation
+ERROR 2025-07-20 03:38:46,847 basehttp 18740 20080 "GET /api/training/formations/mes_formations/ HTTP/1.1" 500 207076
+INFO 2025-07-20 03:38:53,271 basehttp 18740 20080 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:53,272 basehttp 18740 18232 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:53,279 basehttp 18740 18232 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-20 03:38:53,294 log 18740 20080 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:38:53,295 basehttp 18740 20080 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:38:53,312 log 18740 20080 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:38:53,314 basehttp 18740 20080 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:38:53,332 log 18740 20080 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:38:53,332 basehttp 18740 20080 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 03:38:53,346 log 18740 20080 Not Found: /api/forums/categories/
+WARNING 2025-07-20 03:38:53,347 basehttp 18740 20080 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 03:38:54,585 basehttp 18740 20080 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:38:54,585 basehttp 18740 18232 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:38:54,603 log 18740 18232 Not Found: /api/events/
+WARNING 2025-07-20 03:38:54,604 basehttp 18740 18232 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 03:38:54,621 log 18740 20080 Not Found: /api/events/
+WARNING 2025-07-20 03:38:54,623 basehttp 18740 20080 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+INFO 2025-07-20 03:39:00,405 basehttp 18740 20080 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:00,405 basehttp 18740 18232 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 03:39:00,428 log 18740 18232 Not Found: /api/resources/
+WARNING 2025-07-20 03:39:00,430 basehttp 18740 18232 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-20 03:39:00,445 log 18740 20080 Not Found: /api/resources/
+WARNING 2025-07-20 03:39:00,446 basehttp 18740 20080 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+INFO 2025-07-20 03:39:02,274 basehttp 18740 20080 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:02,275 basehttp 18740 18232 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:02,278 basehttp 18740 20080 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 03:39:02,300 log 18740 18232 Not Found: /api/networking/connections/
+WARNING 2025-07-20 03:39:02,303 log 18740 20080 Not Found: /api/networking/requests/
+WARNING 2025-07-20 03:39:02,305 basehttp 18740 18232 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 03:39:02,306 basehttp 18740 20080 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-20 03:39:02,328 log 18740 18232 Not Found: /api/networking/connections/
+WARNING 2025-07-20 03:39:02,329 log 18740 20080 Not Found: /api/networking/members/
+WARNING 2025-07-20 03:39:02,330 basehttp 18740 18232 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 03:39:02,331 basehttp 18740 20080 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-20 03:39:02,353 log 18740 18232 Not Found: /api/networking/requests/
+WARNING 2025-07-20 03:39:02,354 basehttp 18740 18232 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-20 03:39:02,358 log 18740 20080 Not Found: /api/networking/members/
+WARNING 2025-07-20 03:39:02,360 basehttp 18740 20080 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+INFO 2025-07-20 03:39:03,428 basehttp 18740 18232 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:03,429 basehttp 18740 20080 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:03,430 basehttp 18740 14136 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:03,430 basehttp 18740 19548 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:03,431 basehttp 18740 20152 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 03:39:03,441 basehttp 18740 14136 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+WARNING 2025-07-20 03:39:03,474 log 18740 19520 Not Found: /api/stats/resources/
+WARNING 2025-07-20 03:39:03,477 basehttp 18740 19520 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-20 03:39:03,479 log 18740 18232 Not Found: /api/stats/forums/
+WARNING 2025-07-20 03:39:03,484 log 18740 20080 Not Found: /api/stats/events/
+WARNING 2025-07-20 03:39:03,485 basehttp 18740 18232 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:39:03,487 basehttp 18740 20080 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:39:03,494 log 18740 20152 Not Found: /api/stats/members/
+WARNING 2025-07-20 03:39:03,497 log 18740 19548 Not Found: /api/stats/overview/
+WARNING 2025-07-20 03:39:03,506 basehttp 18740 20152 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 03:39:03,517 basehttp 18740 19548 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-20 03:39:03,533 log 18740 14136 Not Found: /api/stats/resources/
+WARNING 2025-07-20 03:39:03,536 log 18740 19520 Not Found: /api/stats/members/
+WARNING 2025-07-20 03:39:03,537 basehttp 18740 14136 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-20 03:39:03,543 basehttp 18740 19520 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 03:39:03,547 log 18740 18232 Not Found: /api/stats/forums/
+WARNING 2025-07-20 03:39:03,549 basehttp 18740 18232 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:39:03,555 log 18740 20080 Not Found: /api/stats/events/
+WARNING 2025-07-20 03:39:03,557 basehttp 18740 20080 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 03:39:03,563 log 18740 19548 Not Found: /api/stats/overview/
+WARNING 2025-07-20 03:39:03,565 basehttp 18740 19548 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+INFO 2025-07-20 03:42:39,617 basehttp 18740 15476 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-20 03:42:39,700 basehttp 18740 15476 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4259
+INFO 2025-07-20 03:42:39,837 basehttp 18740 4456 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-07-20 03:42:39,838 basehttp 18740 15476 "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-07-20 03:42:39,845 basehttp 18740 4456 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-07-20 03:42:39,848 basehttp 18740 15476 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+INFO 2025-07-20 03:42:39,848 basehttp 18740 14552 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-07-20 03:42:40,060 basehttp 18740 15476 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-07-20 03:42:40,061 basehttp 18740 14552 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+WARNING 2025-07-20 03:42:40,465 log 18740 15476 Not Found: /favicon.ico
+WARNING 2025-07-20 03:42:40,466 basehttp 18740 15476 "GET /favicon.ico HTTP/1.1" 404 3457
+INFO 2025-07-20 03:42:52,955 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:43:06,445 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:43:14,359 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:43:29,709 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:43:39,983 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:43:55,121 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4495
+INFO 2025-07-20 03:46:20,730 basehttp 18740 15476 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-20 03:46:20,762 basehttp 18740 15476 "GET /admin/ HTTP/1.1" 200 8065
+INFO 2025-07-20 03:46:20,822 basehttp 18740 15476 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-20 03:46:20,866 basehttp 18740 14552 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-20 03:46:20,866 basehttp 18740 15476 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-20 03:46:31,961 basehttp 18740 15476 "GET /admin/training/formation/add/ HTTP/1.1" 200 26796
+INFO 2025-07-20 03:46:32,032 basehttp 18740 15476 "GET /static/admin/css/forms.css HTTP/1.1" 200 9047
+INFO 2025-07-20 03:46:32,038 basehttp 18740 14552 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 03:46:32,045 basehttp 18740 15476 "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2025-07-20 03:46:32,047 basehttp 18740 14552 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-07-20 03:46:32,057 basehttp 18740 14552 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-07-20 03:46:32,057 basehttp 18740 15476 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-07-20 03:46:32,066 basehttp 18740 14552 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-07-20 03:46:32,068 basehttp 18740 15476 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11900
+INFO 2025-07-20 03:46:32,074 basehttp 18740 4456 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-07-20 03:46:32,082 basehttp 18740 14552 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-07-20 03:46:32,085 basehttp 18740 15476 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-07-20 03:46:32,092 basehttp 18740 4456 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-07-20 03:46:32,101 basehttp 18740 15476 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-07-20 03:46:32,114 basehttp 18740 14552 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-07-20 03:46:32,124 basehttp 18740 14552 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-07-20 03:46:32,270 basehttp 18740 15476 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-07-20 03:46:32,270 basehttp 18740 14552 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-07-20 03:48:40,769 basehttp 18740 14552 "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 1094
+ERROR 2025-07-20 03:50:15,843 log 18740 14552 Internal Server Error: /admin/training/formation/add/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_formation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1792, in _changeform_view
+    form_validated = form.is_valid()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 435, in full_clean
+    self._post_clean()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\models.py", line 492, in _post_clean
+    self.validate_unique()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\models.py", line 501, in validate_unique
+    self.instance.validate_unique(exclude=exclude)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\base.py", line 1229, in validate_unique
+    errors = self._perform_unique_checks(unique_checks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\base.py", line 1339, in _perform_unique_checks
+    if qs.exists():
+       ^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\query.py", line 598, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_formation
+ERROR 2025-07-20 03:50:15,852 basehttp 18740 14552 "POST /admin/training/formation/add/ HTTP/1.1" 500 216057
+INFO 2025-07-20 03:52:50,859 autoreload 1772 17928 Watching for file changes with StatReloader
+INFO 2025-07-20 03:52:58,009 basehttp 1772 20048 "GET /admin/training/formation/add/ HTTP/1.1" 200 26796
+ERROR 2025-07-20 03:53:04,012 log 1772 20048 Internal Server Error: /admin/training/formation/add/
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: training_formation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\contrib\admin\options.py", line 1792, in _changeform_view
+    form_validated = form.is_valid()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\forms.py", line 435, in full_clean
+    self._post_clean()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\models.py", line 492, in _post_clean
+    self.validate_unique()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\forms\models.py", line 501, in validate_unique
+    self.instance.validate_unique(exclude=exclude)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\base.py", line 1229, in validate_unique
+    errors = self._perform_unique_checks(unique_checks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\base.py", line 1339, in _perform_unique_checks
+    if qs.exists():
+       ^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\query.py", line 598, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: training_formation
+ERROR 2025-07-20 03:53:04,022 basehttp 1772 20048 "POST /admin/training/formation/add/ HTTP/1.1" 500 216022
+INFO 2025-07-20 03:56:55,726 autoreload 17428 16032 Watching for file changes with StatReloader
+INFO 2025-07-20 03:57:09,069 basehttp 17428 13964 "POST /admin/training/formation/add/ HTTP/1.1" 200 27364
+INFO 2025-07-20 03:57:09,139 basehttp 17428 13964 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:16:14,753 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 35100
+INFO 2025-07-20 04:16:14,823 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:18:02,879 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 34902
+INFO 2025-07-20 04:18:02,947 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:18:28,528 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 34899
+INFO 2025-07-20 04:18:28,600 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:18:46,277 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 34902
+INFO 2025-07-20 04:18:46,331 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:19:16,899 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 34896
+INFO 2025-07-20 04:19:16,971 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:19:35,674 basehttp 17428 10008 "POST /admin/training/formation/add/ HTTP/1.1" 200 34899
+INFO 2025-07-20 04:19:35,735 basehttp 17428 10008 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:24:35,566 basehttp 17428 17100 "GET /admin/ HTTP/1.1" 200 8065
+INFO 2025-07-20 04:24:38,955 basehttp 17428 17100 "GET /admin/training/formation/ HTTP/1.1" 200 15900
+INFO 2025-07-20 04:24:39,027 basehttp 17428 19272 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:24:39,093 basehttp 17428 17100 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2025-07-20 04:24:39,104 basehttp 17428 17100 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-07-20 04:24:39,122 basehttp 17428 17100 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-07-20 04:24:39,127 basehttp 17428 19272 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-07-20 04:24:50,554 basehttp 17428 19272 "GET /admin/training/formation/3c4845be-c6e7-4f97-8924-65fc60cf1426/change/ HTTP/1.1" 200 28304
+INFO 2025-07-20 04:24:50,602 basehttp 17428 19272 "GET /admin/jsi18n/ HTTP/1.1" 200 8621
+INFO 2025-07-20 04:25:19,939 basehttp 17428 732 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:20,755 basehttp 17428 21404 "POST /api/api/auth/login/ HTTP/1.1" 200 702
+INFO 2025-07-20 04:25:21,215 basehttp 17428 8200 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:21,216 basehttp 17428 732 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+WARNING 2025-07-20 04:25:21,233 log 17428 732 Not Found: /api/notifications/
+WARNING 2025-07-20 04:25:21,234 basehttp 17428 732 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 04:25:21,244 log 17428 732 Not Found: /api/notifications/
+WARNING 2025-07-20 04:25:21,245 basehttp 17428 732 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 04:25:28,558 log 17428 732 Not Found: /api/notifications/
+WARNING 2025-07-20 04:25:28,560 basehttp 17428 732 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 04:25:28,575 log 17428 732 Not Found: /api/notifications/
+WARNING 2025-07-20 04:25:28,577 basehttp 17428 732 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 04:25:35,537 basehttp 17428 732 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:35,537 basehttp 17428 8200 "OPTIONS /api/training/formations/mes_formations/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:35,549 basehttp 17428 8200 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:25:35,558 basehttp 17428 8200 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:25:53,234 basehttp 17428 8200 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:53,234 basehttp 17428 732 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-20 04:25:53,249 log 17428 8200 Not Found: /api/forums/categories/
+WARNING 2025-07-20 04:25:53,250 basehttp 17428 8200 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 04:25:53,265 log 17428 8200 Not Found: /api/forums/categories/
+WARNING 2025-07-20 04:25:53,266 basehttp 17428 8200 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 04:25:53,277 log 17428 8200 Not Found: /api/forums/categories/
+WARNING 2025-07-20 04:25:53,278 basehttp 17428 8200 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 04:25:53,300 log 17428 8200 Not Found: /api/forums/categories/
+WARNING 2025-07-20 04:25:53,300 basehttp 17428 8200 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 04:25:55,096 basehttp 17428 8200 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:55,099 basehttp 17428 732 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 04:25:55,115 log 17428 732 Not Found: /api/events/
+WARNING 2025-07-20 04:25:55,121 basehttp 17428 732 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 04:25:55,144 log 17428 8200 Not Found: /api/events/
+WARNING 2025-07-20 04:25:55,145 basehttp 17428 8200 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+INFO 2025-07-20 04:25:57,113 basehttp 17428 8200 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:57,113 basehttp 17428 732 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 04:25:57,133 log 17428 732 Not Found: /api/resources/
+WARNING 2025-07-20 04:25:57,134 basehttp 17428 732 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-20 04:25:57,149 log 17428 8200 Not Found: /api/resources/
+WARNING 2025-07-20 04:25:57,151 basehttp 17428 8200 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+INFO 2025-07-20 04:25:58,930 basehttp 17428 8200 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:58,932 basehttp 17428 732 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:58,937 basehttp 17428 732 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:58,937 basehttp 17428 8200 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:58,942 basehttp 17428 732 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-20 04:25:58,943 basehttp 17428 8200 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 04:25:58,967 log 17428 8200 Not Found: /api/networking/connections/
+WARNING 2025-07-20 04:25:58,969 log 17428 732 Not Found: /api/networking/requests/
+WARNING 2025-07-20 04:25:58,971 basehttp 17428 8200 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 04:25:58,971 basehttp 17428 732 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-20 04:25:58,994 log 17428 8200 Not Found: /api/networking/members/
+WARNING 2025-07-20 04:25:58,995 log 17428 732 Not Found: /api/networking/connections/
+WARNING 2025-07-20 04:25:58,996 basehttp 17428 8200 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+WARNING 2025-07-20 04:25:58,997 basehttp 17428 732 "GET /api/networking/connections/ HTTP/1.1" 404 3713
+WARNING 2025-07-20 04:25:59,015 log 17428 732 Not Found: /api/networking/members/
+WARNING 2025-07-20 04:25:59,018 log 17428 8200 Not Found: /api/networking/requests/
+WARNING 2025-07-20 04:25:59,018 basehttp 17428 8200 "GET /api/networking/requests/ HTTP/1.1" 404 3704
+WARNING 2025-07-20 04:25:59,019 basehttp 17428 732 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 3816
+INFO 2025-07-20 04:26:01,016 basehttp 17428 732 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,017 basehttp 17428 8200 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,020 basehttp 17428 5732 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,024 basehttp 17428 21088 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,024 basehttp 17428 9920 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,026 basehttp 17428 2552 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,027 basehttp 17428 732 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,033 basehttp 17428 8200 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,033 basehttp 17428 5732 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-20 04:26:01,069 basehttp 17428 21088 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+WARNING 2025-07-20 04:26:01,106 log 17428 9920 Not Found: /api/stats/events/
+WARNING 2025-07-20 04:26:01,113 basehttp 17428 9920 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 04:26:01,118 log 17428 732 Not Found: /api/stats/overview/
+WARNING 2025-07-20 04:26:01,122 basehttp 17428 732 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-20 04:26:01,129 log 17428 2552 Not Found: /api/stats/members/
+WARNING 2025-07-20 04:26:01,132 log 17428 8200 Not Found: /api/stats/resources/
+WARNING 2025-07-20 04:26:01,137 basehttp 17428 2552 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 04:26:01,146 log 17428 5732 Not Found: /api/stats/forums/
+WARNING 2025-07-20 04:26:01,148 basehttp 17428 8200 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-20 04:26:01,153 basehttp 17428 5732 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 04:26:01,155 log 17428 21088 Not Found: /api/stats/overview/
+WARNING 2025-07-20 04:26:01,163 log 17428 9920 Not Found: /api/stats/events/
+WARNING 2025-07-20 04:26:01,166 basehttp 17428 21088 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3717
+WARNING 2025-07-20 04:26:01,170 log 17428 2552 Not Found: /api/stats/resources/
+WARNING 2025-07-20 04:26:01,178 basehttp 17428 2552 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3720
+WARNING 2025-07-20 04:26:01,179 basehttp 17428 9920 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3711
+WARNING 2025-07-20 04:26:01,197 log 17428 732 Not Found: /api/stats/members/
+WARNING 2025-07-20 04:26:01,201 log 17428 5732 Not Found: /api/stats/forums/
+WARNING 2025-07-20 04:26:01,203 basehttp 17428 732 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3714
+WARNING 2025-07-20 04:26:01,204 basehttp 17428 5732 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3711
+INFO 2025-07-20 04:26:05,104 basehttp 17428 5732 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:26:05,114 basehttp 17428 5732 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:26:53,342 basehttp 17428 5732 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:26:53,352 basehttp 17428 5732 "GET /api/training/formations/mes_formations/ HTTP/1.1" 200 2
+INFO 2025-07-20 04:30:28,807 basehttp 17428 5732 "OPTIONS /api/users/activity/ HTTP/1.1" 200 0
+WARNING 2025-07-20 04:30:28,824 log 17428 5732 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:30:28,825 basehttp 17428 5732 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 04:35:28,815 log 17428 5732 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:35:28,816 basehttp 17428 5732 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 04:40:29,118 log 17428 9280 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:40:29,119 basehttp 17428 9280 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 04:45:28,824 log 17428 9280 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:45:28,824 basehttp 17428 9280 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 04:50:28,820 log 17428 9280 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:50:28,821 basehttp 17428 9280 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 04:55:28,813 log 17428 9280 Not Found: /api/users/activity/
+WARNING 2025-07-20 04:55:28,814 basehttp 17428 9280 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 05:01:20,120 log 17428 7832 Not Found: /api/users/activity/
+WARNING 2025-07-20 05:01:20,122 basehttp 17428 7832 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 05:06:20,125 log 17428 8716 Not Found: /api/users/activity/
+WARNING 2025-07-20 05:06:20,125 basehttp 17428 8716 "POST /api/users/activity/ HTTP/1.1" 404 3690
+WARNING 2025-07-20 05:10:31,128 log 17428 17940 Not Found: /api/users/activity/
+WARNING 2025-07-20 05:10:31,129 basehttp 17428 17940 "POST /api/users/activity/ HTTP/1.1" 404 3690
+INFO 2025-07-20 05:29:16,353 autoreload 11812 1256 Watching for file changes with StatReloader
+INFO 2025-07-20 05:47:50,070 autoreload 16676 9840 Watching for file changes with StatReloader

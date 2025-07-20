@@ -1,22 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Home,
-  User,
-  MessageSquare,
-  Calendar,
-  BookOpen,
-  Users,
-  BarChart3,
-  Settings,
-  Menu,
-  X,
-  Bell,
-  Search,
-  LogOut,
-  Shield,
-  Crown,
-  Star,
-  ChevronDown
+  Home, User, MessageSquare, Calendar, BookOpen, Users, BarChart3, Settings,
+  Menu, X, Bell, Search, LogOut, Shield, Crown, Star, ChevronDown // Ajouter Crown et Star
 } from 'lucide-react';
 
 const PremiumHeader = ({ currentUser = {}, onLogout, onNavigate, currentPage }) => {
@@ -33,15 +18,18 @@ const PremiumHeader = ({ currentUser = {}, onLogout, onNavigate, currentPage }) 
     ...currentUser
   };
 
-  const navigation = [
-    { id: 'dashboard', name: 'Tableau de bord', icon: Home, description: 'Vue d\'ensemble' },
-    { id: 'profile', name: 'Mon Profil', icon: User, description: 'Informations personnelles' },
-    { id: 'forums', name: 'Forums', icon: MessageSquare, description: 'Discussions communautaires' },
-    { id: 'events', name: 'Événements', icon: Calendar, description: 'Formations & Ateliers' },
-    { id: 'resources', name: 'Ressources', icon: BookOpen, description: 'Bibliothèque documentaire' },
-    { id: 'networking', name: 'Réseautage', icon: Users, description: 'Connexions professionnelles' },
-    { id: 'stats', name: 'Statistiques', icon: BarChart3, description: 'Analyses et métriques' },
-  ];
+const navigation = [
+  { id: 'dashboard', name: 'Tableau de bord', icon: Home, description: 'Vue d\'ensemble' },
+  { id: 'profile', name: 'Mon Profil', icon: User, description: 'Informations personnelles' },
+  { id: 'formations', name: 'Formations', icon: BookOpen, description: 'Catalogue formations' }, // NOUVEAU
+  { id: 'mes-formations', name: 'Mes Formations', icon: Star, description: 'Formations suivies' }, // NOUVEAU
+  { id: 'certificats', name: 'Certificats', icon: Crown, description: 'Mes certifications' }, // NOUVEAU
+  { id: 'forums', name: 'Forums', icon: MessageSquare, description: 'Discussions communautaires' },
+  { id: 'events', name: 'Événements', icon: Calendar, description: 'Formations & Ateliers' },
+  { id: 'resources', name: 'Ressources', icon: BookOpen, description: 'Bibliothèque documentaire' },
+  { id: 'networking', name: 'Réseautage', icon: Users, description: 'Connexions professionnelles' },
+  { id: 'stats', name: 'Statistiques', icon: BarChart3, description: 'Analyses et métriques' },
+];
 
   const notifications = [
     {

@@ -13,6 +13,9 @@ import {
 const navigation = [
   { name: 'Tableau de bord', href: '/dashboard', icon: HomeIcon },
   { name: 'Mon Profil', href: '/dashboard/profile', icon: UserIcon },
+  { name: 'Formations', href: '/dashboard/formations', icon: BookOpenIcon }, // NOUVEAU
+  { name: 'Mes Formations', href: '/dashboard/mes-formations', icon: BookOpenIcon }, // NOUVEAU
+  { name: 'Certificats', href: '/dashboard/certificats', icon: BookOpenIcon }, // NOUVEAU
   { name: 'Forums', href: '/dashboard/forums', icon: ChatBubbleLeftRightIcon },
   { name: 'Événements', href: '/dashboard/events', icon: CalendarDaysIcon },
   { name: 'Ressources', href: '/dashboard/resources', icon: BookOpenIcon },

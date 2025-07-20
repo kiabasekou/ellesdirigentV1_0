@@ -27,16 +27,18 @@ const Layout = ({ children, currentUser = {}, onLogout, onNavigate, currentPage 
     ...currentUser
   };
 
-  const navigation = [
-    { id: 'dashboard', name: 'Tableau de bord', icon: Home },
-    { id: 'profile', name: 'Mon Profil', icon: User },
-    { id: 'forums', name: 'Forums', icon: MessageSquare },
-    { id: 'events', name: 'Événements', icon: Calendar },
-    { id: 'resources', name: 'Ressources', icon: BookOpen },
-    { id: 'networking', name: 'Réseautage', icon: Users },
-    { id: 'stats', name: 'Statistiques', icon: BarChart3 },
-  ];
-
+const navigation = [
+  { id: 'dashboard', name: 'Tableau de bord', icon: Home },
+  { id: 'profile', name: 'Mon Profil', icon: User },
+  { id: 'formations', name: 'Formations', icon: BookOpen }, // NOUVEAU
+  { id: 'mes-formations', name: 'Mes Formations', icon: Calendar }, // NOUVEAU
+  { id: 'certificats', name: 'Certificats', icon: Settings }, // NOUVEAU (temporaire icon)
+  { id: 'forums', name: 'Forums', icon: MessageSquare },
+  { id: 'events', name: 'Événements', icon: Calendar },
+  { id: 'resources', name: 'Ressources', icon: BookOpen },
+  { id: 'networking', name: 'Réseautage', icon: Users },
+  { id: 'stats', name: 'Statistiques', icon: BarChart3 },
+];
   const notifications = [
     {
       id: 1,

@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'users',
     # 'nip_verification',  # Commenté jusqu'à création
     # 'document_upload',   # Commenté jusqu'à création
+
+
 ]
 
 AUTH_USER_MODEL = 'users.Participante'
@@ -252,3 +254,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Créer le dossier logs s'il n'existe pas
 import os
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
+
+
+INSTALLED_APPS += [
+    'training',
+    'quiz',
+]
+
+CERTIFICATE_SETTINGS = {
+    'TEMPLATE_PATH': os.path.join(BASE_DIR, 'templates', 'certificates'),
+    'OUTPUT_PATH': os.path.join(MEDIA_ROOT, 'certificates'),
+    'DEFAULT_FONT': 'Arial',
+    'SIGNATURE_PATH': os.path.join(MEDIA_ROOT, 'signatures'),
+}
+
+QUIZ_SETTINGS = {
+    'MAX_ATTEMPTS': 3,
+    'PASS_THRESHOLD': 70,
+    'TIME_LIMIT_MINUTES': 60,
+}
+
+EMAIL_TEMPLATES = {
+    'FORMATION_CONFIRMATION': 'emails/formation_confirmation.html',
+    'CERTIFICATE_READY': 'emails/certificate_ready.html',
+    'QUIZ_COMPLETED': 'emails/quiz_completed.html',
+}

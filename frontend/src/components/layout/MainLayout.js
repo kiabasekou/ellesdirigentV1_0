@@ -1,29 +1,11 @@
-/**
- * Layout principal de l'application
- * Gère la navigation, le header et la structure générale
- */
+// REMPLACEZ les imports du début par ceci (SANS duplication) :
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
-  Menu,
-  X,
-  Home,
-  User,
-  MessageSquare,
-  Calendar,
-  BookOpen,
-  Users,
-  BarChart3,
-  Settings,
-  LogOut,
-  Bell,
-  Search,
-  ChevronDown,
-  Clock,
-  Shield,
-  Sun,
-  Moon
+  Menu, X, Home, User, MessageSquare, Calendar, BookOpen, Users, BarChart3, 
+  Settings, LogOut, Bell, Search, ChevronDown, Clock, Shield, Sun, Moon,
+  GraduationCap, Trophy, FileText, BarChart // NOUVELLES ICÔNES AJOUTÉES
 } from 'lucide-react';
 import { logout } from '../../redux/authSlice';
 import { toast } from '../Toast';
@@ -43,22 +25,25 @@ const MainLayout = ({ isAdmin = false }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   // Navigation items
-  const navigation = isAdmin ? [
-    { id: 'dashboard', name: 'Dashboard', href: '/admin', icon: Home },
-    { id: 'pending', name: 'Demandes en attente', href: '/admin/participants/pending', icon: Users },
-    { id: 'users', name: 'Utilisateurs', href: '/admin/users', icon: Users },
-    { id: 'content', name: 'Contenu', href: '/admin/content', icon: BookOpen },
-    { id: 'reports', name: 'Rapports', href: '/admin/reports', icon: BarChart3 },
-    { id: 'settings', name: 'Paramètres', href: '/admin/settings', icon: Settings }
-  ] : [
-    { id: 'dashboard', name: 'Tableau de bord', href: '/dashboard', icon: Home },
-    { id: 'profile', name: 'Mon Profil', href: '/dashboard/profile', icon: User },
-    { id: 'forums', name: 'Forums', href: '/dashboard/forums', icon: MessageSquare },
-    { id: 'events', name: 'Événements', href: '/dashboard/events', icon: Calendar },
-    { id: 'resources', name: 'Ressources', href: '/dashboard/resources', icon: BookOpen },
-    { id: 'networking', name: 'Réseautage', href: '/dashboard/networking', icon: Users },
-    { id: 'stats', name: 'Statistiques', href: '/dashboard/stats', icon: BarChart3 }
-  ];
+ // Remplacer la section navigation par :
+const navigation = isAdmin ? [
+  { id: 'admin-dashboard', name: 'Dashboard Admin', icon: BarChart3, href: '/admin' },
+  { id: 'admin-participants', name: 'Participants', icon: Users, href: '/admin/participants/pending' },
+  { id: 'admin-formations', name: 'Formations', icon: GraduationCap, href: '/admin/formations' },
+  { id: 'admin-quiz', name: 'Quiz', icon: FileText, href: '/admin/quiz' },
+  { id: 'admin-stats', name: 'Statistiques', icon: BarChart, href: '/admin/stats' }
+] : [
+  { id: 'dashboard', name: 'Tableau de bord', icon: Home, href: '/dashboard' },
+  { id: 'profile', name: 'Mon Profil', icon: User, href: '/dashboard/profile' },
+  { id: 'formations', name: 'Formations', icon: GraduationCap, href: '/dashboard/formations' }, // NOUVEAU
+  { id: 'mes-formations', name: 'Mes Formations', icon: Trophy, href: '/dashboard/mes-formations' }, // NOUVEAU
+  { id: 'certificats', name: 'Certificats', icon: FileText, href: '/dashboard/certificats' }, // NOUVEAU
+  { id: 'forums', name: 'Forums', icon: MessageSquare, href: '/dashboard/forums' },
+  { id: 'events', name: 'Événements', icon: Calendar, href: '/dashboard/events' },
+  { id: 'resources', name: 'Ressources', icon: BookOpen, href: '/dashboard/resources' },
+  { id: 'networking', name: 'Réseautage', icon: Users, href: '/dashboard/networking' },
+  { id: 'stats', name: 'Statistiques', icon: BarChart3, href: '/dashboard/stats' }
+];
 
   useEffect(() => {
     // Charger les notifications
