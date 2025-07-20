@@ -5703,3 +5703,77 @@ WARNING 2025-07-20 05:10:31,128 log 17428 17940 Not Found: /api/users/activity/
 WARNING 2025-07-20 05:10:31,129 basehttp 17428 17940 "POST /api/users/activity/ HTTP/1.1" 404 3690
 INFO 2025-07-20 05:29:16,353 autoreload 11812 1256 Watching for file changes with StatReloader
 INFO 2025-07-20 05:47:50,070 autoreload 16676 9840 Watching for file changes with StatReloader
+INFO 2025-07-20 05:49:16,351 basehttp 16676 18636 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+INFO 2025-07-20 05:49:17,226 basehttp 16676 3900 "POST /api/api/auth/login/ HTTP/1.1" 200 702
+INFO 2025-07-20 05:49:17,563 basehttp 16676 18636 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+INFO 2025-07-20 05:49:17,563 basehttp 16676 11460 "OPTIONS /api/notifications/ HTTP/1.1" 200 0
+WARNING 2025-07-20 05:49:17,603 log 16676 11460 Not Found: /api/notifications/
+WARNING 2025-07-20 05:49:17,605 basehttp 16676 11460 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 05:49:17,618 log 16676 18636 Not Found: /api/notifications/
+WARNING 2025-07-20 05:49:17,619 basehttp 16676 18636 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 05:49:26,550 basehttp 16676 18636 "OPTIONS /api/training/formations/? HTTP/1.1" 200 0
+INFO 2025-07-20 05:49:26,552 basehttp 16676 11460 "OPTIONS /api/training/formations/? HTTP/1.1" 200 0
+INFO 2025-07-20 05:49:26,620 basehttp 16676 11460 "GET /api/training/formations/? HTTP/1.1" 200 3800
+INFO 2025-07-20 05:49:26,663 basehttp 16676 18636 "GET /api/training/formations/? HTTP/1.1" 200 3800
+WARNING 2025-07-20 05:50:24,722 log 16676 18636 Not Found: /api/notifications/
+WARNING 2025-07-20 05:50:24,723 basehttp 16676 18636 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 05:50:24,737 log 16676 11460 Not Found: /api/notifications/
+WARNING 2025-07-20 05:50:24,737 basehttp 16676 11460 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 05:50:32,808 basehttp 16676 11460 "GET /api/training/formations/? HTTP/1.1" 200 3800
+INFO 2025-07-20 05:50:32,848 basehttp 16676 18636 "GET /api/training/formations/? HTTP/1.1" 200 3800
+INFO 2025-07-20 05:50:50,370 basehttp 16676 18636 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 05:50:50,371 basehttp 16676 11460 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 05:50:50,373 basehttp 16676 18636 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-20 05:50:50,377 basehttp 16676 11460 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-20 05:50:50,389 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:50:50,390 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:50:50,406 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:50:50,407 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:50:50,421 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:50:50,423 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:50:50,438 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:50:50,440 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 05:50:53,226 basehttp 16676 11460 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-20 05:50:53,226 basehttp 16676 18636 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-20 05:50:53,246 log 16676 18636 Not Found: /api/events/
+WARNING 2025-07-20 05:50:53,247 basehttp 16676 18636 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 05:50:53,263 log 16676 11460 Not Found: /api/events/
+WARNING 2025-07-20 05:50:53,264 basehttp 16676 11460 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 05:51:04,838 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:51:04,839 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:51:04,854 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:51:04,855 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:51:04,871 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:51:04,872 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:51:04,889 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:51:04,890 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+INFO 2025-07-20 05:51:07,531 basehttp 16676 18636 "GET /api/training/formations/? HTTP/1.1" 200 3800
+INFO 2025-07-20 05:51:07,569 basehttp 16676 11460 "GET /api/training/formations/? HTTP/1.1" 200 3800
+WARNING 2025-07-20 05:51:52,598 log 16676 11460 Not Found: /api/notifications/
+WARNING 2025-07-20 05:51:52,599 basehttp 16676 11460 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 05:51:52,617 log 16676 18636 Not Found: /api/notifications/
+WARNING 2025-07-20 05:51:52,618 basehttp 16676 18636 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 05:52:00,995 log 16676 18636 Not Found: /api/notifications/
+WARNING 2025-07-20 05:52:00,997 basehttp 16676 18636 "GET /api/notifications/ HTTP/1.1" 404 3686
+WARNING 2025-07-20 05:52:01,018 log 16676 11460 Not Found: /api/notifications/
+WARNING 2025-07-20 05:52:01,019 basehttp 16676 11460 "GET /api/notifications/ HTTP/1.1" 404 3686
+INFO 2025-07-20 05:52:49,731 basehttp 16676 11460 "GET /api/training/formations/? HTTP/1.1" 200 3800
+INFO 2025-07-20 05:52:49,768 basehttp 16676 18636 "GET /api/training/formations/? HTTP/1.1" 200 3800
+WARNING 2025-07-20 05:52:54,316 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:52:54,317 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:52:54,334 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:52:54,334 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:52:54,350 log 16676 18636 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:52:54,353 basehttp 16676 18636 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:52:54,367 log 16676 11460 Not Found: /api/forums/categories/
+WARNING 2025-07-20 05:52:54,368 basehttp 16676 11460 "GET /api/forums/categories/ HTTP/1.1" 404 3698
+WARNING 2025-07-20 05:52:56,409 log 16676 11460 Not Found: /api/events/
+WARNING 2025-07-20 05:52:56,410 basehttp 16676 11460 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+WARNING 2025-07-20 05:52:56,427 log 16676 18636 Not Found: /api/events/
+WARNING 2025-07-20 05:52:56,428 basehttp 16676 18636 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 3726
+INFO 2025-07-20 05:52:58,513 basehttp 16676 18636 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-20 05:52:58,513 basehttp 16676 11460 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-20 05:52:58,545 log 16676 11460 Not Found: /api/resources/
+WARNING 2025-07-20 05:52:58,547 basehttp 16676 11460 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
+WARNING 2025-07-20 05:52:58,563 log 16676 18636 Not Found: /api/resources/
+WARNING 2025-07-20 05:52:58,564 basehttp 16676 18636 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3739
