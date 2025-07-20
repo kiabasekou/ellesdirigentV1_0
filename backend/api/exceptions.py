@@ -1,3 +1,6 @@
+# ============================================================================
+# backend/api/exceptions.py (CORRECTION du nom de fichier)
+# ============================================================================
 """
 Gestionnaire d'exceptions centralisé pour une gestion cohérente des erreurs
 Améliore la sécurité en ne révélant pas d'informations sensibles
@@ -161,3 +164,34 @@ class RateLimitException(APIException):
     status_code = status.HTTP_429_TOO_MANY_REQUESTS
     default_detail = 'Limite de requêtes dépassée. Veuillez réessayer plus tard.'
     default_code = 'rate_limit_exceeded'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ============================================================================
+# backend/api/urls.py (CORRECTION - simplification)
+# ============================================================================
+"""
+URLs API générales - CORRECTION
+"""
+from django.urls import path
+
+app_name = 'api'
+
+urlpatterns = [
+    # Routes API générales si nécessaire
+    # La plupart des routes sont maintenant dans les apps spécifiques
+]

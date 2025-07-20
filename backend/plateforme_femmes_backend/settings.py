@@ -1,3 +1,6 @@
+# ============================================================================
+# backend/plateforme_femmes_backend/settings.py (CORRECTION et consolidation)
+# ============================================================================
 import os
 from pathlib import Path
 from datetime import timedelta
@@ -21,14 +24,14 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     
-    # Apps locales
+    # Apps locales - CORRECTION: ajout des apps manquantes
     'users',
-    # 'nip_verification',  # Commenté jusqu'à création
-    # 'document_upload',   # Commenté jusqu'à création
-
-
+    'training',    # Ajouté
+    'quiz',        # Ajouté
+    'events',      # Nouveau module créé
 ]
 
+# CORRECTION: Utilisation correcte du modèle utilisateur personnalisé
 AUTH_USER_MODEL = 'users.Participante'
 
 MIDDLEWARE = [
@@ -71,7 +74,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-# Configuration REST Framework
+# Configuration REST Framework - CORRECTION: ajout du gestionnaire d'exceptions
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -87,66 +90,39 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter',
         'rest_framework.filters.OrderingFilter',
     ],
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ],
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/hour',
-        'user': '1000/hour'
-    }
+    # CORRECTION: ajout du gestionnaire d'exceptions personnalisé
+    'EXCEPTION_HANDLER': 'api.exceptions.custom_exception_handler',
 }
 
-# Dans settings.py, remplacez la configuration SIMPLE_JWT par :
-
+# Configuration JWT
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-    'ROTATE_REFRESH_TOKENS': False,  # ❌ Désactiver rotation
-    'BLACKLIST_AFTER_ROTATION': False,  # ❌ Désactivé pour éviter OutstandingToken
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': True,
-    
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': SECRET_KEY,
     'VERIFYING_KEY': None,
     'AUDIENCE': None,
     'ISSUER': None,
-    'JSON_ENCODER': None,
     'JWK_URL': None,
     'LEEWAY': 0,
-
     'AUTH_HEADER_TYPES': ('Bearer',),
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
     'USER_AUTHENTICATION_RULE': 'rest_framework_simplejwt.authentication.default_user_authentication_rule',
-
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
-    'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models.TokenUser',
-
     'JTI_CLAIM': 'jti',
-
-    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-
-    'TOKEN_OBTAIN_SERIALIZER': 'users.serializers.CustomTokenObtainPairSerializer',
-    'TOKEN_REFRESH_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenRefreshSerializer',
-    'TOKEN_VERIFY_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenVerifySerializer',
-    'TOKEN_BLACKLIST_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenBlacklistSerializer',
-    'SLIDING_TOKEN_OBTAIN_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer',
-    'SLIDING_TOKEN_REFRESH_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer',
 }
-
-# SUPPRIMER ces lignes de INSTALLED_APPS si elles existent :
-# 'rest_framework_simplejwt.token_blacklist',  # ❌ SUPPRIMER
 
 # Configuration des templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -176,12 +152,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-    {
-        'NAME': 'users.validators.ComplexPasswordValidator',
-    },
 ]
 
-# Configuration cache (pour production, utilisez Redis)
+# Configuration cache
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -215,67 +188,39 @@ LOGGING = {
             'formatter': 'verbose',
         },
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG' if DEBUG else 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
     },
-    'root': {
-        'handlers': ['console', 'file'],
-        'level': 'INFO',
-    },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
+            'handlers': ['file', 'console'],
             'level': 'INFO',
-            'propagate': False,
+            'propagate': True,
         },
-        'users': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-            'propagate': False,
+        'django.security': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'events': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': True,
         },
     },
 }
 
-# Configuration email (pour tests en développement)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Configuration email (pour les notifications)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Pour le développement
+DEFAULT_FROM_EMAIL = 'noreply@plateforme-femmes.ga'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
-# Configuration Celery (commenté pour l'instant)
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
-# Variables d'environnement pour la plateforme
-SITE_URL = 'http://localhost:8000'
-DEFAULT_FROM_EMAIL = 'noreply@femmes-politique.ga'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Créer le dossier logs s'il n'existe pas
-import os
+# CORRECTION: Créer le répertoire logs s'il n'existe pas
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
 
-
-INSTALLED_APPS += [
-    'training',
-    'quiz',
-]
-
-CERTIFICATE_SETTINGS = {
-    'TEMPLATE_PATH': os.path.join(BASE_DIR, 'templates', 'certificates'),
-    'OUTPUT_PATH': os.path.join(MEDIA_ROOT, 'certificates'),
-    'DEFAULT_FONT': 'Arial',
-    'SIGNATURE_PATH': os.path.join(MEDIA_ROOT, 'signatures'),
-}
-
-QUIZ_SETTINGS = {
-    'MAX_ATTEMPTS': 3,
-    'PASS_THRESHOLD': 70,
-    'TIME_LIMIT_MINUTES': 60,
-}
-
-EMAIL_TEMPLATES = {
-    'FORMATION_CONFIRMATION': 'emails/formation_confirmation.html',
-    'CERTIFICATE_READY': 'emails/certificate_ready.html',
-    'QUIZ_COMPLETED': 'emails/quiz_completed.html',
-}

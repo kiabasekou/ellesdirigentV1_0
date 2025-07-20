@@ -1,0 +1,12 @@
+Confirmation d'inscription - {{ event.titre }}
+
+Bonjour {{ participante.get_full_name }},
+
+Votre inscription à l'événement "{{ event.titre }}" a été confirmée.
+
+Détails de l'événement :
+- Date : {{ event.date_debut|date:"d/m/Y à H:i" }}
+- Lieu : {% if event.est_en_ligne %}En ligne{% else %}{{ event.lieu }}{% endif %}
+- Durée : {{ event.duree_en_heures }}h
+
+Nous avons hâte de vous voir !
