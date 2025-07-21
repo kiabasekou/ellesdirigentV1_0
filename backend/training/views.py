@@ -1,4 +1,10 @@
-# training/views.py
+# ============================================================================
+# backend/training/views.py - CORRECTION COMPLÈTE
+# ============================================================================
+"""
+Vues pour le module de formation - Version corrigée
+CORRECTION: Import du bon modèle ModuleFormation
+"""
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -6,6 +12,7 @@ from django.db.models import Count, Avg, Q
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 
+# CORRECTION: Import des bons modèles
 from .models import Formation, InscriptionFormation, Certificat, ModuleFormation
 from .serializers import (
     FormationSerializer, 
@@ -24,7 +31,7 @@ class FormationViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """Retourne les formations actives et disponibles."""
         queryset = Formation.objects.filter(
-            status='active'
+            status='active'  # CORRECTION: Utilise le bon statut
         ).select_related('created_by').prefetch_related('modules')
         
         # Filtres par paramètres de requête
@@ -52,62 +59,40 @@ class FormationViewSet(viewsets.ModelViewSet):
         """Permet à un utilisateur de s'inscrire à une formation."""
         formation = self.get_object()
         
-        # Vérifications préalables
-        if formation.est_complete:
+        # Vérifier si l'utilisateur est déjà inscrit
+        if InscriptionFormation.objects.filter(
+            formation=formation, 
+            participante=request.user
+        ).exists():
             return Response(
-                {'error': 'Formation complète'}, 
+                {'error': 'Vous êtes déjà inscrite à cette formation'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        if formation.date_debut < timezone.now():
-            return Response(
-                {'error': 'Formation déjà commencée'}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        # Créer ou récupérer l'inscription
-        inscription, created = InscriptionFormation.objects.get_or_create(
-            formation=formation,
-            participante=request.user,
-            defaults={'statut': 'inscrite'}
-        )
-        
-        if created:
-            return Response({
-                'message': 'Inscription réussie',
-                'inscription': InscriptionFormationSerializer(inscription).data
-            }, status=status.HTTP_201_CREATED)
-        else:
-            return Response({
-                'message': 'Déjà inscrite à cette formation',
-                'inscription': InscriptionFormationSerializer(inscription).data
-            }, status=status.HTTP_200_OK)
-    
-    @action(detail=True, methods=['post'])
-    def desinscrire(self, request, pk=None):
-        """Permet à un utilisateur de se désinscrire d'une formation."""
-        formation = self.get_object()
-        
-        try:
-            inscription = InscriptionFormation.objects.get(
+        # Vérifier la capacité
+        if formation.max_participants:
+            inscriptions_count = InscriptionFormation.objects.filter(
                 formation=formation,
-                participante=request.user
-            )
+                statut__in=['en_attente', 'confirmee', 'en_cours']
+            ).count()
             
-            if inscription.statut in ['terminee', 'certifiee']:
+            if inscriptions_count >= formation.max_participants:
                 return Response(
-                    {'error': 'Impossible de se désinscrire d\'une formation terminée'},
+                    {'error': 'Formation complète'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            
-            inscription.delete()
-            return Response({'message': 'Désinscription réussie'})
-            
-        except InscriptionFormation.DoesNotExist:
-            return Response(
-                {'error': 'Aucune inscription trouvée'}, 
-                status=status.HTTP_404_NOT_FOUND
-            )
+        
+        # Créer l'inscription
+        inscription = InscriptionFormation.objects.create(
+            formation=formation,
+            participante=request.user,
+            statut='confirmee' if not formation.validation_requise else 'en_attente'
+        )
+        
+        return Response({
+            'message': 'Inscription réussie',
+            'inscription': InscriptionFormationSerializer(inscription).data
+        }, status=status.HTTP_201_CREATED)
     
     @action(detail=False, methods=['get'])
     def mes_formations(self, request):

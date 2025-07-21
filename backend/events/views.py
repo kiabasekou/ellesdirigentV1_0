@@ -1,410 +1,258 @@
+# ============================================================================
+# backend/events/views.py - VERSION COMPLÈTE ET COHÉRENTE
+# ============================================================================
 """
-Module Événement - Vues API REST
-Gestion des événements, inscriptions et rappels
+Vues pour le module événements
+Gestion complète des événements, inscriptions et notifications
 """
-from rest_framework import viewsets, status, permissions
+from rest_framework import viewsets, permissions, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-from django.db.models import Q, Count, Avg, F, Case, When, IntegerField
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import PermissionDenied
+from django.db.models import Count, Avg, Q, F
 from django.utils import timezone
-from django.http import HttpResponse
-from django.core.exceptions import PermissionDenied
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import ValidationError
+from django_filters.rest_framework import DjangoFilterBackend
 from datetime import datetime, timedelta
-import json
-import csv
+import uuid
 
 from .models import Event, InscriptionEvent, RappelEvent
 from .serializers import (
-    EventListSerializer, EventDetailSerializer, EventCreateUpdateSerializer,
-    InscriptionEventSerializer, InscriptionEventCreateSerializer,
-    RappelEventSerializer, EventStatisticsSerializer, EventExportSerializer,
-    ParticipantExportSerializer, EventFilterSerializer, EventCalendarSerializer
+    EventSerializer, 
+    EventDetailSerializer,
+    InscriptionEventSerializer, 
+    RappelEventSerializer,
+    EventStatsSerializer
 )
 from .permissions import EventPermissions, InscriptionPermissions
-from .filters import EventFilter
-from .utils import (
-    generer_fichier_ics, envoyer_confirmation_inscription,
-    generer_rapport_participation, planifier_rappels_automatiques
-)
+from .utils import generer_fichier_ics, envoyer_confirmation_inscription
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    """ViewSet pour la gestion des événements"""
+    """ViewSet principal pour la gestion des événements"""
     
-    queryset = Event.objects.select_related('organisateur', 'cree_par').prefetch_related('inscriptions')
-    permission_classes = [IsAuthenticatedOrReadOnly, EventPermissions]
-    filterset_class = EventFilter
+    serializer_class = EventSerializer
+    permission_classes = [IsAuthenticated, EventPermissions]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['categorie', 'statut', 'est_en_ligne', 'est_featured']
     search_fields = ['titre', 'description', 'formateur_nom', 'lieu']
-    ordering_fields = ['date_debut', 'date_creation', 'titre', 'max_participants']
+    ordering_fields = ['date_debut', 'date_creation', 'titre']
     ordering = ['-date_debut']
     
-    def get_serializer_class(self):
-        """Retourne le bon serializer selon l'action"""
-        if self.action == 'list':
-            return EventListSerializer
-        elif self.action in ['create', 'update', 'partial_update']:
-            return EventCreateUpdateSerializer
-        elif self.action == 'calendar':
-            return EventCalendarSerializer
-        return EventDetailSerializer
-    
     def get_queryset(self):
-        """Filtre les événements selon les permissions"""
-        queryset = super().get_queryset()
+        """Optimise les requêtes selon le contexte"""
+        queryset = Event.objects.select_related('cree_par').prefetch_related(
+            'inscriptions', 'rappels'
+        )
         
-        # Seuls les événements publiés sont visibles par défaut
-        if not self.request.user.is_authenticated or not self.request.user.is_staff:
+        # Filtrer selon les permissions
+        if not self.request.user.is_staff:
             queryset = queryset.filter(est_publie=True)
         
-        # Filtres spéciaux via query params
-        params = self.request.query_params
+        # Filtres personnalisés
+        date_debut = self.request.query_params.get('date_debut')
+        date_fin = self.request.query_params.get('date_fin')
+        a_venir = self.request.query_params.get('a_venir')
         
-        # Filtre par statut
-        if params.get('statut'):
-            queryset = queryset.filter(statut=params.get('statut'))
-        
-        # Filtre par période
-        periode = params.get('periode')
-        if periode == 'a_venir':
+        if date_debut:
+            queryset = queryset.filter(date_debut__gte=date_debut)
+        if date_fin:
+            queryset = queryset.filter(date_fin__lte=date_fin)
+        if a_venir:
             queryset = queryset.filter(date_debut__gt=timezone.now())
-        elif periode == 'en_cours':
-            now = timezone.now()
-            queryset = queryset.filter(date_debut__lte=now, date_fin__gte=now)
-        elif periode == 'passes':
-            queryset = queryset.filter(date_fin__lt=timezone.now())
-        elif periode == 'ce_mois':
-            now = timezone.now()
-            debut_mois = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-            fin_mois = (debut_mois + timedelta(days=32)).replace(day=1) - timedelta(days=1)
-            queryset = queryset.filter(date_debut__range=[debut_mois, fin_mois])
-        
-        # Filtre par disponibilité
-        if params.get('places_disponibles') == 'true':
-            queryset = queryset.annotate(
-                nb_inscrits=Count('inscriptions', filter=Q(inscriptions__statut='confirmee'))
-            ).filter(nb_inscrits__lt=F('max_participants'))
-        
-        # Filtre mes événements
-        if params.get('mes_events') == 'true' and self.request.user.is_authenticated:
-            queryset = queryset.filter(
-                Q(organisateur=self.request.user) |
-                Q(inscriptions__participante=self.request.user)
-            ).distinct()
         
         return queryset
     
-    def perform_create(self, serializer):
-        """Personnalise la création d'événements"""
-        event = serializer.save(
-            cree_par=self.request.user,
-            organisateur=self.request.user
-        )
-        
-        # Planifier les rappels automatiques si configurés
-        if event.rappels_automatiques and event.notifications_activees:
-            planifier_rappels_automatiques(event)
+    def get_serializer_class(self):
+        """Utilise des serializers différents selon l'action"""
+        if self.action == 'retrieve':
+            return EventDetailSerializer
+        return EventSerializer
     
-    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def perform_create(self, serializer):
+        """Définit automatiquement le créateur"""
+        serializer.save(cree_par=self.request.user)
+    
+    @action(detail=True, methods=['post'])
     def inscrire(self, request, pk=None):
-        """Inscription à un événement"""
+        """Inscription d'un utilisateur à un événement"""
         event = self.get_object()
         
-        # Vérifier si l'utilisateur n'est pas déjà inscrit
-        if InscriptionEvent.objects.filter(event=event, participante=request.user).exists():
+        # Vérifications préliminaires
+        if not event.inscription_ouverte:
             return Response(
-                {'error': 'Vous êtes déjà inscrit(e) à cet événement'},
+                {'error': 'Les inscriptions sont fermées'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
+        if event.date_limite_inscription and timezone.now() > event.date_limite_inscription:
+            return Response(
+                {'error': 'Date limite d\'inscription dépassée'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Vérifier si déjà inscrit
+        if InscriptionEvent.objects.filter(event=event, participante=request.user).exists():
+            return Response(
+                {'error': 'Vous êtes déjà inscrite à cet événement'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Vérifier la capacité
+        inscriptions_confirmees = InscriptionEvent.objects.filter(
+            event=event, 
+            statut__in=['confirmee', 'presente']
+        ).count()
+        
+        if inscriptions_confirmees >= event.max_participants:
+            # Ajouter à la liste d'attente si possible
+            if event.liste_attente_activee:
+                inscription = InscriptionEvent.objects.create(
+                    event=event,
+                    participante=request.user,
+                    statut='en_attente'
+                )
+                return Response({
+                    'message': 'Ajoutée à la liste d\'attente',
+                    'inscription': InscriptionEventSerializer(inscription).data
+                })
+            else:
+                return Response(
+                    {'error': 'Événement complet'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        
         # Créer l'inscription
-        serializer = InscriptionEventCreateSerializer(
-            data=request.data,
-            context={'request': request, 'event': event}
+        inscription = InscriptionEvent.objects.create(
+            event=event,
+            participante=request.user,
+            statut='confirmee' if not event.validation_requise else 'en_attente_validation'
         )
         
-        if serializer.is_valid():
-            inscription = serializer.save()
-            
-            # Envoyer email de confirmation
-            try:
-                envoyer_confirmation_inscription(inscription)
-            except Exception as e:
-                # Log l'erreur mais ne pas faire échouer l'inscription
-                pass
-            
-            return Response({
-                'message': 'Inscription réussie',
-                'inscription': InscriptionEventSerializer(inscription).data
-            }, status=status.HTTP_201_CREATED)
+        # Envoyer confirmation si configuré
+        if event.notifications_activees:
+            envoyer_confirmation_inscription(inscription)
         
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({
+            'message': 'Inscription réussie',
+            'inscription': InscriptionEventSerializer(inscription).data
+        }, status=status.HTTP_201_CREATED)
     
-    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    @action(detail=True, methods=['delete'])
     def desinscrire(self, request, pk=None):
         """Désinscription d'un événement"""
         event = self.get_object()
         
         try:
             inscription = InscriptionEvent.objects.get(
-                event=event,
-                participante=request.user
+                event=event, 
+                participante=request.user,
+                statut__in=['confirmee', 'en_attente', 'en_attente_validation']
             )
-            
-            # Vérifier si la désinscription est possible
-            if event.est_en_cours or event.est_passe:
-                return Response(
-                    {'error': 'Impossible de se désinscrire d\'un événement en cours ou passé'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-            
-            # Supprimer l'inscription
             inscription.delete()
             
+            # Traiter la liste d'attente si applicable
+            if event.liste_attente_activee:
+                prochaine_inscription = InscriptionEvent.objects.filter(
+                    event=event,
+                    statut='en_attente'
+                ).order_by('date_inscription').first()
+                
+                if prochaine_inscription:
+                    prochaine_inscription.statut = 'confirmee'
+                    prochaine_inscription.save()
+                    
+                    # Notifier l'utilisateur
+                    if event.notifications_activees:
+                        # Logique de notification à implémenter
+                        pass
+            
             return Response({'message': 'Désinscription réussie'})
-        
-        except InscriptionEvent.DoesNotExist:
-            return Response(
-                {'error': 'Vous n\'êtes pas inscrit(e) à cet événement'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-    
-    @action(detail=True, methods=['get'])
-    def participants(self, request, pk=None):
-        """Liste des participants à un événement"""
-        event = self.get_object()
-        
-        # Vérifier les permissions
-        if not (request.user.is_staff or event.organisateur == request.user):
-            raise PermissionDenied("Accès refusé aux informations des participants")
-        
-        inscriptions = event.inscriptions.select_related('participante').order_by('-date_inscription')
-        
-        # Filtrer par statut si demandé
-        statut = request.query_params.get('statut')
-        if statut:
-            inscriptions = inscriptions.filter(statut=statut)
-        
-        serializer = InscriptionEventSerializer(inscriptions, many=True)
-        return Response(serializer.data)
-    
-    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
-    def valider_inscription(self, request, pk=None):
-        """Valider ou refuser une inscription (organisateurs/staff seulement)"""
-        event = self.get_object()
-        
-        # Vérifier les permissions
-        if not (request.user.is_staff or event.organisateur == request.user):
-            raise PermissionDenied()
-        
-        inscription_id = request.data.get('inscription_id')
-        action_type = request.data.get('action')  # 'confirmer' ou 'refuser'
-        commentaire = request.data.get('commentaire', '')
-        
-        try:
-            inscription = InscriptionEvent.objects.get(
-                id=inscription_id,
-                event=event
-            )
             
-            if action_type == 'confirmer':
-                inscription.confirmer(validateur=request.user)
-                message = 'Inscription confirmée'
-            elif action_type == 'refuser':
-                inscription.refuser(
-                    validateur=request.user,
-                    commentaire=commentaire
-                )
-                message = 'Inscription refusée'
-            else:
-                return Response(
-                    {'error': 'Action invalide'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-            
-            return Response({
-                'message': message,
-                'inscription': InscriptionEventSerializer(inscription).data
-            })
-        
         except InscriptionEvent.DoesNotExist:
             return Response(
                 {'error': 'Inscription non trouvée'},
                 status=status.HTTP_404_NOT_FOUND
             )
     
-    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
-    def marquer_presence(self, request, pk=None):
-        """Marquer la présence des participants"""
-        event = self.get_object()
-        
-        # Vérifier les permissions
-        if not (request.user.is_staff or event.organisateur == request.user):
-            raise PermissionDenied()
-        
-        participant_ids = request.data.get('participant_ids', [])
-        action_type = request.data.get('action', 'presente')  # 'presente' ou 'absente'
-        
-        if not participant_ids:
-            return Response(
-                {'error': 'Aucun participant spécifié'},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        inscriptions = InscriptionEvent.objects.filter(
-            event=event,
-            id__in=participant_ids
-        )
-        
-        updated_count = 0
-        for inscription in inscriptions:
-            if action_type == 'presente':
-                inscription.marquer_presente()
-            else:
-                inscription.marquer_absente()
-            updated_count += 1
-        
-        return Response({
-            'message': f'{updated_count} participant(s) marqué(s) comme {action_type}',
-            'updated_count': updated_count
-        })
-    
     @action(detail=True, methods=['get'])
-    def export_participants(self, request, pk=None):
-        """Exporter la liste des participants en CSV"""
+    def calendrier_ics(self, request, pk=None):
+        """Génère un fichier ICS pour l'événement"""
         event = self.get_object()
-        
-        # Vérifier les permissions
-        if not (request.user.is_staff or event.organisateur == request.user):
-            raise PermissionDenied()
-        
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = f'attachment; filename="participants_{event.slug}.csv"'
-        
-        writer = csv.writer(response)
-        writer.writerow([
-            'Nom', 'Email', 'Région', 'Date inscription', 'Statut',
-            'Présente', 'Évaluation', 'Commentaires'
-        ])
-        
-        inscriptions = event.inscriptions.select_related('participante').order_by('participante__last_name')
-        for inscription in inscriptions:
-            writer.writerow([
-                inscription.participante.get_full_name(),
-                inscription.participante.email,
-                inscription.participante.region,
-                inscription.date_inscription.strftime('%d/%m/%Y %H:%M'),
-                inscription.get_statut_display(),
-                'Oui' if inscription.statut == 'presente' else 'Non',
-                inscription.evaluation_event or '',
-                inscription.commentaire_evaluation or ''
-            ])
-        
-        return response
-    
-    @action(detail=True, methods=['get'])
-    def export_calendar(self, request, pk=None):
-        """Exporter l'événement au format ICS (calendrier)"""
-        event = self.get_object()
-        
         ics_content = generer_fichier_ics(event)
         
-        response = HttpResponse(ics_content, content_type='text/calendar')
+        response = Response(ics_content, content_type='text/calendar')
         response['Content-Disposition'] = f'attachment; filename="{event.slug}.ics"'
-        
         return response
     
-    @action(detail=False, methods=['get'])
-    def calendar(self, request):
-        """API pour le calendrier (format optimisé)"""
-        queryset = self.filter_queryset(self.get_queryset())
+    @action(detail=True, methods=['get'])
+    def participants(self, request, pk=None):
+        """Liste des participants (réservé aux organisateurs)"""
+        event = self.get_object()
         
-        # Filtre par plage de dates pour le calendrier
-        date_debut = request.query_params.get('start')
-        date_fin = request.query_params.get('end')
+        # Vérifier les permissions
+        if not (request.user.is_staff or event.cree_par == request.user):
+            raise PermissionDenied("Accès non autorisé aux analytiques")
         
-        if date_debut and date_fin:
-            try:
-                debut = datetime.fromisoformat(date_debut.replace('Z', '+00:00'))
-                fin = datetime.fromisoformat(date_fin.replace('Z', '+00:00'))
-                queryset = queryset.filter(
-                    date_debut__lte=fin,
-                    date_fin__gte=debut
-                )
-            except ValueError:
-                pass
+        # Statistiques d'inscription
+        inscriptions = InscriptionEvent.objects.filter(event=event)
         
-        serializer = EventCalendarSerializer(queryset, many=True)
-        return Response(serializer.data)
-    
-    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
-    def statistiques(self, request):
-        """Statistiques globales des événements"""
-        if not request.user.is_staff:
-            raise PermissionDenied()
-        
-        now = timezone.now()
-        
-        # Statistiques de base
-        stats = {
-            'total_events': Event.objects.count(),
-            'events_a_venir': Event.objects.filter(date_debut__gt=now).count(),
-            'events_en_cours': Event.objects.filter(
-                date_debut__lte=now, date_fin__gte=now
-            ).count(),
-            'events_passes': Event.objects.filter(date_fin__lt=now).count(),
-            'total_participants': InscriptionEvent.objects.filter(
-                statut='confirmee'
-            ).count(),
+        analytics = {
+            'event_info': EventSerializer(event).data,
+            'inscriptions': {
+                'total': inscriptions.count(),
+                'confirmees': inscriptions.filter(statut='confirmee').count(),
+                'presentes': inscriptions.filter(statut='presente').count(),
+                'absentes': inscriptions.filter(statut='absente').count(),
+                'en_attente': inscriptions.filter(statut='en_attente').count(),
+                'annulees': inscriptions.filter(statut='annulee').count(),
+            },
+            'taux_presence': 0,
+            'evaluation_moyenne': 0,
+            'repartition_temporelle': {},
+            'satisfaction': {}
         }
         
-        # Taux de participation moyen
-        events_passes = Event.objects.filter(date_fin__lt=now)
-        taux_participation = []
+        # Calcul du taux de présence
+        total_attendu = inscriptions.filter(statut__in=['confirmee', 'presente', 'absente']).count()
+        presents = inscriptions.filter(statut='presente').count()
         
-        for event in events_passes:
-            confirmees = event.inscriptions.filter(statut='confirmee').count()
-            presentes = event.inscriptions.filter(statut='presente').count()
-            if confirmees > 0:
-                taux_participation.append((presentes / confirmees) * 100)
+        if total_attendu > 0:
+            analytics['taux_presence'] = round((presents / total_attendu) * 100, 2)
         
-        stats['taux_participation_moyen'] = (
-            sum(taux_participation) / len(taux_participation)
-            if taux_participation else 0
-        )
+        # Évaluation moyenne
+        evaluations = inscriptions.filter(evaluation_event__isnull=False)
+        if evaluations.exists():
+            analytics['evaluation_moyenne'] = round(
+                evaluations.aggregate(moyenne=Avg('evaluation_event'))['moyenne'], 2
+            )
         
-        # Statistiques par catégorie
-        stats['par_categorie'] = {}
-        for categorie, label in Event.CATEGORIES:
-            stats['par_categorie'][categorie] = Event.objects.filter(
-                categorie=categorie
-            ).count()
-        
-        # Événements populaires (plus de participants)
-        events_populaires = Event.objects.annotate(
-            nb_participants=Count('inscriptions', filter=Q(inscriptions__statut='confirmee'))
-        ).order_by('-nb_participants')[:5]
-        
-        stats['events_populaires'] = EventListSerializer(
-            events_populaires, many=True, context={'request': request}
-        ).data
-        
-        # Inscriptions par mois (12 derniers mois)
-        inscriptions_par_mois = {}
-        for i in range(12):
-            mois = (now - timedelta(days=30 * i)).replace(day=1)
-            mois_suivant = (mois + timedelta(days=32)).replace(day=1)
+        # Répartition des inscriptions dans le temps (7 derniers jours)
+        for i in range(7):
+            jour = timezone.now().date() - timedelta(days=i)
+            jour_suivant = jour + timedelta(days=1)
             
-            count = InscriptionEvent.objects.filter(
-                date_inscription__gte=mois,
-                date_inscription__lt=mois_suivant
+            count = inscriptions.filter(
+                date_inscription__date=jour
             ).count()
             
-            inscriptions_par_mois[mois.strftime('%Y-%m')] = count
+            analytics['repartition_temporelle'][jour.strftime('%Y-%m-%d')] = count
         
-        stats['inscriptions_par_mois'] = inscriptions_par_mois
+        # Analyse de satisfaction
+        if evaluations.exists():
+            satisfaction_data = evaluations.values('evaluation_event').annotate(
+                count=Count('id')
+            ).order_by('evaluation_event')
+            
+            analytics['satisfaction'] = {
+                str(item['evaluation_event']): item['count'] 
+                for item in satisfaction_data
+            }
         
-        return Response(stats)
+        return Response(analytics)
 
 
 class InscriptionEventViewSet(viewsets.ModelViewSet):
@@ -460,6 +308,40 @@ class InscriptionEventViewSet(viewsets.ModelViewSet):
             'message': 'Évaluation enregistrée',
             'inscription': InscriptionEventSerializer(inscription).data
         })
+    
+    @action(detail=True, methods=['post'])
+    def confirmer_presence(self, request, pk=None):
+        """Confirmer la présence à un événement (pour les organisateurs)"""
+        inscription = self.get_object()
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or inscription.event.cree_par == request.user):
+            raise PermissionDenied()
+        
+        inscription.statut = 'presente'
+        inscription.save()
+        
+        return Response({
+            'message': 'Présence confirmée',
+            'inscription': InscriptionEventSerializer(inscription).data
+        })
+    
+    @action(detail=True, methods=['post'])
+    def marquer_absente(self, request, pk=None):
+        """Marquer comme absente (pour les organisateurs)"""
+        inscription = self.get_object()
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or inscription.event.cree_par == request.user):
+            raise PermissionDenied()
+        
+        inscription.statut = 'absente'
+        inscription.save()
+        
+        return Response({
+            'message': 'Marquée comme absente',
+            'inscription': InscriptionEventSerializer(inscription).data
+        })
 
 
 class RappelEventViewSet(viewsets.ModelViewSet):
@@ -477,430 +359,667 @@ class RappelEventViewSet(viewsets.ModelViewSet):
             destinataire=self.request.user
         )
     
-    @action(detail=False, methods=['post'])
-    def programmer_rappel(self, request):
-        """Programmer un rappel personnalisé"""
-        event_id = request.data.get('event_id')
-        heures_avant = request.data.get('heures_avant')
-        type_rappel = request.data.get('type_rappel', 'email')
+    def perform_create(self, serializer):
+        """Associe automatiquement l'utilisateur connecté"""
+        serializer.save(destinataire=self.request.user)
+    
+    @action(detail=True, methods=['post'])
+    def marquer_envoye(self, request, pk=None):
+        """Marque un rappel comme envoyé (pour le système)"""
+        rappel = self.get_object()
         
-        try:
-            event = Event.objects.get(id=event_id)
-            
-            # Vérifier que l'utilisateur est inscrit à l'événement
-            if not InscriptionEvent.objects.filter(
-                event=event,
-                participante=request.user,
-                statut__in=['confirmee', 'en_attente']
-            ).exists():
-                return Response(
-                    {'error': 'Vous devez être inscrit(e) à cet événement'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-            
-            # Calculer la date programmée
-            from datetime import timedelta
-            date_programmee = event.date_debut - timedelta(hours=int(heures_avant))
-            
-            if date_programmee <= timezone.now():
-                return Response(
-                    {'error': 'La date programmée est dans le passé'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-            
-            # Créer le rappel
-            rappel = RappelEvent.objects.create(
-                event=event,
-                destinataire=request.user,
-                type_rappel=type_rappel,
-                heures_avant=int(heures_avant),
-                date_programmee=date_programmee,
-                objet_personnalise=request.data.get('objet_personnalise', ''),
-                message_personnalise=request.data.get('message_personnalise', '')
-            )
-            
-            return Response({
-                'message': 'Rappel programmé avec succès',
-                'rappel': RappelEventSerializer(rappel).data
-            }, status=status.HTTP_201_CREATED)
+        # Seuls les admins peuvent marquer manuellement
+        if not request.user.is_staff:
+            raise PermissionDenied()
         
-        except Event.DoesNotExist:
-            return Response(
-                {'error': 'Événement non trouvé'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-        except ValueError:
-            return Response(
-                {'error': 'Données invalides'},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        rappel.statut = 'envoye'
+        rappel.date_envoi = timezone.now()
+        rappel.save()
+        
+        return Response({
+            'message': 'Rappel marqué comme envoyé',
+            'rappel': RappelEventSerializer(rappel).data
+        })
+    
+    @action(detail=False, methods=['get'])
+    def a_envoyer(self, request):
+        """Liste des rappels à envoyer (pour les tâches automatiques)"""
+        if not request.user.is_staff:
+            raise PermissionDenied()
+        
+        rappels = RappelEvent.objects.filter(
+            statut='programme',
+            date_programmee__lte=timezone.now()
+        ).select_related('event', 'destinataire')
+        
+        serializer = RappelEventSerializer(rappels, many=True)
+        return Response(serializer.data)
 
 
-# Vues supplémentaires pour des fonctionnalités spécifiques
-from rest_framework.views import APIView
-from django.db.models import Min, Max
+# Vues additionnelles pour fonctionnalités avancées
 
-
-class EventDashboardView(APIView):
-    """Vue tableau de bord pour les organisateurs"""
+class EventCalendrierView(APIView):
+    """Vue pour l'affichage calendrier des événements"""
+    
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        """Tableau de bord personnalisé"""
-        user = request.user
-        now = timezone.now()
+        """Retourne les événements formatés pour un calendrier"""
+        # Paramètres de date
+        date_debut = request.query_params.get('start')
+        date_fin = request.query_params.get('end')
         
-        # Événements organisés par l'utilisateur
-        mes_events = Event.objects.filter(organisateur=user)
+        queryset = Event.objects.filter(est_publie=True)
         
-        # Mes inscriptions
-        mes_inscriptions = InscriptionEvent.objects.filter(
-            participante=user
-        ).select_related('event')
+        if date_debut:
+            queryset = queryset.filter(date_debut__gte=date_debut)
+        if date_fin:
+            queryset = queryset.filter(date_fin__lte=date_fin)
         
-        dashboard_data = {
-            # Événements que j'organise
-            'mes_events': {
-                'total': mes_events.count(),
-                'a_venir': mes_events.filter(date_debut__gt=now).count(),
-                'en_cours': mes_events.filter(
-                    date_debut__lte=now, date_fin__gte=now
-                ).count(),
-                'passes': mes_events.filter(date_fin__lt=now).count(),
-                'brouillons': mes_events.filter(statut='brouillon').count(),
-            },
-            
-            # Mes inscriptions
-            'mes_inscriptions': {
-                'total': mes_inscriptions.count(),
-                'confirmees': mes_inscriptions.filter(statut='confirmee').count(),
-                'en_attente': mes_inscriptions.filter(statut='en_attente').count(),
-                'a_venir': mes_inscriptions.filter(
-                    event__date_debut__gt=now,
-                    statut__in=['confirmee', 'en_attente']
-                ).count(),
-            },
-            
-            # Prochains événements
-            'prochains_events': EventListSerializer(
-                Event.objects.filter(
-                    Q(organisateur=user) | Q(inscriptions__participante=user),
-                    date_debut__gt=now
-                ).distinct().order_by('date_debut')[:5],
-                many=True,
-                context={'request': request}
-            ).data,
-            
-            # Notifications et rappels
-            'rappels_actifs': RappelEvent.objects.filter(
-                destinataire=user,
-                statut='programme',
-                date_programmee__gt=now
-            ).count(),
-            
-            # Évaluations en attente
-            'evaluations_en_attente': mes_inscriptions.filter(
-                statut='presente',
-                evaluation_event__isnull=True,
-                event__date_fin__lt=now
-            ).count(),
+        # Format spécial pour calendrier
+        events_calendrier = []
+        for event in queryset:
+            events_calendrier.append({
+                'id': str(event.id),
+                'title': event.titre,
+                'start': event.date_debut.isoformat(),
+                'end': event.date_fin.isoformat(),
+                'backgroundColor': self._get_color_by_category(event.categorie),
+                'borderColor': self._get_color_by_category(event.categorie),
+                'url': f'/events/{event.slug}/',
+                'extendedProps': {
+                    'categorie': event.categorie,
+                    'lieu': event.lieu if not event.est_en_ligne else 'En ligne',
+                    'participants': event.inscriptions.filter(statut='confirmee').count(),
+                    'max_participants': event.max_participants,
+                    'est_featured': event.est_featured
+                }
+            })
+        
+        return Response(events_calendrier)
+    
+    def _get_color_by_category(self, categorie):
+        """Retourne une couleur selon la catégorie"""
+        colors = {
+            'formation': '#3498db',
+            'conference': '#e74c3c',
+            'atelier': '#2ecc71',
+            'networking': '#f39c12',
+            'webinaire': '#9b59b6',
+            'autre': '#95a5a6'
+        }
+        return colors.get(categorie, '#95a5a6')
+
+
+class EventExportView(APIView):
+    """Vue pour l'export des données d'événements"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, event_id=None):
+        """Exporte les données d'un ou plusieurs événements"""
+        from django.http import HttpResponse
+        import csv
+        import json
+        
+        # Vérifier les permissions
+        if event_id:
+            event = get_object_or_404(Event, pk=event_id)
+            if not (request.user.is_staff or event.cree_par == request.user):
+                raise PermissionDenied("Accès non autorisé")
+            events = [event]
+        else:
+            if not request.user.is_staff:
+                events = Event.objects.filter(cree_par=request.user)
+            else:
+                events = Event.objects.all()
+        
+        # Format d'export
+        format_export = request.query_params.get('format', 'csv')
+        
+        if format_export == 'csv':
+            return self._export_csv(events)
+        elif format_export == 'json':
+            return self._export_json(events)
+        else:
+            return Response(
+                {'error': 'Format non supporté'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
+    def _export_csv(self, events):
+        """Export en format CSV"""
+        from django.http import HttpResponse
+        import csv
+        
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="events_export.csv"'
+        
+        writer = csv.writer(response)
+        writer.writerow([
+            'ID', 'Titre', 'Catégorie', 'Date début', 'Date fin',
+            'Lieu', 'En ligne', 'Max participants', 'Inscrits',
+            'Statut', 'Publié', 'Créé par', 'Date création'
+        ])
+        
+        for event in events:
+            writer.writerow([
+                str(event.id),
+                event.titre,
+                event.get_categorie_display(),
+                event.date_debut.strftime('%Y-%m-%d %H:%M'),
+                event.date_fin.strftime('%Y-%m-%d %H:%M'),
+                event.lieu if not event.est_en_ligne else 'En ligne',
+                'Oui' if event.est_en_ligne else 'Non',
+                event.max_participants,
+                event.inscriptions.filter(statut='confirmee').count(),
+                event.get_statut_display(),
+                'Oui' if event.est_publie else 'Non',
+                event.cree_par.get_full_name(),
+                event.date_creation.strftime('%Y-%m-%d %H:%M')
+            ])
+        
+        return response
+    
+    def _export_json(self, events):
+        """Export en format JSON"""
+        from django.http import JsonResponse
+        
+        data = []
+        for event in events:
+            data.append({
+                'id': str(event.id),
+                'titre': event.titre,
+                'categorie': event.categorie,
+                'date_debut': event.date_debut.isoformat(),
+                'date_fin': event.date_fin.isoformat(),
+                'lieu': event.lieu,
+                'est_en_ligne': event.est_en_ligne,
+                'max_participants': event.max_participants,
+                'nb_inscrits': event.inscriptions.filter(statut='confirmee').count(),
+                'statut': event.statut,
+                'est_publie': event.est_publie,
+                'cree_par': event.cree_par.get_full_name(),
+                'inscriptions': [
+                    {
+                        'participante': inscription.participante.get_full_name(),
+                        'email': inscription.participante.email,
+                        'statut': inscription.statut,
+                        'date_inscription': inscription.date_inscription.isoformat(),
+                        'evaluation': inscription.evaluation_event
+                    }
+                    for inscription in event.inscriptions.select_related('participante')
+                ]
+            })
+        
+        response = JsonResponse({'events': data}, safe=False)
+        response['Content-Disposition'] = 'attachment; filename="events_export.json"'
+        return response
+
+
+class EventDuplicationView(APIView):
+    """Vue pour dupliquer un événement"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request, event_id):
+        """Duplique un événement existant"""
+        source_event = get_object_or_404(Event, pk=event_id)
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or source_event.cree_par == request.user):
+            raise PermissionDenied("Accès non autorisé")
+        
+        # Données de duplication
+        nouvelles_dates = request.data.get('nouvelles_dates', {})
+        nouveau_titre = request.data.get('titre', f"{source_event.titre} (Copie)")
+        
+        # Créer la copie
+        nouvel_event = Event.objects.create(
+            titre=nouveau_titre,
+            description=source_event.description,
+            description_courte=source_event.description_courte,
+            categorie=source_event.categorie,
+            tags=source_event.tags.copy(),
+            date_debut=nouvelles_dates.get('date_debut', source_event.date_debut),
+            date_fin=nouvelles_dates.get('date_fin', source_event.date_fin),
+            fuseau_horaire=source_event.fuseau_horaire,
+            est_en_ligne=source_event.est_en_ligne,
+            lieu=source_event.lieu,
+            adresse_complete=source_event.adresse_complete,
+            lien_visioconference=source_event.lien_visioconference,
+            max_participants=source_event.max_participants,
+            inscription_requise=source_event.inscription_requise,
+            validation_requise=source_event.validation_requise,
+            liste_attente_activee=source_event.liste_attente_activee,
+            formateur_nom=source_event.formateur_nom,
+            formateur_bio=source_event.formateur_bio,
+            programme_detaille=source_event.programme_detaille,
+            objectifs=source_event.objectifs,
+            prerequis=source_event.prerequis,
+            materiel_requis=source_event.materiel_requis,
+            statut='brouillon',  # Toujours créer en brouillon
+            est_publie=False,    # Toujours créer non publié
+            cree_par=request.user,
+            notifications_activees=source_event.notifications_activees,
+            rappels_automatiques=source_event.rappels_automatiques.copy()
+        )
+        
+        serializer = EventDetailSerializer(nouvel_event)
+        return Response({
+            'message': 'Événement dupliqué avec succès',
+            'event': serializer.data
+        }, status=status.HTTP_201_CREATED)
+
+
+class EventBulkActionsView(APIView):
+    """Vue pour les actions en lot sur les événements"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request):
+        """Effectue des actions en lot"""
+        # Seuls les admins peuvent faire des actions en lot
+        if not request.user.is_staff:
+            raise PermissionDenied("Accès non autorisé")
+        
+        action = request.data.get('action')
+        event_ids = request.data.get('event_ids', [])
+        
+        if not action or not event_ids:
+            return Response(
+                {'error': 'Action et IDs requis'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        events = Event.objects.filter(id__in=event_ids)
+        count = 0
+        
+        if action == 'publier':
+            count = events.update(est_publie=True)
+        elif action == 'depublier':
+            count = events.update(est_publie=False)
+        elif action == 'feature':
+            count = events.update(est_featured=True)
+        elif action == 'unfeature':
+            count = events.update(est_featured=False)
+        elif action == 'annuler':
+            count = events.update(statut='annule')
+        elif action == 'supprimer':
+            count = events.count()
+            events.delete()
+        else:
+            return Response(
+                {'error': 'Action non reconnue'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        return Response({
+            'message': f'Action "{action}" effectuée sur {count} événement(s)',
+            'count': count
+        })
+
+
+class EventStatistiquesAvanceesView(APIView):
+    """Vue pour les statistiques avancées"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        """Retourne des statistiques avancées"""
+        if not request.user.is_staff:
+            raise PermissionDenied("Accès non autorisé")
+        
+        # Période d'analyse
+        periode = request.query_params.get('periode', '30')  # jours
+        date_limite = timezone.now() - timedelta(days=int(periode))
+        
+        # Statistiques globales
+        stats = {
+            'periode_jours': int(periode),
+            'events_par_statut': {},
+            'events_par_categorie': {},
+            'inscriptions_par_mois': {},
+            'taux_participation_moyen': 0,
+            'evaluation_moyenne_globale': 0,
+            'top_organisateurs': [],
+            'events_populaires': [],
+            'tendances': {}
         }
         
-        return Response(dashboard_data)
+        # Events par statut
+        for statut_code, statut_label in Event.STATUTS:
+            count = Event.objects.filter(
+                date_creation__gte=date_limite,
+                statut=statut_code
+            ).count()
+            stats['events_par_statut'][statut_label] = count
+        
+        # Events par catégorie
+        for cat_code, cat_label in Event.CATEGORIES:
+            count = Event.objects.filter(
+                date_creation__gte=date_limite,
+                categorie=cat_code
+            ).count()
+            stats['events_par_categorie'][cat_label] = count
+        
+        # Inscriptions par mois (12 derniers mois)
+        for i in range(12):
+            mois = timezone.now().replace(day=1) - timedelta(days=30*i)
+            mois_suivant = (mois + timedelta(days=32)).replace(day=1)
+            
+            count = InscriptionEvent.objects.filter(
+                date_inscription__gte=mois,
+                date_inscription__lt=mois_suivant
+            ).count()
+            
+            stats['inscriptions_par_mois'][mois.strftime('%Y-%m')] = count
+        
+        # Taux de participation moyen
+        events_termines = Event.objects.filter(
+            statut='termine',
+            date_fin__gte=date_limite
+        )
+        
+        if events_termines.exists():
+            total_presents = 0
+            total_inscrits = 0
+            
+            for event in events_termines:
+                presents = event.inscriptions.filter(statut='presente').count()
+                inscrits = event.inscriptions.filter(
+                    statut__in=['confirmee', 'presente', 'absente']
+                ).count()
+                
+                total_presents += presents
+                total_inscrits += inscrits
+            
+            if total_inscrits > 0:
+                stats['taux_participation_moyen'] = round(
+                    (total_presents / total_inscrits) * 100, 2
+                )
+        
+        # Évaluation moyenne globale
+        evaluations = InscriptionEvent.objects.filter(
+            event__date_fin__gte=date_limite,
+            evaluation_event__isnull=False
+        )
+        
+        if evaluations.exists():
+            stats['evaluation_moyenne_globale'] = round(
+                evaluations.aggregate(
+                    moyenne=Avg('evaluation_event')
+                )['moyenne'], 2
+            )
+        
+        # Top organisateurs
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        
+        top_organisateurs = User.objects.annotate(
+            nb_events=Count('evenements_crees', filter=Q(
+                evenements_crees__date_creation__gte=date_limite
+            ))
+        ).filter(nb_events__gt=0).order_by('-nb_events')[:5]
+        
+        stats['top_organisateurs'] = [
+            {
+                'nom': org.get_full_name(),
+                'nb_events': org.nb_events
+            }
+            for org in top_organisateurs
+        ]
+        
+        # Events populaires (plus d'inscriptions)
+        events_populaires = Event.objects.annotate(
+            nb_inscriptions=Count('inscriptions')
+        ).filter(
+            date_creation__gte=date_limite
+        ).order_by('-nb_inscriptions')[:5]
+        
+        stats['events_populaires'] = [
+            {
+                'titre': event.titre,
+                'nb_inscriptions': event.nb_inscriptions,
+                'categorie': event.get_categorie_display()
+            }
+            for event in events_populaires
+        ]
+        
+        return Response(stats)Accès non autorisé")
+        
+        inscriptions = InscriptionEvent.objects.filter(event=event).select_related('participante')
+        serializer = InscriptionEventSerializer(inscriptions, many=True)
+        
+        return Response({
+            'total': inscriptions.count(),
+            'confirmees': inscriptions.filter(statut='confirmee').count(),
+            'presentes': inscriptions.filter(statut='presente').count(),
+            'en_attente': inscriptions.filter(statut='en_attente').count(),
+            'participants': serializer.data
+        })
+    
+    @action(detail=False, methods=['get'])
+    def mes_events(self, request):
+        """Événements auxquels l'utilisateur est inscrit"""
+        inscriptions = InscriptionEvent.objects.filter(
+            participante=request.user
+        ).select_related('event')
+        
+        events_data = []
+        for inscription in inscriptions:
+            event_data = EventSerializer(inscription.event).data
+            event_data['inscription'] = {
+                'statut': inscription.statut,
+                'date_inscription': inscription.date_inscription,
+                'evaluation': inscription.evaluation_event
+            }
+            events_data.append(event_data)
+        
+        return Response(events_data)
+    
+    @action(detail=False, methods=['get'])
+    def recommandations(self, request):
+        """Recommandations d'événements personnalisées"""
+        # Logique de recommandation basée sur l'historique
+        user_categories = InscriptionEvent.objects.filter(
+            participante=request.user
+        ).values_list('event__categorie', flat=True).distinct()
+        
+        recommandations = Event.objects.filter(
+            est_publie=True,
+            date_debut__gt=timezone.now(),
+            categorie__in=user_categories
+        ).exclude(
+            inscriptions__participante=request.user
+        )[:5]
+        
+        serializer = EventSerializer(recommandations, many=True)
+        return Response(serializer.data)
+
+
+class EventDashboardView(APIView):
+    """Vue tableau de bord pour les statistiques d'événements"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        """Retourne les statistiques du dashboard"""
+        now = timezone.now()
+        
+        # Statistiques générales
+        stats = {
+            'total_events': Event.objects.filter(est_publie=True).count(),
+            'events_a_venir': Event.objects.filter(
+                est_publie=True, 
+                date_debut__gt=now
+            ).count(),
+            'mes_inscriptions': InscriptionEvent.objects.filter(
+                participante=request.user
+            ).count(),
+            'events_passes': Event.objects.filter(
+                est_publie=True,
+                date_fin__lt=now
+            ).count()
+        }
+        
+        # Événements à venir pour l'utilisateur
+        prochains_events = Event.objects.filter(
+            inscriptions__participante=request.user,
+            date_debut__gt=now
+        ).order_by('date_debut')[:3]
+        
+        stats['prochains_events'] = EventSerializer(prochains_events, many=True).data
+        
+        # Statistiques par catégorie
+        categories_stats = Event.objects.filter(
+            est_publie=True
+        ).values('categorie').annotate(
+            count=Count('id')
+        ).order_by('-count')
+        
+        stats['categories'] = list(categories_stats)
+        
+        # Évolution des inscriptions (6 derniers mois)
+        inscriptions_par_mois = {}
+        for i in range(6):
+            mois = now.replace(day=1) - timedelta(days=30*i)
+            mois_suivant = (mois + timedelta(days=32)).replace(day=1)
+            
+            count = InscriptionEvent.objects.filter(
+                date_inscription__gte=mois,
+                date_inscription__lt=mois_suivant
+            ).count()
+            
+            inscriptions_par_mois[mois.strftime('%Y-%m')] = count
+        
+        stats['inscriptions_par_mois'] = inscriptions_par_mois
+        
+        return Response(stats)
 
 
 class EventSearchView(APIView):
     """Vue de recherche avancée d'événements"""
-    permission_classes = [IsAuthenticatedOrReadOnly]
     
-    def post(self, request):
-        """Recherche avancée avec filtres complexes"""
-        filter_serializer = EventFilterSerializer(data=request.data)
-        
-        if not filter_serializer.is_valid():
-            return Response(
-                filter_serializer.errors,
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        filters = filter_serializer.validated_data
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        """Recherche avancée avec filtres multiples"""
         queryset = Event.objects.filter(est_publie=True)
         
-        # Appliquer les filtres
-        if filters.get('categorie'):
-            queryset = queryset.filter(categorie=filters['categorie'])
+        # Paramètres de recherche
+        terme = request.query_params.get('q', '')
+        categorie = request.query_params.get('categorie')
+        date_debut = request.query_params.get('date_debut')
+        date_fin = request.query_params.get('date_fin')
+        en_ligne = request.query_params.get('en_ligne')
+        places_dispo = request.query_params.get('places_disponibles')
         
-        if filters.get('date_debut_min'):
-            queryset = queryset.filter(date_debut__gte=filters['date_debut_min'])
-        
-        if filters.get('date_debut_max'):
-            queryset = queryset.filter(date_debut__lte=filters['date_debut_max'])
-        
-        if filters.get('est_en_ligne') is not None:
-            queryset = queryset.filter(est_en_ligne=filters['est_en_ligne'])
-        
-        if filters.get('places_disponibles'):
-            queryset = queryset.annotate(
-                nb_inscrits=Count('inscriptions', filter=Q(inscriptions__statut='confirmee'))
-            ).filter(nb_inscrits__lt=F('max_participants'))
-        
-        if filters.get('organisateur'):
-            queryset = queryset.filter(organisateur_id=filters['organisateur'])
-        
-        if filters.get('tags'):
-            for tag in filters['tags']:
-                queryset = queryset.filter(tags__contains=[tag])
-        
-        if filters.get('recherche'):
-            terme = filters['recherche']
+        # Application des filtres
+        if terme:
             queryset = queryset.filter(
                 Q(titre__icontains=terme) |
                 Q(description__icontains=terme) |
-                Q(formateur_nom__icontains=terme) |
-                Q(lieu__icontains=terme)
+                Q(formateur_nom__icontains=terme)
             )
         
-        # Pagination
-        page_size = min(int(request.data.get('page_size', 20)), 100)
-        page = int(request.data.get('page', 1))
+        if categorie:
+            queryset = queryset.filter(categorie=categorie)
         
+        if date_debut:
+            queryset = queryset.filter(date_debut__gte=date_debut)
+        
+        if date_fin:
+            queryset = queryset.filter(date_fin__lte=date_fin)
+        
+        if en_ligne is not None:
+            queryset = queryset.filter(est_en_ligne=en_ligne.lower() == 'true')
+        
+        if places_dispo:
+            queryset = queryset.annotate(
+                places_prises=Count('inscriptions', filter=Q(inscriptions__statut='confirmee'))
+            ).filter(places_prises__lt=F('max_participants'))
+        
+        # Pagination et tri
+        page_size = min(int(request.query_params.get('page_size', 20)), 100)
+        page = int(request.query_params.get('page', 1))
+        
+        total = queryset.count()
         start = (page - 1) * page_size
         end = start + page_size
         
-        total_count = queryset.count()
         events = queryset[start:end]
+        serializer = EventSerializer(events, many=True)
         
         return Response({
-            'results': EventListSerializer(
-                events,
-                many=True,
-                context={'request': request}
-            ).data,
-            'total_count': total_count,
-            'page': page,
-            'page_size': page_size,
-            'total_pages': (total_count + page_size - 1) // page_size
+            'results': serializer.data,
+            'pagination': {
+                'total': total,
+                'page': page,
+                'page_size': page_size,
+                'total_pages': (total + page_size - 1) // page_size
+            }
         })
 
 
 class EventRecommendationView(APIView):
-    """Vue pour les recommandations d'événements"""
+    """Vue pour les recommandations personnalisées"""
+    
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        """Recommandations personnalisées d'événements"""
+        """Génère des recommandations basées sur l'activité utilisateur"""
         user = request.user
-        now = timezone.now()
         
-        # Analyser les préférences de l'utilisateur
-        inscriptions_passees = InscriptionEvent.objects.filter(
-            participante=user,
-            event__date_fin__lt=now
-        ).select_related('event')
+        # Analyser les préférences utilisateur
+        categories_preferees = list(InscriptionEvent.objects.filter(
+            participante=user
+        ).values_list('event__categorie', flat=True).distinct())
         
-        # Catégories préférées (basées sur l'historique)
-        categories_preferees = {}
-        for inscription in inscriptions_passees:
-            cat = inscription.event.categorie
-            categories_preferees[cat] = categories_preferees.get(cat, 0) + 1
-        
-        # Trier par préférence
-        categories_preferees = sorted(
-            categories_preferees.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )
-        
-        recommendations = []
-        
-        # Événements similaires aux préférences
-        if categories_preferees:
-            for categorie, _ in categories_preferees[:3]:
-                events_similaires = Event.objects.filter(
-                    categorie=categorie,
-                    date_debut__gt=now,
-                    est_publie=True
-                ).exclude(
-                    inscriptions__participante=user
-                ).order_by('date_debut')[:2]
-                
-                recommendations.extend(events_similaires)
+        # Événements similaires
+        events_similaires = Event.objects.filter(
+            est_publie=True,
+            date_debut__gt=timezone.now(),
+            categorie__in=categories_preferees
+        ).exclude(
+            inscriptions__participante=user
+        ).order_by('-est_featured', 'date_debut')[:5]
         
         # Événements populaires
         events_populaires = Event.objects.filter(
-            date_debut__gt=now,
-            est_publie=True
-        ).exclude(
-            inscriptions__participante=user
-        ).annotate(
-            nb_inscrits=Count('inscriptions')
-        ).order_by('-nb_inscrits')[:3]
-        
-        recommendations.extend(events_populaires)
-        
-        # Événements récemment ajoutés
-        events_recents = Event.objects.filter(
-            date_debut__gt=now,
             est_publie=True,
-            date_creation__gte=now - timedelta(days=7)
+            date_debut__gt=timezone.now()
+        ).annotate(
+            nb_inscriptions=Count('inscriptions')
         ).exclude(
             inscriptions__participante=user
-        ).order_by('-date_creation')[:2]
+        ).order_by('-nb_inscriptions', '-est_featured')[:3]
         
-        recommendations.extend(events_recents)
-        
-        # Supprimer les doublons et limiter
-        seen = set()
-        unique_recommendations = []
-        for event in recommendations:
-            if event.id not in seen:
-                seen.add(event.id)
-                unique_recommendations.append(event)
-                if len(unique_recommendations) >= 10:
-                    break
+        # Nouveaux événements
+        nouveaux_events = Event.objects.filter(
+            est_publie=True,
+            date_debut__gt=timezone.now(),
+            date_creation__gte=timezone.now() - timedelta(days=7)
+        ).exclude(
+            inscriptions__participante=user
+        ).order_by('-date_creation')[:3]
         
         return Response({
-            'recommendations': EventListSerializer(
-                unique_recommendations,
-                many=True,
-                context={'request': request}
-            ).data,
-            'raisons': {
-                'categories_preferees': [cat for cat, _ in categories_preferees[:3]],
-                'nb_inscriptions_passees': len(inscriptions_passees)
-            }
+            'similaires': EventSerializer(events_similaires, many=True).data,
+            'populaires': EventSerializer(events_populaires, many=True).data,
+            'nouveaux': EventSerializer(nouveaux_events, many=True).data
         })
 
 
 class EventAnalyticsView(APIView):
-    """Vue pour les analytics d'événements"""
+    """Vue d'analytiques pour un événement spécifique"""
+    
     permission_classes = [IsAuthenticated]
     
     def get(self, request, event_id):
-        """Analytics détaillées pour un événement"""
-        try:
-            event = Event.objects.get(id=event_id)
-            
-            # Vérifier les permissions
-            if not (request.user.is_staff or event.organisateur == request.user):
-                raise PermissionDenied()
-            
-            inscriptions = event.inscriptions.all()
-            
-            analytics = {
-                'event_info': EventDetailSerializer(event, context={'request': request}).data,
-                
-                # Statistiques des inscriptions
-                'inscriptions': {
-                    'total': inscriptions.count(),
-                    'par_statut': {
-                        statut: inscriptions.filter(statut=statut).count()
-                        for statut, _ in InscriptionEvent.STATUTS_INSCRIPTION
-                    },
-                    'evolution_par_jour': self._get_evolution_inscriptions(event),
-                },
-                
-                # Données démographiques
-                'demographics': self._get_demographics(inscriptions),
-                
-                # Évaluations
-                'evaluations': self._get_evaluations_stats(inscriptions),
-                
-                # Taux de participation
-                'participation': self._get_participation_stats(event),
-            }
-            
-            return Response(analytics)
+        """Retourne les analytiques d'un événement"""
+        event = get_object_or_404(Event, pk=event_id)
         
-        except Event.DoesNotExist:
-            return Response(
-                {'error': 'Événement non trouvé'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-    
-    def _get_evolution_inscriptions(self, event):
-        """Evolution des inscriptions par jour"""
-        inscriptions = event.inscriptions.order_by('date_inscription')
-        
-        if not inscriptions:
-            return {}
-        
-        first_date = inscriptions.first().date_inscription.date()
-        last_date = timezone.now().date()
-        
-        evolution = {}
-        current_count = 0
-        
-        current_date = first_date
-        while current_date <= last_date:
-            day_inscriptions = inscriptions.filter(
-                date_inscription__date=current_date
-            ).count()
-            current_count += day_inscriptions
-            evolution[current_date.isoformat()] = current_count
-            current_date += timedelta(days=1)
-        
-        return evolution
-    
-    def _get_demographics(self, inscriptions):
-        """Analyse démographique des participants"""
-        inscriptions_confirmees = inscriptions.filter(statut='confirmee')
-        
-        # Par région
-        par_region = {}
-        for inscription in inscriptions_confirmees:
-            region = inscription.participante.region
-            par_region[region] = par_region.get(region, 0) + 1
-        
-        # Par expérience
-        par_experience = {}
-        for inscription in inscriptions_confirmees:
-            exp = inscription.participante.experience
-            par_experience[exp] = par_experience.get(exp, 0) + 1
-        
-        return {
-            'par_region': par_region,
-            'par_experience': par_experience,
-            'total_confirmees': inscriptions_confirmees.count()
-        }
-    
-    def _get_evaluations_stats(self, inscriptions):
-        """Statistiques des évaluations"""
-        evaluations = inscriptions.filter(
-            evaluation_event__isnull=False
-        )
-        
-        if not evaluations:
-            return {}
-        
-        notes = [i.evaluation_event for i in evaluations]
-        
-        return {
-            'nombre_evaluations': len(notes),
-            'note_moyenne': sum(notes) / len(notes),
-            'distribution': {
-                str(i): notes.count(i) for i in range(1, 6)
-            },
-            'commentaires': [
-                i.commentaire_evaluation
-                for i in evaluations
-                if i.commentaire_evaluation
-            ]
-        }
-    
-    def _get_participation_stats(self, event):
-        """Statistiques de participation"""
-        if not event.est_passe:
-            return {'message': 'Événement non terminé'}
-        
-        confirmees = event.inscriptions.filter(statut='confirmee').count()
-        presentes = event.inscriptions.filter(statut='presente').count()
-        
-        taux_participation = (presentes / confirmees * 100) if confirmees > 0 else 0
-        
-        return {
-            'inscriptions_confirmees': confirmees,
-            'participants_presents': presentes,
-            'taux_participation': round(taux_participation, 2),
-            'places_utilisees': round((presentes / event.max_participants * 100), 2)
-        }
+        # Vérifier les permissions
+        if not (request.user.is_staff or event.cree_par == request.user):
+            raise PermissionDenied("
