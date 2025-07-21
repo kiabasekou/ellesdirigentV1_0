@@ -1,9 +1,9 @@
 # ============================================================================
-# backend/training/models.py - CORRECTION COMPLÈTE
+# backend/training/models.py - CORRECTION LAMBDA
 # ============================================================================
 """
 Modèles pour le module de formation
-CORRECTION: Définition complète de tous les modèles manquants
+CORRECTION: Remplacement des lambdas par des fonctions nommées
 """
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -15,6 +15,21 @@ import hashlib
 import uuid
 
 User = get_user_model()
+
+
+def default_empty_list():
+    """Fonction pour générer une liste vide par défaut"""
+    return []
+
+
+def default_empty_dict():
+    """Fonction pour générer un dictionnaire vide par défaut"""
+    return {}
+
+
+def default_timedelta():
+    """Fonction pour générer un timedelta par défaut"""
+    return timedelta()
 
 
 class Formation(models.Model):
@@ -36,7 +51,7 @@ class Formation(models.Model):
     
     STATUTS = [
         ('brouillon', 'Brouillon'),
-        ('active', 'Active'),  # CORRECTION: 'active' au lieu de 'published'
+        ('active', 'Active'),
         ('archivee', 'Archivée'),
         ('suspendue', 'Suspendue'),
     ]
@@ -50,7 +65,7 @@ class Formation(models.Model):
     # Catégorisation
     categorie = models.CharField(max_length=20, choices=CATEGORIES, verbose_name="Catégorie")
     niveau = models.CharField(max_length=20, choices=NIVEAUX, default='debutant', verbose_name="Niveau")
-    tags = models.JSONField(default=list, blank=True, verbose_name="Mots-clés")
+    tags = models.JSONField(default=default_empty_list, blank=True, verbose_name="Mots-clés")  # CORRECTION: fonction nommée
     
     # Durée et planification
     duree_heures = models.PositiveIntegerField(verbose_name="Durée en heures")
@@ -88,7 +103,7 @@ class Formation(models.Model):
     # Contenu
     image_cover = models.ImageField(upload_to='formations/', blank=True, verbose_name="Image de couverture")
     programme_detaille = models.TextField(blank=True, verbose_name="Programme détaillé")
-    objectifs = models.JSONField(default=list, blank=True, verbose_name="Objectifs pédagogiques")
+    objectifs = models.JSONField(default=default_empty_list, blank=True, verbose_name="Objectifs pédagogiques")  # CORRECTION: fonction nommée
     prerequis = models.TextField(blank=True, verbose_name="Prérequis")
     materiel_requis = models.TextField(blank=True, verbose_name="Matériel requis")
     
@@ -191,7 +206,7 @@ class Formation(models.Model):
 
 
 class ModuleFormation(models.Model):
-    """CORRECTION: Création du modèle ModuleFormation manquant"""
+    """Modèle pour les modules de formation"""
     
     formation = models.ForeignKey(
         Formation, 
@@ -206,11 +221,11 @@ class ModuleFormation(models.Model):
     # Contenu
     duree_minutes = models.PositiveIntegerField(verbose_name="Durée en minutes")
     contenu = models.TextField(verbose_name="Contenu")
-    objectifs = models.JSONField(default=list, blank=True, verbose_name="Objectifs du module")
+    objectifs = models.JSONField(default=default_empty_list, blank=True, verbose_name="Objectifs du module")  # CORRECTION: fonction nommée
     
     # Ressources
     video_url = models.URLField(blank=True, verbose_name="URL de la vidéo")
-    documents_url = models.JSONField(default=list, verbose_name="Documents")
+    documents_url = models.JSONField(default=default_empty_list, verbose_name="Documents")  # CORRECTION: fonction nommée
     ressources_supplementaires = models.TextField(blank=True, verbose_name="Ressources supplémentaires")
     
     # Quiz associé
@@ -291,7 +306,7 @@ class InscriptionFormation(models.Model):
         related_name='inscriptions_completees',
         verbose_name="Modules complétés"
     )
-    temps_passe = models.DurationField(default=timedelta, verbose_name="Temps passé")
+    temps_passe = models.DurationField(default=default_timedelta, verbose_name="Temps passé")  # CORRECTION: fonction nommée
     derniere_activite = models.DateTimeField(auto_now=True, verbose_name="Dernière activité")
     
     # Évaluation

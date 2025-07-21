@@ -1,1 +1,0 @@
-# Fichier __init__.py pour les migrations du module training

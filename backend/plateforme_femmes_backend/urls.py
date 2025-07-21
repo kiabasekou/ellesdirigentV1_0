@@ -1,9 +1,8 @@
 # ============================================================================
-# backend/plateforme_femmes_backend/urls.py - CORRECTION COMPLÈTE
+# backend/plateforme_femmes_backend/urls.py - CORRECTION URLS
 # ============================================================================
 """
-Configuration principale des URLs - Version corrigée
-Résout les erreurs d'imports et structure cohérente
+URLs principales du projet - CORRECTION pour éviter les doublons /api/
 """
 from django.contrib import admin
 from django.urls import path, include
@@ -36,15 +35,22 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     
-    # APIs des modules
-    path('api/auth/', include('users.urls')),           # Authentification et utilisateurs
-    path('api/training/', include('training.urls')),    # CORRECTION: URLs training corrigées
-    path('api/quiz/', include('quiz.urls')),             # Quiz et évaluations
-    path('api/events/', include('events.urls')),         # NOUVEAU: Module événements
-    path('api/upload/', include('document_upload.urls')), # Upload de documents
-    
-    # API racine (informations générales)
-    path('api/', include('api.urls')),
+    # CORRECTION: Structure d'URLs cohérente
+    path('api/', include([
+        # Authentification et utilisateurs
+        path('auth/', include('users.urls')),
+        
+        # Modules principaux
+        path('training/', include('training.urls')),
+        path('quiz/', include('quiz.urls')),
+        path('events/', include('events.urls')),
+        
+        # Upload de documents
+        path('upload/', include('document_upload.urls')),
+        
+        # API générale (stats, health, etc.)
+        path('', include('api.urls')),
+    ])),
 ]
 
 # Servir les fichiers media en développement
@@ -53,6 +59,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # Configuration personnalisée de l'admin
-admin.site.site_header = "Administration Plateforme Femmes"
-admin.site.site_title = "Plateforme Femmes Admin"
-admin.site.index_title = "Gestion de la plateforme"
+admin.site.site_header = "Administration Elles Dirigent By SO Consulting"
+admin.site.site_title = "Plateforme Elles Dirigent Admin"
+admin.site.index_title = "Gestion de Elles Dirigent By SO Consulting"

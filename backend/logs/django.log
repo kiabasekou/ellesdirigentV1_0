@@ -5910,3 +5910,309 @@ WARNING 2025-07-20 23:32:20,348 log 16676 9732 Not Found: /api/users/activity/
 WARNING 2025-07-20 23:32:20,349 basehttp 16676 9732 "POST /api/users/activity/ HTTP/1.1" 404 3690
 WARNING 2025-07-20 23:37:20,337 log 16676 9732 Not Found: /api/users/activity/
 WARNING 2025-07-20 23:37:20,338 basehttp 16676 9732 "POST /api/users/activity/ HTTP/1.1" 404 3690
+INFO 2025-07-21 03:03:50,834 autoreload 18920 2444 Watching for file changes with StatReloader
+WARNING 2025-07-21 03:04:07,196 log 18920 13912 Not Found: /
+WARNING 2025-07-21 03:04:07,197 basehttp 18920 13912 "GET / HTTP/1.1" 404 3391
+WARNING 2025-07-21 03:04:07,924 log 18920 13912 Not Found: /favicon.ico
+WARNING 2025-07-21 03:04:07,925 basehttp 18920 13912 "GET /favicon.ico HTTP/1.1" 404 3442
+INFO 2025-07-21 03:04:21,933 basehttp 18920 23296 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4257
+INFO 2025-07-21 03:04:22,210 basehttp 18920 23296 "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-07-21 03:04:22,231 basehttp 18920 23296 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-07-21 03:04:22,319 basehttp 18920 5412 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-07-21 03:04:22,320 basehttp 18920 11648 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-07-21 03:04:22,321 basehttp 18920 23376 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-07-21 03:04:22,329 basehttp 18920 3844 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-07-21 03:04:22,339 basehttp 18920 22604 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+INFO 2025-07-21 03:04:34,288 basehttp 18920 22604 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-21 03:04:34,339 basehttp 18920 22604 "GET /admin/ HTTP/1.1" 200 9705
+INFO 2025-07-21 03:04:34,400 basehttp 18920 22604 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-21 03:04:34,447 basehttp 18920 3844 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-21 03:04:34,447 basehttp 18920 22604 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-21 03:06:16,412 basehttp 18920 12440 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+WARNING 2025-07-21 03:06:16,742 log 18920 7816 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:06:16,743 basehttp 18920 7816 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:06:24,762 log 18920 18520 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:06:24,763 basehttp 18920 18520 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:06:30,826 log 18920 18520 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:06:30,827 basehttp 18920 18520 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:06:32,209 log 18920 18520 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:06:32,211 basehttp 18920 18520 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:06:34,053 log 18920 10200 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:06:34,054 basehttp 18920 10200 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+INFO 2025-07-21 03:07:20,679 basehttp 18920 18360 "OPTIONS /api/users/activity/ HTTP/1.1" 200 0
+WARNING 2025-07-21 03:07:20,702 log 18920 18360 Not Found: /api/users/activity/
+WARNING 2025-07-21 03:07:20,703 basehttp 18920 18360 "POST /api/users/activity/ HTTP/1.1" 404 3883
+INFO 2025-07-21 03:08:57,085 basehttp 18920 22228 "OPTIONS /api/training/formations/? HTTP/1.1" 200 0
+INFO 2025-07-21 03:08:57,092 basehttp 18920 21864 "OPTIONS /api/training/formations/? HTTP/1.1" 200 0
+ERROR 2025-07-21 03:08:57,180 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+ERROR 2025-07-21 03:08:57,180 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+WARNING 2025-07-21 03:08:57,200 log 18920 22228 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 03:08:57,204 basehttp 18920 22228 "GET /api/training/formations/? HTTP/1.1" 401 95
+ERROR 2025-07-21 03:08:57,209 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+ERROR 2025-07-21 03:08:57,209 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+WARNING 2025-07-21 03:08:57,213 log 18920 22228 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 03:08:57,214 basehttp 18920 22228 "GET /api/training/formations/? HTTP/1.1" 401 95
+INFO 2025-07-21 03:09:00,977 basehttp 18920 22228 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:00,981 basehttp 18920 3540 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:00,982 basehttp 18920 21864 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:00,985 basehttp 18920 22228 "OPTIONS /api/forums/categories/ HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:01,021 log 18920 22228 Not Found: /api/forums/categories/
+WARNING 2025-07-21 03:09:01,022 basehttp 18920 22228 "GET /api/forums/categories/ HTTP/1.1" 404 3891
+WARNING 2025-07-21 03:09:01,045 log 18920 21864 Not Found: /api/forums/categories/
+WARNING 2025-07-21 03:09:01,048 basehttp 18920 21864 "GET /api/forums/categories/ HTTP/1.1" 404 3891
+WARNING 2025-07-21 03:09:01,084 log 18920 21864 Not Found: /api/forums/categories/
+WARNING 2025-07-21 03:09:01,088 basehttp 18920 21864 "GET /api/forums/categories/ HTTP/1.1" 404 3891
+WARNING 2025-07-21 03:09:01,121 log 18920 22228 Not Found: /api/forums/categories/
+WARNING 2025-07-21 03:09:01,123 basehttp 18920 22228 "GET /api/forums/categories/ HTTP/1.1" 404 3891
+INFO 2025-07-21 03:09:02,541 basehttp 18920 22228 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:02,541 basehttp 18920 21864 "OPTIONS /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:02,581 log 18920 21864 Not Found: /api/events/
+WARNING 2025-07-21 03:09:02,584 basehttp 18920 21864 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 4758
+WARNING 2025-07-21 03:09:02,611 log 18920 22228 Not Found: /api/events/
+WARNING 2025-07-21 03:09:02,614 basehttp 18920 22228 "GET /api/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 404 4758
+INFO 2025-07-21 03:09:09,250 basehttp 18920 21864 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:09,251 basehttp 18920 22228 "OPTIONS /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:09,287 log 18920 22228 Not Found: /api/resources/
+WARNING 2025-07-21 03:09:09,289 basehttp 18920 22228 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3932
+WARNING 2025-07-21 03:09:09,318 log 18920 21864 Not Found: /api/resources/
+WARNING 2025-07-21 03:09:09,321 basehttp 18920 21864 "GET /api/resources/?sort=recent&favorites=false&downloaded=false&search= HTTP/1.1" 404 3932
+INFO 2025-07-21 03:09:11,259 basehttp 18920 21864 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:11,264 basehttp 18920 3540 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:11,265 basehttp 18920 22228 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:11,267 basehttp 18920 21084 "OPTIONS /api/networking/connections/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:11,269 basehttp 18920 21864 "OPTIONS /api/networking/requests/ HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:11,273 basehttp 18920 22228 "OPTIONS /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:11,322 log 18920 21864 Not Found: /api/networking/requests/
+WARNING 2025-07-21 03:09:11,333 basehttp 18920 21864 "GET /api/networking/requests/ HTTP/1.1" 404 3897
+WARNING 2025-07-21 03:09:11,343 log 18920 21084 Not Found: /api/networking/connections/
+WARNING 2025-07-21 03:09:11,345 basehttp 18920 21084 "GET /api/networking/connections/ HTTP/1.1" 404 3906
+WARNING 2025-07-21 03:09:11,371 log 18920 3540 Not Found: /api/networking/members/
+WARNING 2025-07-21 03:09:11,383 log 18920 22228 Not Found: /api/networking/requests/
+WARNING 2025-07-21 03:09:11,385 basehttp 18920 3540 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 4009
+WARNING 2025-07-21 03:09:11,385 basehttp 18920 22228 "GET /api/networking/requests/ HTTP/1.1" 404 3897
+WARNING 2025-07-21 03:09:11,403 log 18920 21864 Not Found: /api/networking/connections/
+WARNING 2025-07-21 03:09:11,405 basehttp 18920 21864 "GET /api/networking/connections/ HTTP/1.1" 404 3906
+WARNING 2025-07-21 03:09:11,425 log 18920 21084 Not Found: /api/networking/members/
+WARNING 2025-07-21 03:09:11,426 basehttp 18920 21084 "GET /api/networking/members/?region=all&experience=all&isMentor=false&isOnline=false&hasPhoto=false&sort=recent&search= HTTP/1.1" 404 4009
+INFO 2025-07-21 03:09:13,083 basehttp 18920 21084 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,087 basehttp 18920 22228 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,088 basehttp 18920 21864 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,094 basehttp 18920 3540 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,095 basehttp 18920 22368 "OPTIONS /api/stats/members/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,095 basehttp 18920 20772 "OPTIONS /api/stats/overview/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,100 basehttp 18920 21084 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,108 basehttp 18920 22228 "OPTIONS /api/stats/forums/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,108 basehttp 18920 21864 "OPTIONS /api/stats/events/?period=month&metric=all HTTP/1.1" 200 0
+INFO 2025-07-21 03:09:13,117 basehttp 18920 3540 "OPTIONS /api/stats/resources/?period=month&metric=all HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:13,149 log 18920 20772 Not Found: /api/stats/events/
+WARNING 2025-07-21 03:09:13,151 log 18920 22368 Not Found: /api/stats/members/
+WARNING 2025-07-21 03:09:13,158 basehttp 18920 20772 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3904
+WARNING 2025-07-21 03:09:13,195 basehttp 18920 22368 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3907
+WARNING 2025-07-21 03:09:13,214 log 18920 21084 Not Found: /api/stats/overview/
+WARNING 2025-07-21 03:09:13,217 basehttp 18920 21084 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3910
+WARNING 2025-07-21 03:09:13,273 log 18920 22368 Not Found: /api/stats/overview/
+WARNING 2025-07-21 03:09:13,278 basehttp 18920 22368 "GET /api/stats/overview/?period=month&metric=all HTTP/1.1" 404 3910
+WARNING 2025-07-21 03:09:13,284 log 18920 20772 Not Found: /api/stats/events/
+WARNING 2025-07-21 03:09:13,288 log 18920 22228 Not Found: /api/stats/resources/
+WARNING 2025-07-21 03:09:13,289 basehttp 18920 20772 "GET /api/stats/events/?period=month&metric=all HTTP/1.1" 404 3904
+WARNING 2025-07-21 03:09:13,294 log 18920 21864 Not Found: /api/stats/forums/
+WARNING 2025-07-21 03:09:13,299 log 18920 3540 Not Found: /api/stats/members/
+WARNING 2025-07-21 03:09:13,301 basehttp 18920 22228 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3913
+WARNING 2025-07-21 03:09:13,323 basehttp 18920 21864 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3904
+WARNING 2025-07-21 03:09:13,329 basehttp 18920 3540 "GET /api/stats/members/?period=month&metric=all HTTP/1.1" 404 3907
+WARNING 2025-07-21 03:09:13,344 log 18920 20772 Not Found: /api/stats/resources/
+WARNING 2025-07-21 03:09:13,352 basehttp 18920 20772 "GET /api/stats/resources/?period=month&metric=all HTTP/1.1" 404 3913
+WARNING 2025-07-21 03:09:13,362 log 18920 22228 Not Found: /api/stats/forums/
+WARNING 2025-07-21 03:09:13,366 basehttp 18920 22228 "GET /api/stats/forums/?period=month&metric=all HTTP/1.1" 404 3904
+ERROR 2025-07-21 03:09:18,968 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+ERROR 2025-07-21 03:09:18,968 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+WARNING 2025-07-21 03:09:18,974 log 18920 22228 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 03:09:18,981 basehttp 18920 22228 "GET /api/training/formations/? HTTP/1.1" 401 95
+ERROR 2025-07-21 03:09:18,988 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+ERROR 2025-07-21 03:09:18,988 exceptions 18920 22228 Exception in FormationViewSet: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string="Le type de jeton fourni n'est pas valide", code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Le jeton est invalide ou expiré', code='token_not_valid')}]}
+WARNING 2025-07-21 03:09:18,993 log 18920 22228 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 03:09:18,995 basehttp 18920 22228 "GET /api/training/formations/? HTTP/1.1" 401 95
+INFO 2025-07-21 03:09:24,491 basehttp 18920 22228 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+WARNING 2025-07-21 03:09:24,819 log 18920 20720 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:09:24,821 basehttp 18920 20720 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:09:31,002 log 18920 20720 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:09:31,003 basehttp 18920 20720 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+WARNING 2025-07-21 03:09:43,555 log 18920 20720 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:09:43,556 basehttp 18920 20720 "POST /api/api/auth/login/ HTTP/1.1" 404 3883
+INFO 2025-07-21 03:15:08,868 autoreload 18920 2444 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:10,023 autoreload 944 21684 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:28,192 autoreload 944 21684 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:29,261 autoreload 14132 1432 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:35,881 autoreload 14132 1432 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:36,827 autoreload 15956 7928 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:38,928 autoreload 15956 7928 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:39,889 autoreload 10664 19852 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:47,592 autoreload 10664 19852 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:48,631 autoreload 8296 6540 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:55,179 autoreload 8296 6540 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:15:56,448 autoreload 22748 14484 Watching for file changes with StatReloader
+INFO 2025-07-21 03:15:59,652 autoreload 22748 14484 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:00,693 autoreload 20464 17828 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:17,597 autoreload 20464 17828 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:18,640 autoreload 15904 13588 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:28,548 autoreload 15904 13588 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:29,560 autoreload 14684 23324 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:32,775 autoreload 14684 23324 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:33,750 autoreload 2524 20880 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:35,871 autoreload 2524 20880 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:36,811 autoreload 23444 3276 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:39,976 autoreload 23444 3276 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:40,963 autoreload 19516 9448 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:47,499 autoreload 19516 9448 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:48,483 autoreload 1272 17584 Watching for file changes with StatReloader
+INFO 2025-07-21 03:16:50,605 autoreload 1272 17584 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\plateforme_femmes_backend\urls.py changed, reloading.
+INFO 2025-07-21 03:16:51,587 autoreload 16452 18372 Watching for file changes with StatReloader
+INFO 2025-07-21 03:17:20,234 autoreload 16452 18372 C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\events\urls.py changed, reloading.
+INFO 2025-07-21 03:17:21,274 autoreload 18308 2508 Watching for file changes with StatReloader
+WARNING 2025-07-21 03:18:04,945 log 18308 22004 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:18:04,946 basehttp 18308 22004 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+INFO 2025-07-21 03:20:31,970 autoreload 17624 8352 Watching for file changes with StatReloader

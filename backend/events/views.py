@@ -786,7 +786,7 @@ class EventStatistiquesAvanceesView(APIView):
             for event in events_populaires
         ]
         
-        return Response(stats)Accès non autorisé")
+        return Response({"stats": stats, "error": "Accès non autorisé"})
         
         inscriptions = InscriptionEvent.objects.filter(event=event).select_related('participante')
         serializer = InscriptionEventSerializer(inscriptions, many=True)
@@ -1022,4 +1022,418 @@ class EventAnalyticsView(APIView):
         
         # Vérifier les permissions
         if not (request.user.is_staff or event.cree_par == request.user):
-            raise PermissionDenied("
+            raise PermissionDenied("Accès non autorisé aux analytiques")
+        
+        # Statistiques d'inscription
+        inscriptions = InscriptionEvent.objects.filter(event=event)
+        
+        analytics = {
+            'event_info': EventSerializer(event).data,
+            'inscriptions': {
+                'total': inscriptions.count(),
+                'confirmees': inscriptions.filter(statut='confirmee').count(),
+                'presentes': inscriptions.filter(statut='presente').count(),
+                'absentes': inscriptions.filter(statut='absente').count(),
+                'en_attente': inscriptions.filter(statut='en_attente').count(),
+                'annulees': inscriptions.filter(statut='annulee').count(),
+            },
+            'taux_presence': 0,
+            'evaluation_moyenne': 0,
+            'repartition_temporelle': {},
+            'satisfaction': {},
+            'demographics': {},
+            'engagement': {}
+        }
+        
+        # Calcul du taux de présence
+        total_attendu = inscriptions.filter(statut__in=['confirmee', 'presente', 'absente']).count()
+        presents = inscriptions.filter(statut='presente').count()
+        
+        if total_attendu > 0:
+            analytics['taux_presence'] = round((presents / total_attendu) * 100, 2)
+        
+        # Évaluation moyenne
+        evaluations = inscriptions.filter(evaluation_event__isnull=False)
+        if evaluations.exists():
+            analytics['evaluation_moyenne'] = round(
+                evaluations.aggregate(moyenne=Avg('evaluation_event'))['moyenne'], 2
+            )
+        
+        # Répartition des inscriptions dans le temps (7 derniers jours)
+        for i in range(7):
+            jour = timezone.now().date() - timedelta(days=i)
+            jour_suivant = jour + timedelta(days=1)
+            
+            count = inscriptions.filter(
+                date_inscription__date=jour
+            ).count()
+            
+            analytics['repartition_temporelle'][jour.strftime('%Y-%m-%d')] = count
+        
+        # Analyse de satisfaction par note
+        if evaluations.exists():
+            satisfaction_data = evaluations.values('evaluation_event').annotate(
+                count=Count('id')
+            ).order_by('evaluation_event')
+            
+            analytics['satisfaction'] = {
+                str(item['evaluation_event']): item['count'] 
+                for item in satisfaction_data
+            }
+        
+        # Données démographiques (si disponibles)
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        
+        participants = User.objects.filter(
+            inscriptions_events__event=event,
+            inscriptions_events__statut__in=['confirmee', 'presente']
+        ).distinct()
+        
+        analytics['demographics'] = {
+            'total_participants': participants.count(),
+            'nouveaux_participants': participants.filter(
+                date_joined__gte=event.date_creation
+            ).count()
+        }
+        
+        # Métriques d'engagement
+        analytics['engagement'] = {
+            'taux_inscription': round(
+                (inscriptions.count() / event.max_participants) * 100, 2
+            ) if event.max_participants > 0 else 0,
+            'commentaires_evaluation': inscriptions.filter(
+                commentaire_evaluation__isnull=False
+            ).exclude(commentaire_evaluation='').count(),
+            'inscriptions_derniere_semaine': inscriptions.filter(
+                date_inscription__gte=timezone.now() - timedelta(days=7)
+            ).count()
+        }
+        
+        # Tendances temporelles (inscriptions par heure pour les dernières 24h)
+        if event.date_creation >= timezone.now() - timedelta(days=1):
+            tendances_horaires = {}
+            for h in range(24):
+                heure_debut = timezone.now().replace(hour=h, minute=0, second=0, microsecond=0)
+                heure_fin = heure_debut + timedelta(hours=1)
+                
+                count = inscriptions.filter(
+                    date_inscription__gte=heure_debut,
+                    date_inscription__lt=heure_fin
+                ).count()
+                
+                tendances_horaires[f"{h:02d}:00"] = count
+            
+            analytics['tendances_horaires'] = tendances_horaires
+        
+        # Comparaison avec événements similaires
+        events_similaires = Event.objects.filter(
+            categorie=event.categorie,
+            est_publie=True
+        ).exclude(id=event.id).annotate(
+            nb_inscriptions=Count('inscriptions')
+        )
+        
+        if events_similaires.exists():
+            moyenne_similaires = events_similaires.aggregate(
+                moyenne=Avg('nb_inscriptions')
+            )['moyenne']
+            
+            analytics['comparaison'] = {
+                'moyenne_categorie': round(moyenne_similaires, 2),
+                'performance_relative': 'supérieure' if inscriptions.count() > moyenne_similaires else 'inférieure'
+            }
+        
+        return Response(analytics)
+
+
+class EventMetricsView(APIView):
+    """Vue pour les métriques temps réel d'un événement"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, event_id):
+        """Métriques en temps réel"""
+        event = get_object_or_404(Event, pk=event_id)
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or event.cree_par == request.user):
+            raise PermissionDenied("Accès non autorisé")
+        
+        now = timezone.now()
+        
+        # Métriques actuelles
+        metrics = {
+            'timestamp': now.isoformat(),
+            'inscriptions_total': event.inscriptions.count(),
+            'inscriptions_24h': event.inscriptions.filter(
+                date_inscription__gte=now - timedelta(hours=24)
+            ).count(),
+            'places_restantes': max(0, event.max_participants - event.inscriptions.filter(
+                statut__in=['confirmee', 'presente']
+            ).count()),
+            'taux_remplissage': round(
+                (event.inscriptions.filter(statut__in=['confirmee', 'presente']).count() / 
+                 event.max_participants) * 100, 2
+            ) if event.max_participants > 0 else 0,
+            'temps_avant_event': None,
+            'statut_event': event.statut
+        }
+        
+        # Temps avant l'événement
+        if event.date_debut > now:
+            delta = event.date_debut - now
+            metrics['temps_avant_event'] = {
+                'jours': delta.days,
+                'heures': delta.seconds // 3600,
+                'minutes': (delta.seconds % 3600) // 60,
+                'total_minutes': int(delta.total_seconds() / 60)
+            }
+        
+        # Vitesse d'inscription (inscriptions par heure)
+        if event.date_creation < now:
+            duree_ouverture = now - event.date_creation
+            if duree_ouverture.total_seconds() > 0:
+                metrics['vitesse_inscription'] = round(
+                    event.inscriptions.count() / (duree_ouverture.total_seconds() / 3600), 2
+                )
+        
+        # Prédiction de remplissage
+        if metrics.get('vitesse_inscription', 0) > 0 and event.date_debut > now:
+            temps_restant_heures = (event.date_debut - now).total_seconds() / 3600
+            inscriptions_predites = event.inscriptions.count() + (
+                metrics['vitesse_inscription'] * temps_restant_heures
+            )
+            metrics['prediction_remplissage'] = min(100, round(
+                (inscriptions_predites / event.max_participants) * 100, 2
+            )) if event.max_participants > 0 else 0
+        
+        return Response(metrics)
+
+
+class EventExportParticipantsView(APIView):
+    """Vue pour exporter la liste des participants"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, event_id):
+        """Exporte la liste des participants"""
+        event = get_object_or_404(Event, pk=event_id)
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or event.cree_par == request.user):
+            raise PermissionDenied("Accès non autorisé")
+        
+        # Format d'export
+        format_export = request.query_params.get('format', 'csv')
+        statuts = request.query_params.getlist('statuts', ['confirmee', 'presente'])
+        
+        # Récupérer les inscriptions
+        inscriptions = InscriptionEvent.objects.filter(
+            event=event,
+            statut__in=statuts
+        ).select_related('participante').order_by('date_inscription')
+        
+        if format_export == 'csv':
+            return self._export_csv_participants(event, inscriptions)
+        elif format_export == 'excel':
+            return self._export_excel_participants(event, inscriptions)
+        else:
+            return Response(
+                {'error': 'Format non supporté (csv, excel)'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
+    def _export_csv_participants(self, event, inscriptions):
+        """Export CSV des participants"""
+        import csv
+        from django.http import HttpResponse
+        
+        response = HttpResponse(content_type='text/csv; charset=utf-8')
+        response['Content-Disposition'] = f'attachment; filename="participants_{event.slug}.csv"'
+        
+        # BOM pour Excel
+        response.write('\ufeff')
+        
+        writer = csv.writer(response)
+        writer.writerow([
+            'Nom complet', 'Email', 'Statut', 'Date inscription',
+            'Évaluation', 'Commentaire', 'Notes privées'
+        ])
+        
+        for inscription in inscriptions:
+            writer.writerow([
+                inscription.participante.get_full_name(),
+                inscription.participante.email,
+                inscription.get_statut_display(),
+                inscription.date_inscription.strftime('%d/%m/%Y %H:%M'),
+                inscription.evaluation_event or '',
+                inscription.commentaire_evaluation or '',
+                inscription.notes_privees or ''
+            ])
+        
+        return response
+    
+    def _export_excel_participants(self, event, inscriptions):
+        """Export Excel des participants"""
+        # Cette méthode nécessiterait openpyxl
+        # Pour l'instant, rediriger vers CSV
+        return self._export_csv_participants(event, inscriptions)
+
+
+class EventCloneView(APIView):
+    """Vue pour cloner un événement"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request, event_id):
+        """Clone un événement existant"""
+        source_event = get_object_or_404(Event, pk=event_id)
+        
+        # Vérifier les permissions
+        if not (request.user.is_staff or source_event.cree_par == request.user):
+            raise PermissionDenied("Accès non autorisé")
+        
+        # Données pour le clone
+        clone_data = request.data
+        nouveau_titre = clone_data.get('titre', f"{source_event.titre} (Copie)")
+        nouvelles_dates = clone_data.get('dates', {})
+        
+        # Créer le clone
+        nouvel_event = Event.objects.create(
+            titre=nouveau_titre,
+            description=source_event.description,
+            description_courte=source_event.description_courte,
+            categorie=source_event.categorie,
+            tags=source_event.tags.copy() if source_event.tags else [],
+            date_debut=nouvelles_dates.get('date_debut', source_event.date_debut),
+            date_fin=nouvelles_dates.get('date_fin', source_event.date_fin),
+            fuseau_horaire=source_event.fuseau_horaire,
+            est_en_ligne=source_event.est_en_ligne,
+            lieu=clone_data.get('lieu', source_event.lieu),
+            adresse_complete=source_event.adresse_complete,
+            lien_visioconference=clone_data.get('lien_visioconference', source_event.lien_visioconference),
+            max_participants=clone_data.get('max_participants', source_event.max_participants),
+            inscription_requise=source_event.inscription_requise,
+            inscription_ouverte=clone_data.get('inscription_ouverte', True),
+            validation_requise=source_event.validation_requise,
+            liste_attente_activee=source_event.liste_attente_activee,
+            formateur_nom=source_event.formateur_nom,
+            formateur_bio=source_event.formateur_bio,
+            programme_detaille=source_event.programme_detaille,
+            objectifs=source_event.objectifs.copy() if source_event.objectifs else [],
+            prerequis=source_event.prerequis,
+            materiel_requis=source_event.materiel_requis,
+            statut='brouillon',  # Toujours créer en brouillon
+            est_publie=False,    # Toujours créer non publié
+            cree_par=request.user,
+            notifications_activees=source_event.notifications_activees,
+            rappels_automatiques=source_event.rappels_automatiques.copy() if source_event.rappels_automatiques else []
+        )
+        
+        # Copier l'image de couverture si demandé
+        if clone_data.get('copier_image', False) and source_event.image_couverture:
+            # Logique de copie d'image à implémenter selon les besoins
+            pass
+        
+        serializer = EventDetailSerializer(nouvel_event, context={'request': request})
+        return Response({
+            'message': 'Événement cloné avec succès',
+            'event': serializer.data
+        }, status=status.HTTP_201_CREATED)
+
+
+class EventTemplatesView(APIView):
+    """Vue pour gérer les templates d'événements"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        """Liste des templates disponibles"""
+        # Templates prédéfinis
+        templates = [
+            {
+                'id': 'formation',
+                'nom': 'Formation',
+                'description': 'Template pour une formation',
+                'categorie': 'formation',
+                'duree_type': 'jour',
+                'inscription_requise': True,
+                'validation_requise': False,
+                'notifications_activees': True,
+                'rappels_automatiques': [24, 2]
+            },
+            {
+                'id': 'conference',
+                'nom': 'Conférence',
+                'description': 'Template pour une conférence',
+                'categorie': 'conference',
+                'duree_type': 'heure',
+                'inscription_requise': True,
+                'validation_requise': True,
+                'notifications_activees': True,
+                'rappels_automatiques': [48, 24, 2]
+            },
+            {
+                'id': 'atelier',
+                'nom': 'Atelier pratique',
+                'description': 'Template pour un atelier pratique',
+                'categorie': 'atelier',
+                'duree_type': 'demi_journee',
+                'inscription_requise': True,
+                'validation_requise': False,
+                'max_participants': 20,
+                'notifications_activees': True,
+                'rappels_automatiques': [24, 2]
+            },
+            {
+                'id': 'webinaire',
+                'nom': 'Webinaire',
+                'description': 'Template pour un webinaire en ligne',
+                'categorie': 'webinaire',
+                'duree_type': 'heure',
+                'est_en_ligne': True,
+                'inscription_requise': True,
+                'validation_requise': False,
+                'max_participants': 100,
+                'notifications_activees': True,
+                'rappels_automatiques': [24, 1]
+            }
+        ]
+        
+        return Response({'templates': templates})
+    
+    def post(self, request):
+        """Créer un événement à partir d'un template"""
+        template_id = request.data.get('template_id')
+        event_data = request.data.get('event_data', {})
+        
+        # Récupérer le template
+        templates = self.get(request).data['templates']
+        template = next((t for t in templates if t['id'] == template_id), None)
+        
+        if not template:
+            return Response(
+                {'error': 'Template non trouvé'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        
+        # Fusionner les données du template avec les données fournies
+        merged_data = {**template, **event_data}
+        merged_data.pop('id', None)  # Retirer l'ID du template
+        merged_data.pop('nom', None)  # Retirer le nom du template
+        merged_data.pop('description', None)  # Retirer la description du template
+        
+        # Créer l'événement
+        serializer = EventSerializer(data=merged_data, context={'request': request})
+        
+        if serializer.is_valid():
+            event = serializer.save(cree_par=request.user)
+            response_serializer = EventDetailSerializer(event, context={'request': request})
+            
+            return Response({
+                'message': 'Événement créé à partir du template',
+                'event': response_serializer.data
+            }, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
