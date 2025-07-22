@@ -1,42 +1,54 @@
-import axiosInstance from '../api/axiosInstance';
+// ============================================================================
+// frontend/src/services/statsService.js - CORRECTION
+// ============================================================================
+
+// CORRECTION: Importe l'instance 'api' par défaut depuis api.js
+import api from '../api'; // Assurez-vous que le chemin est correct
 
 export const statsService = {
   // Statistiques générales
   getOverviewStats: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/overview/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/overview/', { params });
     return response.data;
   },
 
   // Statistiques détaillées
   getMemberStats: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/members/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/members/', { params });
     return response.data;
   },
 
   getEventStats: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/events/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/events/', { params });
     return response.data;
   },
 
   getForumStats: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/forums/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/forums/', { params });
     return response.data;
   },
 
   getResourceStats: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/resources/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/resources/', { params });
     return response.data;
   },
 
   // Tendances
   getTrends: async (metric, params = {}) => {
-    const response = await axiosInstance.get(`/api/stats/trends/${metric}/`, { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get(`/stats/trends/${metric}/`, { params });
     return response.data;
   },
 
   // Export
   exportReport: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/export/', {
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/export/', {
       params,
       responseType: 'blob'
     });
@@ -45,7 +57,8 @@ export const statsService = {
 
   // Comparaisons
   getComparisons: async (params = {}) => {
-    const response = await axiosInstance.get('/api/stats/compare/', { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/stats/compare/', { params });
     return response.data;
   }
 };

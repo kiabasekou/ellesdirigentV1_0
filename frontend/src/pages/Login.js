@@ -1,15 +1,19 @@
-// src/pages/Login.js
+// ============================================================================
+// frontend/src/pages/Login.js - CORRECTION
+// ============================================================================
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { authService } from '../services/api';
+// CORRECTION: Importe authAPI depuis le fichier api.js centralisé
+import { authAPI } from '../api'; // Assurez-vous que le chemin est correct
 import { loginSuccess, loginFailure, selectIsAuthenticated } from '../redux/authSlice';
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  
+
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -39,23 +43,26 @@ function Login() {
     console.log('Tentative de connexion avec:', formData.username);
 
     try {
-      const response = await authService.login(formData.username, formData.password);
+      // CORRECTION: Utilise authAPI.login au lieu de authService.login
+      // La fonction login de authAPI prend un objet { username, password }
+      const response = await authAPI.login(formData);
       console.log('Connexion réussie!');
-      
+
       // Dispatcher l'action Redux
-      dispatch(loginSuccess(response));
-      
+      dispatch(loginSuccess(response.data)); // Supposons que les données de l'utilisateur/token sont dans response.data
+
       // Rediriger vers le dashboard
       navigate('/dashboard');
     } catch (err) {
       console.error('Erreur de connexion:', err);
-      
+
       let errorMessage = 'Une erreur est survenue';
-      
+
       if (err.response) {
         if (err.response.status === 401) {
           errorMessage = 'Nom d\'utilisateur ou mot de passe incorrect';
         } else if (err.response.status === 400) {
+          // Si le backend renvoie un message d'erreur spécifique dans data.detail
           errorMessage = err.response.data.detail || 'Données invalides';
         } else {
           errorMessage = `Erreur serveur: ${err.response.status}`;
@@ -63,7 +70,7 @@ function Login() {
       } else if (err.request) {
         errorMessage = 'Impossible de contacter le serveur. Vérifiez que le backend est démarré.';
       }
-      
+
       setError(errorMessage);
       dispatch(loginFailure(errorMessage));
     } finally {
@@ -77,13 +84,13 @@ function Login() {
         <div>
           {/* AJOUT: Logo Elles Dirigent */}
           <div className="mx-auto w-20 h-20 mb-6 flex items-center justify-center">
-            <img 
-              src="/logo-elles-dirigent.png" 
+            <img
+              src="/logo-elles-dirigent.png"
               alt="Elles Dirigent"
               className="w-full h-full object-contain"
             />
           </div>
-          
+
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Connexion à votre compte
           </h2>
@@ -92,14 +99,14 @@ function Login() {
             Elles Dirigent - République Gabonaise
           </p>
         </div>
-        
+
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative">
               <span className="block sm:inline">{error}</span>
             </div>
           )}
-          
+
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="username" className="sr-only">
@@ -173,7 +180,7 @@ function Login() {
         <div className="mt-4 p-4 bg-gray-100 rounded-md">
           <p className="text-sm text-gray-600 mb-2">Pour tester :</p>
           <p className="text-xs font-mono">Username: admin</p>
-          <p className="text-xs font-mono">Password: Admin123!@#</p>
+          <p className="text-xs font-mono">Password: admin123</p>
         </div>
       </div>
     </div>

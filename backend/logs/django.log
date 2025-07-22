@@ -6216,3 +6216,164 @@ INFO 2025-07-21 03:17:21,274 autoreload 18308 2508 Watching for file changes wit
 WARNING 2025-07-21 03:18:04,945 log 18308 22004 Not Found: /api/api/auth/login/
 WARNING 2025-07-21 03:18:04,946 basehttp 18308 22004 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
 INFO 2025-07-21 03:20:31,970 autoreload 17624 8352 Watching for file changes with StatReloader
+WARNING 2025-07-21 03:22:48,454 log 17624 23048 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 03:22:48,455 basehttp 17624 23048 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+INFO 2025-07-21 09:57:13,247 autoreload 9892 3560 Watching for file changes with StatReloader
+INFO 2025-07-21 09:59:44,893 basehttp 9892 10832 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+WARNING 2025-07-21 09:59:44,941 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:44,941 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 09:59:47,026 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:47,026 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 09:59:48,994 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:49,011 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 09:59:49,884 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:49,884 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 09:59:50,648 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:50,648 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 09:59:52,457 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 09:59:52,457 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 10:00:18,097 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 10:00:18,098 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 10:00:47,127 log 9892 10832 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 10:00:47,131 basehttp 9892 10832 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+INFO 2025-07-21 10:04:07,563 basehttp 9892 14952 "OPTIONS /api/api/auth/login/ HTTP/1.1" 200 0
+WARNING 2025-07-21 10:04:07,585 log 9892 14952 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 10:04:07,587 basehttp 9892 14952 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+WARNING 2025-07-21 10:04:38,488 log 9892 16104 Not Found: /api/api/auth/login/
+WARNING 2025-07-21 10:04:38,488 basehttp 9892 16104 "POST /api/api/auth/login/ HTTP/1.1" 404 4259
+INFO 2025-07-21 10:19:29,303 basehttp 9892 11276 "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+WARNING 2025-07-21 10:19:30,654 log 9892 11276 Unauthorized: /api/auth/login/
+WARNING 2025-07-21 10:19:30,654 basehttp 9892 11276 "POST /api/auth/login/ HTTP/1.1" 401 34
+INFO 2025-07-21 10:19:39,105 basehttp 9892 11276 "POST /api/auth/login/ HTTP/1.1" 200 708
+WARNING 2025-07-21 10:19:39,679 log 9892 11276 Not Found: /notifications/
+WARNING 2025-07-21 10:19:39,681 basehttp 9892 11276 "GET /notifications/ HTTP/1.1" 404 2898
+WARNING 2025-07-21 10:19:39,702 log 9892 6120 Not Found: /notifications/
+WARNING 2025-07-21 10:19:39,703 basehttp 9892 6120 "GET /notifications/ HTTP/1.1" 404 2898
+ERROR 2025-07-21 10:21:02,228 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+ERROR 2025-07-21 10:21:02,228 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+WARNING 2025-07-21 10:21:02,228 log 9892 10452 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 10:21:02,235 basehttp 9892 10452 "GET /api/training/formations/?search= HTTP/1.1" 401 95
+ERROR 2025-07-21 10:21:02,240 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+ERROR 2025-07-21 10:21:02,240 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+WARNING 2025-07-21 10:21:02,243 log 9892 10452 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 10:21:02,243 basehttp 9892 10452 "GET /api/training/formations/?search= HTTP/1.1" 401 95
+ERROR 2025-07-21 10:21:04,576 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+ERROR 2025-07-21 10:21:04,576 exceptions 9892 10452 Exception in FormationViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+WARNING 2025-07-21 10:21:04,581 log 9892 10452 Unauthorized: /api/training/formations/
+WARNING 2025-07-21 10:21:04,585 basehttp 9892 10452 "GET /api/training/formations/?search= HTTP/1.1" 401 95
+WARNING 2025-07-21 10:21:10,553 log 9892 10452 Not Found: /forums/categories/
+WARNING 2025-07-21 10:21:10,553 basehttp 9892 10452 "GET /forums/categories/ HTTP/1.1" 404 2910
+WARNING 2025-07-21 10:21:10,575 log 9892 12480 Not Found: /forums/categories/
+WARNING 2025-07-21 10:21:10,576 basehttp 9892 12480 "GET /forums/categories/ HTTP/1.1" 404 2910
+WARNING 2025-07-21 10:21:10,593 log 9892 10452 Not Found: /forums/categories/
+WARNING 2025-07-21 10:21:10,594 basehttp 9892 10452 "GET /forums/categories/ HTTP/1.1" 404 2910
+WARNING 2025-07-21 10:21:10,613 log 9892 12480 Not Found: /forums/categories/
+WARNING 2025-07-21 10:21:10,614 basehttp 9892 12480 "GET /forums/categories/ HTTP/1.1" 404 2910
+ERROR 2025-07-21 10:21:13,168 exceptions 9892 12480 Exception in EventViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+ERROR 2025-07-21 10:21:13,168 exceptions 9892 12480 Exception in EventViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+WARNING 2025-07-21 10:21:13,175 log 9892 12480 Unauthorized: /api/events/events/
+WARNING 2025-07-21 10:21:13,176 basehttp 9892 12480 "GET /api/events/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 401 95
+ERROR 2025-07-21 10:21:13,186 exceptions 9892 12480 Exception in EventViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+ERROR 2025-07-21 10:21:13,186 exceptions 9892 12480 Exception in EventViewSet: Informations d'authentification non fournies.
+Traceback (most recent call last):
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 333, in check_permissions
+    self.permission_denied(
+  File "C:\Users\SOUARE Ahmed\dev\plateforme_femmes\backend\env\Lib\site-packages\rest_framework\views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Informations d'authentification non fournies.
+WARNING 2025-07-21 10:21:13,188 log 9892 12480 Unauthorized: /api/events/events/
+WARNING 2025-07-21 10:21:13,188 basehttp 9892 12480 "GET /api/events/events/?start_date=2025-07-01&end_date=2025-07-31&filter=all HTTP/1.1" 401 95

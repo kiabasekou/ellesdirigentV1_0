@@ -1,7 +1,13 @@
+// ============================================================================
+// frontend/src/pages/admin/training/EditFormation.js - CORRECTION
+// ============================================================================
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Save, X, ArrowLeft } from 'lucide-react';
-import TrainingService from '../../../services/api/training';
+// CORRECTION: Importe trainingAPI depuis '../../api' et toast
+import { trainingAPI } from '../../../api'; // Assurez-vous que le chemin est correct
+import { toast } from '../../../components/Toast'; // Assurez-vous que le chemin est correct
 
 const EditFormation = () => {
   const { id } = useParams();
@@ -16,7 +22,10 @@ const EditFormation = () => {
 
   const fetchFormation = async () => {
     try {
-      const data = await TrainingService.getFormation(id);
+      // CORRECTION: Utilise trainingAPI.getFormation
+      const response = await trainingAPI.getFormation(id);
+      const data = response.data; // Supposons que la formation est directement dans response.data
+
       // Formater les dates pour l'input datetime-local
       const formattedData = {
         ...data,
@@ -25,8 +34,9 @@ const EditFormation = () => {
       };
       setFormation(formattedData);
     } catch (error) {
-      console.error('Erreur:', error);
-      alert('Erreur lors du chargement de la formation');
+      console.error('Erreur lors du chargement de la formation:', error);
+      // CORRECTION: Utilise toast.error au lieu de alert
+      toast.error('Erreur lors du chargement de la formation.');
       navigate('/admin/formations');
     } finally {
       setLoading(false);
@@ -38,12 +48,15 @@ const EditFormation = () => {
     setSaving(true);
 
     try {
-      await TrainingService.updateFormation(id, formation);
-      alert('Formation modifiée avec succès !');
+      // CORRECTION: Utilise trainingAPI.updateFormation
+      await trainingAPI.updateFormation(id, formation);
+      // CORRECTION: Utilise toast.success au lieu de alert
+      toast.success('Formation modifiée avec succès !');
       navigate('/admin/formations');
     } catch (error) {
-      console.error('Erreur:', error);
-      alert('Erreur lors de la modification');
+      console.error('Erreur lors de la modification de la formation:', error);
+      // CORRECTION: Utilise toast.error au lieu de alert
+      toast.error('Erreur lors de la modification de la formation.');
     } finally {
       setSaving(false);
     }
@@ -69,7 +82,7 @@ const EditFormation = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-600">Formation non trouvée</p>
-          <button 
+          <button
             onClick={() => navigate('/admin/formations')}
             className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg"
           >
@@ -99,6 +112,7 @@ const EditFormation = () => {
               </div>
             </div>
             <button
+              type="button" // Ajout de type="button" pour éviter la soumission du formulaire
               onClick={() => navigate('/admin/formations')}
               className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
             >
@@ -112,10 +126,10 @@ const EditFormation = () => {
       {/* Formulaire simplifié */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
-          
+
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Informations générales</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-2">

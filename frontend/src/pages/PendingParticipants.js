@@ -1,3 +1,7 @@
+// ============================================================================
+// frontend/src/pages/PendingParticipants.js - CORRECTION
+// ============================================================================
+
 /**
  * Page de gestion des participantes en attente de validation
  * Permet de valider ou rejeter les demandes d'inscription
@@ -22,14 +26,10 @@ import {
   MessageSquare,
   Shield
 } from 'lucide-react';
-import axios from '../../api/axiosInstance';
-// Ancienne ligne: import { toast } from '../Toast';
-// *** CORRECTION : Chemin corrigé pour Toast.js dans src/components ***
-//import { toast } from '../../components/Toast'; // Ajustement du chemin
-import { toast } from '../../components/Toast'; // Assurez-vous que cette ligne est correcte et sauvegardée
+// CORRECTION: Importe adminAPI depuis api.js
+import { adminAPI } from '../../api'; // Assurez-vous que le chemin est correct
+import { toast } from '../../components/Toast'; // Assurez-vous que le chemin est correct
 
-
-  // ... le reste du code est inchangé
 const PendingParticipants = () => {
   const [participants, setParticipants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -76,14 +76,15 @@ const PendingParticipants = () => {
         search: searchTerm,
         statut_validation: 'en_attente'
       };
-      
+
       if (filterRegion !== 'all') {
         params.region = filterRegion;
       }
 
-      const response = await axios.get('/api/users/', { params });
+      // CORRECTION: Utilise adminAPI.getAllUsers
+      const response = await adminAPI.getAllUsers(params);
       setParticipants(response.data.results);
-      setTotalPages(response.data.total_pages);
+      setTotalPages(response.data.total_pages); // Assurez-vous que votre API renvoie total_pages
     } catch (error) {
       console.error('Erreur chargement participantes:', error);
       toast.error('Erreur lors du chargement des données');
@@ -95,12 +96,11 @@ const PendingParticipants = () => {
   const handleValidate = async (participant) => {
     try {
       setProcessingId(participant.id);
-      await axios.patch(`/api/users/${participant.id}/validate/`, {
-        statut_validation: 'validee'
-      });
-      
+      // CORRECTION: Utilise adminAPI.activateUser
+      await adminAPI.activateUser(participant.id);
+
       toast.success(`${participant.first_name} ${participant.last_name} a été validée avec succès`);
-      
+
       // Retirer de la liste
       setParticipants(prev => prev.filter(p => p.id !== participant.id));
       setSelectedParticipant(null);
@@ -120,13 +120,11 @@ const PendingParticipants = () => {
 
     try {
       setProcessingId(selectedParticipant.id);
-      await axios.patch(`/api/users/${selectedParticipant.id}/reject/`, {
-        statut_validation: 'rejetee',
-        motif_rejet: rejectReason
-      });
-      
+      // CORRECTION: Utilise adminAPI.deactivateUser et passe le motif
+      await adminAPI.deactivateUser(selectedParticipant.id, rejectReason);
+
       toast.success('La demande a été rejetée');
-      
+
       // Retirer de la liste
       setParticipants(prev => prev.filter(p => p.id !== selectedParticipant.id));
       setShowRejectModal(false);
@@ -204,7 +202,7 @@ const PendingParticipants = () => {
               className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full"
             />
           </div>
-          
+
           <div className="flex items-center space-x-4">
             <select
               value={filterRegion}
@@ -217,7 +215,7 @@ const PendingParticipants = () => {
                 </option>
               ))}
             </select>
-            
+
             <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
               <Filter className="w-4 h-4" />
               <span>Plus de filtres</span>
@@ -246,10 +244,10 @@ const PendingParticipants = () => {
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-blue-600 font-bold text-lg">
-                        {participant.first_name[0]}{participant.last_name[0]}
+                        {participant.first_name?.[0]}{participant.last_name?.[0]}
                       </span>
                     </div>
-                    
+
                     <div className="flex-1">
                       <div className="flex items-center space-x-3">
                         <h3 className="text-lg font-semibold text-gray-900">
@@ -259,7 +257,7 @@ const PendingParticipants = () => {
                           En attente
                         </span>
                       </div>
-                      
+
                       <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
                         <div className="flex items-center space-x-2">
                           <User className="w-4 h-4" />
@@ -278,13 +276,13 @@ const PendingParticipants = () => {
                           <span>Expérience: {getExperienceLabel(participant.experience)}</span>
                         </div>
                       </div>
-                      
+
                       <div className="mt-3 flex items-center space-x-4 text-sm">
                         <div className="flex items-center space-x-1 text-gray-500">
                           <Calendar className="w-4 h-4" />
                           <span>Inscrite le {formatDate(participant.date_joined)}</span>
                         </div>
-                        
+
                         {participant.document_justificatif && (
                           <a
                             href={participant.document_justificatif}
@@ -299,7 +297,7 @@ const PendingParticipants = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-2 ml-4">
                     <button
                       onClick={() => setSelectedParticipant(participant)}
@@ -308,7 +306,7 @@ const PendingParticipants = () => {
                     >
                       <Eye className="w-5 h-5" />
                     </button>
-                    
+
                     <button
                       onClick={() => handleValidate(participant)}
                       disabled={processingId === participant.id}
@@ -317,7 +315,7 @@ const PendingParticipants = () => {
                     >
                       <CheckCircle className="w-5 h-5" />
                     </button>
-                    
+
                     <button
                       onClick={() => openRejectModal(participant)}
                       disabled={processingId === participant.id}
@@ -332,7 +330,7 @@ const PendingParticipants = () => {
             ))}
           </div>
         )}
-        
+
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="p-4 border-t border-gray-200">
@@ -340,7 +338,7 @@ const PendingParticipants = () => {
               <p className="text-sm text-gray-700">
                 Page {currentPage} sur {totalPages}
               </p>
-              
+
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
@@ -349,7 +347,7 @@ const PendingParticipants = () => {
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                
+
                 {[...Array(totalPages)].map((_, i) => (
                   <button
                     key={i + 1}
@@ -363,7 +361,7 @@ const PendingParticipants = () => {
                     {i + 1}
                   </button>
                 ))}
-                
+
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
@@ -394,7 +392,7 @@ const PendingParticipants = () => {
                 </button>
               </div>
             </div>
-            
+
             <div className="p-6 space-y-6">
               {/* Informations personnelles */}
               <div>
@@ -419,14 +417,14 @@ const PendingParticipants = () => {
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Date de naissance</label>
                     <p className="mt-1 text-gray-900">
-                      {selectedParticipant.date_of_birth 
+                      {selectedParticipant.date_of_birth
                         ? new Date(selectedParticipant.date_of_birth).toLocaleDateString('fr-FR')
                         : 'Non renseignée'}
                     </p>
                   </div>
                 </div>
               </div>
-              
+
               {/* Localisation */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Localisation</h3>
@@ -441,7 +439,7 @@ const PendingParticipants = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Expérience */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -451,7 +449,7 @@ const PendingParticipants = () => {
                   {getExperienceLabel(selectedParticipant.experience)}
                 </p>
               </div>
-              
+
               {/* Document justificatif */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -496,7 +494,7 @@ const PendingParticipants = () => {
                   <p className="text-gray-500">Aucun document fourni</p>
                 )}
               </div>
-              
+
               {/* Actions */}
               <div className="flex items-center justify-end space-x-3 pt-4 border-t border-gray-200">
                 <button
@@ -531,7 +529,7 @@ const PendingParticipants = () => {
             <div className="px-6 py-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-gray-900">Rejeter la demande</h2>
             </div>
-            
+
             <div className="p-6 space-y-4">
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <div className="flex items-start space-x-3">
@@ -547,7 +545,7 @@ const PendingParticipants = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Motif du rejet *
@@ -567,7 +565,7 @@ const PendingParticipants = () => {
                     </label>
                   ))}
                 </div>
-                
+
                 {rejectReason === "Autre (préciser)" && (
                   <textarea
                     className="mt-3 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -578,7 +576,7 @@ const PendingParticipants = () => {
                   />
                 )}
               </div>
-              
+
               <div className="flex items-center justify-end space-x-3 pt-4">
                 <button
                   onClick={() => {

@@ -1,5 +1,5 @@
 // ============================================================================
-// frontend/src/api.js - CORRECTION CONFIGURATION API
+// frontend/src/api.js - CORRECTION POUR LE DOUBLE /API/
 // ============================================================================
 
 import axios from 'axios';
@@ -8,7 +8,9 @@ import axios from 'axios';
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const api = axios.create({
-  baseURL: `${API_BASE_URL}/api`, // Base URL avec /api
+  // CORRECTION: La baseURL ne doit PAS inclure /api ici.
+  // Elle doit être l'URL racine de votre backend.
+  baseURL: API_BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -44,6 +46,7 @@ api.interceptors.response.use(
       try {
         const refreshToken = localStorage.getItem('refreshToken');
         if (refreshToken) {
+          // CORRECTION: Assurez-vous que le chemin ici inclut /api/
           const response = await axios.post(`${API_BASE_URL}/api/auth/refresh/`, {
             refresh: refreshToken,
           });
@@ -69,179 +72,221 @@ api.interceptors.response.use(
 );
 
 // ============================================================================
-// FONCTIONS D'API CORRIGÉES
+// FONCTIONS D'API CORRIGÉES - AJOUT DE /API/ À TOUS LES ENDPOINTS
 // ============================================================================
 
 // Authentification
 export const authAPI = {
-  // CORRECTION: Enlever le préfixe /api/ redondant
   login: (credentials) => {
     console.log('Tentative de connexion...', credentials);
-    return api.post('/auth/login/', credentials); // Était: '/api/auth/login/'
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/auth/login/', credentials);
   },
 
   register: (userData) => {
-    return api.post('/auth/register/', userData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/auth/register/', userData);
   },
 
   logout: (refreshToken) => {
-    return api.post('/auth/logout/', { refresh: refreshToken });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/auth/logout/', { refresh: refreshToken });
   },
 
   refreshToken: (refreshToken) => {
-    return api.post('/auth/refresh/', { refresh: refreshToken });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/auth/refresh/', { refresh: refreshToken });
   },
 
   getProfile: () => {
-    return api.get('/auth/profile/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/auth/profile/');
   },
 
   updateProfile: (profileData) => {
-    return api.patch('/auth/profile/update/', profileData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.patch('/api/auth/profile/update/', profileData);
   },
 
   changePassword: (passwordData) => {
-    return api.post('/auth/change-password/', passwordData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/auth/change-password/', passwordData);
   },
 };
 
 // Formations
 export const trainingAPI = {
   getFormations: (params = {}) => {
-    return api.get('/training/formations/', { params });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/training/formations/', { params });
   },
 
   getFormation: (id) => {
-    return api.get(`/training/formations/${id}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/training/formations/${id}/`);
   },
 
   createFormation: (formationData) => {
-    return api.post('/training/formations/', formationData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/training/formations/', formationData);
   },
 
   updateFormation: (id, formationData) => {
-    return api.put(`/training/formations/${id}/`, formationData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.put(`/api/training/formations/${id}/`, formationData);
   },
 
   deleteFormation: (id) => {
-    return api.delete(`/training/formations/${id}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.delete(`/api/training/formations/${id}/`);
   },
 
   // Inscriptions
   getInscriptions: () => {
-    return api.get('/training/inscriptions/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/training/inscriptions/');
   },
 
   createInscription: (formationId) => {
-    return api.post('/training/inscriptions/', { formation: formationId });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/training/inscriptions/', { formation: formationId });
   },
 
   // Actions sur formations
   inscrireFormation: (formationId) => {
-    return api.post(`/training/formations/${formationId}/inscrire/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/training/formations/${formationId}/inscrire/`);
   },
 
   marquerComplete: (inscriptionId) => {
-    return api.post(`/training/inscriptions/${inscriptionId}/marquer_complete/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/training/inscriptions/${inscriptionId}/marquer_complete/`);
   },
 
   evaluerFormation: (inscriptionId, evaluation) => {
-    return api.post(`/training/inscriptions/${inscriptionId}/evaluer/`, evaluation);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/training/inscriptions/${inscriptionId}/evaluer/`, evaluation);
+  },
+
+  getCertificats: () => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/training/certificates/');
   },
 };
 
 // Quiz
 export const quizAPI = {
   getQuiz: (params = {}) => {
-    return api.get('/quiz/quiz/', { params });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/quiz/quiz/', { params });
   },
 
   getQuizDetail: (id) => {
-    return api.get(`/quiz/quiz/${id}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/quiz/quiz/${id}/`);
   },
 
   commencerQuiz: (quizId) => {
-    return api.post(`/quiz/quiz/${quizId}/commencer/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/quiz/quiz/${quizId}/commencer/`);
   },
 
   soumettreQuiz: (quizId, reponses) => {
-    return api.post(`/quiz/quiz/${quizId}/soumettre/`, { reponses });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/quiz/quiz/${quizId}/soumettre/`, { reponses });
   },
 
   getTentatives: () => {
-    return api.get('/quiz/tentatives/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/quiz/tentatives/');
   },
 
   getResultatsQuiz: (quizId) => {
-    return api.get(`/quiz/quiz/${quizId}/resultats/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/quiz/quiz/${quizId}/resultats/`);
   },
 };
 
 // Événements
 export const eventsAPI = {
   getEvents: (params = {}) => {
-    return api.get('/events/events/', { params });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/events/events/', { params });
   },
 
   getEvent: (id) => {
-    return api.get(`/events/events/${id}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/events/events/${id}/`);
   },
 
   createEvent: (eventData) => {
-    return api.post('/events/events/', eventData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post('/api/events/events/', eventData);
   },
 
   updateEvent: (id, eventData) => {
-    return api.put(`/events/events/${id}/`, eventData);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.put(`/api/events/events/${id}/`, eventData);
   },
 
   deleteEvent: (id) => {
-    return api.delete(`/events/events/${id}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.delete(`/api/events/events/${id}/`);
   },
 
   // Inscriptions aux événements
   inscrireEvent: (eventId) => {
-    return api.post(`/events/events/${eventId}/inscrire/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/events/events/${eventId}/inscrire/`);
   },
 
   desinscrireEvent: (eventId) => {
-    return api.delete(`/events/events/${eventId}/desinscrire/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.delete(`/api/events/events/${eventId}/desinscrire/`);
   },
 
   // Données spécialisées
   getDashboard: () => {
-    return api.get('/events/dashboard/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/events/dashboard/');
   },
 
   searchEvents: (params) => {
-    return api.get('/events/search/', { params });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/events/search/', { params });
   },
 
   getRecommendations: () => {
-    return api.get('/events/recommendations/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/events/recommendations/');
   },
 
   getAnalytics: (eventId) => {
-    return api.get(`/events/analytics/${eventId}/`);
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/events/analytics/${eventId}/`);
   },
 
   getCalendar: (params = {}) => {
-    return api.get('/events/calendar/', { params });
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/events/calendar/', { params });
   },
 };
 
 // API générale
 export const generalAPI = {
   getHealth: () => {
-    return api.get('/health/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/health/');
   },
 
   getStats: () => {
-    return api.get('/stats/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/stats/');
   },
 
   getApiInfo: () => {
-    return api.get('/');
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/');
   },
 };
 
@@ -256,7 +301,7 @@ export const handleApiError = (error) => {
   if (error.response) {
     // Erreur de réponse du serveur
     const { status, data } = error.response;
-    
+
     switch (status) {
       case 400:
         return `Erreur de validation: ${data.detail || 'Données invalides'}`;
@@ -294,4 +339,36 @@ export const clearAuth = () => {
   localStorage.removeItem('accessToken');
   localStorage.removeItem('refreshToken');
   delete api.defaults.headers.common['Authorization'];
+};
+
+export const adminAPI = {
+  getStats: () => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/admin/stats/');
+  },
+
+  getPendingUsers: (limit = 5) => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/admin/pending-users/?limit=${limit}`);
+  },
+
+  getRecentActivities: (limit = 10) => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get(`/api/admin/recent-activities/?limit=${limit}`);
+  },
+
+  getAllUsers: (params = {}) => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.get('/api/admin/users/', { params });
+  },
+
+  activateUser: (userId) => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/admin/users/${userId}/activate/`);
+  },
+
+  deactivateUser: (userId, reason) => {
+    // CORRECTION: Ajout de '/api/' au début du chemin
+    return api.post(`/api/admin/users/${userId}/deactivate/`, { motif_rejet: reason });
+  },
 };

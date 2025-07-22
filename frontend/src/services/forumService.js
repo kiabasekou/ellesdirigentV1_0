@@ -1,57 +1,72 @@
-import axiosInstance from '../api/axiosInstance'; // Utiliser axiosInstance au lieu de api
+// ============================================================================
+// frontend/src/services/forumService.js - CORRECTION
+// ============================================================================
+
+// CORRECTION: Importe l'instance 'api' par défaut depuis api.js
+import api from '../api'; // Assurez-vous que le chemin est correct
 
 export const forumService = {
   // Catégories
   getCategories: async () => {
-    const response = await axiosInstance.get('/api/forums/categories/');
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/forums/categories/');
     return response.data;
   },
 
   // Threads
   getThreads: async (categoryId, params = {}) => {
-    const response = await axiosInstance.get(`/api/forums/categories/${categoryId}/threads/`, { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get(`/forums/categories/${categoryId}/threads/`, { params });
     return response.data;
   },
 
   createThread: async (data) => {
-    const response = await axiosInstance.post('/api/forums/threads/', data);
+    // CORRECTION: Utilise api.post et supprime le préfixe /api/
+    const response = await api.post('/forums/threads/', data);
     return response.data;
   },
 
   getThread: async (threadId) => {
-    const response = await axiosInstance.get(`/api/forums/threads/${threadId}/`);
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get(`/forums/threads/${threadId}/`);
     return response.data;
   },
 
   // Posts
   getPosts: async (threadId, params = {}) => {
-    const response = await axiosInstance.get(`/api/forums/threads/${threadId}/posts/`, { params });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get(`/forums/threads/${threadId}/posts/`, { params });
     return response.data;
   },
 
   createPost: async (threadId, data) => {
-    const response = await axiosInstance.post(`/api/forums/threads/${threadId}/posts/`, data);
+    // CORRECTION: Utilise api.post et supprime le préfixe /api/
+    const response = await api.post(`/forums/threads/${threadId}/posts/`, data);
     return response.data;
   },
 
   updatePost: async (postId, data) => {
-    const response = await axiosInstance.patch(`/api/forums/posts/${postId}/`, data);
+    // CORRECTION: Utilise api.patch et supprime le préfixe /api/
+    const response = await api.patch(`/forums/posts/${postId}/`, data);
     return response.data;
   },
 
   deletePost: async (postId) => {
-    await axiosInstance.delete(`/api/forums/posts/${postId}/`);
+    // CORRECTION: Utilise api.delete et supprime le préfixe /api/
+    await api.delete(`/forums/posts/${postId}/`);
   },
 
   // Interactions
   likePost: async (postId) => {
-    const response = await axiosInstance.post(`/api/forums/posts/${postId}/like/`);
+    // CORRECTION: Utilise api.post et supprime le préfixe /api/
+    const response = await api.post(`/forums/posts/${postId}/like/`);
     return response.data;
   },
 
   // Recherche
   searchThreads: async (query) => {
-    const response = await axiosInstance.get('/api/forums/search/', { params: { q: query } });
+    // CORRECTION: Utilise api.get et supprime le préfixe /api/
+    const response = await api.get('/forums/search/', { params: { q: query } });
     return response.data;
   }
 };

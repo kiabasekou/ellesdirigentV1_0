@@ -1,22 +1,25 @@
-// REMPLACEZ les imports du début par ceci (SANS duplication) :
+// ============================================================================
+// frontend/src/components/layout/MainLayout.js - CORRECTION COMPLÈTE
+// ============================================================================
+
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  Menu, X, Home, User, MessageSquare, Calendar, BookOpen, Users, BarChart3, 
+import {
+  Menu, X, Home, User, MessageSquare, Calendar, BookOpen, Users, BarChart3,
   Settings, LogOut, Bell, Search, ChevronDown, Clock, Shield, Sun, Moon,
   GraduationCap, Trophy, FileText, BarChart // NOUVELLES ICÔNES AJOUTÉES
 } from 'lucide-react';
 import { logout } from '../../redux/authSlice';
-import { toast } from '../Toast';
-import axios from '../../api/axiosInstance';
+import { toast } from '../Toast'; // Assurez-vous que le chemin vers Toast est correct
+import api, { authAPI } from '../../api'; // Importe l'instance 'api' par défaut et 'authAPI'
 
 const MainLayout = ({ isAdmin = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
-  
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -25,30 +28,29 @@ const MainLayout = ({ isAdmin = false }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   // Navigation items
- // Remplacer la section navigation par :
-const navigation = isAdmin ? [
-  { id: 'admin-dashboard', name: 'Dashboard Admin', icon: BarChart3, href: '/admin' },
-  { id: 'admin-participants', name: 'Participants', icon: Users, href: '/admin/participants/pending' },
-  { id: 'admin-formations', name: 'Formations', icon: GraduationCap, href: '/admin/formations' },
-  { id: 'admin-quiz', name: 'Quiz', icon: FileText, href: '/admin/quiz' },
-  { id: 'admin-stats', name: 'Statistiques', icon: BarChart, href: '/admin/stats' }
-] : [
-  { id: 'dashboard', name: 'Tableau de bord', icon: Home, href: '/dashboard' },
-  { id: 'profile', name: 'Mon Profil', icon: User, href: '/dashboard/profile' },
-  { id: 'formations', name: 'Formations', icon: GraduationCap, href: '/dashboard/formations' }, // NOUVEAU
-  { id: 'mes-formations', name: 'Mes Formations', icon: Trophy, href: '/dashboard/mes-formations' }, // NOUVEAU
-  { id: 'certificats', name: 'Certificats', icon: FileText, href: '/dashboard/certificats' }, // NOUVEAU
-  { id: 'forums', name: 'Forums', icon: MessageSquare, href: '/dashboard/forums' },
-  { id: 'events', name: 'Événements', icon: Calendar, href: '/dashboard/events' },
-  { id: 'resources', name: 'Ressources', icon: BookOpen, href: '/dashboard/resources' },
-  { id: 'networking', name: 'Réseautage', icon: Users, href: '/dashboard/networking' },
-  { id: 'stats', name: 'Statistiques', icon: BarChart3, href: '/dashboard/stats' }
-];
+  const navigation = isAdmin ? [
+    { id: 'admin-dashboard', name: 'Dashboard Admin', icon: BarChart3, href: '/admin' },
+    { id: 'admin-participants', name: 'Participants', icon: Users, href: '/admin/participants/pending' },
+    { id: 'admin-formations', name: 'Formations', icon: GraduationCap, href: '/admin/formations' },
+    { id: 'admin-quiz', name: 'Quiz', icon: FileText, href: '/admin/quiz' },
+    { id: 'admin-stats', name: 'Statistiques', icon: BarChart, href: '/admin/stats' }
+  ] : [
+    { id: 'dashboard', name: 'Tableau de bord', icon: Home, href: '/dashboard' },
+    { id: 'profile', name: 'Mon Profil', icon: User, href: '/dashboard/profile' },
+    { id: 'formations', name: 'Formations', icon: GraduationCap, href: '/dashboard/formations' }, // NOUVEAU
+    { id: 'mes-formations', name: 'Mes Formations', icon: Trophy, href: '/dashboard/mes-formations' }, // NOUVEAU
+    { id: 'certificats', name: 'Certificats', icon: FileText, href: '/dashboard/certificats' }, // NOUVEAU
+    { id: 'forums', name: 'Forums', icon: MessageSquare, href: '/dashboard/forums' },
+    { id: 'events', name: 'Événements', icon: Calendar, href: '/dashboard/events' },
+    { id: 'resources', name: 'Ressources', icon: BookOpen, href: '/dashboard/resources' },
+    { id: 'networking', name: 'Réseautage', icon: Users, href: '/dashboard/networking' },
+    { id: 'stats', name: 'Statistiques', icon: BarChart3, href: '/dashboard/stats' }
+  ];
 
   useEffect(() => {
     // Charger les notifications
     fetchNotifications();
-    
+
     // Mettre à jour l'activité toutes les 5 minutes
     const activityInterval = setInterval(() => {
       updateActivity();
@@ -62,7 +64,9 @@ const navigation = isAdmin ? [
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get('/api/notifications/');
+      // CORRECTION: Utiliser l'instance 'api' pour un endpoint de notifications générique
+      // Si vous avez une API de notifications spécifique, vous devrez l'ajouter à api.js
+      const response = await api.get('/notifications/'); // Supposition d'un endpoint /notifications/
       setNotifications(response.data.results || []);
     } catch (error) {
       console.error('Erreur chargement notifications:', error);
@@ -71,7 +75,8 @@ const navigation = isAdmin ? [
 
   const updateActivity = async () => {
     try {
-      await axios.post('/api/users/activity/');
+      // CORRECTION: Utiliser l'instance 'api' au lieu de 'axios' et enlever le préfixe '/api'
+      await api.post('/users/activity/');
     } catch (error) {
       console.error('Erreur mise à jour activité:', error);
     }
@@ -100,11 +105,11 @@ const navigation = isAdmin ? [
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        
+
         {/* Header */}
         <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
           <div className="flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-            
+
             {/* Logo et titre - MISE À JOUR POUR ELLES DIRIGENT */}
             <div className="flex items-center space-x-4">
               <button
@@ -113,12 +118,12 @@ const navigation = isAdmin ? [
               >
                 <Menu className="w-6 h-6" />
               </button>
-              
+
               <div className="flex items-center space-x-3">
                 {/* Logo Elles Dirigent */}
                 <div className="w-10 h-10">
-                  <img 
-                    src="/logo-elles-dirigent.png" 
+                  <img
+                    src="/logo-elles-dirigent.png"
                     alt="Elles Dirigent"
                     className="w-full h-full object-contain"
                   />
@@ -150,7 +155,7 @@ const navigation = isAdmin ? [
 
             {/* Actions header */}
             <div className="flex items-center space-x-4">
-              
+
               {/* Bouton mode sombre */}
               <button
                 onClick={toggleDarkMode}
@@ -272,11 +277,11 @@ const navigation = isAdmin ? [
                   <X className="h-6 w-6 text-white" />
                 </button>
               </div>
-              
+
               {/* Logo sidebar mobile */}
               <div className="flex items-center flex-shrink-0 px-4 py-4 border-b border-gray-200 dark:border-gray-700">
-                <img 
-                  src="/logo-elles-dirigent.png" 
+                <img
+                  src="/logo-elles-dirigent.png"
                   alt="Elles Dirigent"
                   className="w-8 h-8 object-contain"
                 />
@@ -291,7 +296,7 @@ const navigation = isAdmin ? [
                   {navigation.map((item) => {
                     const Icon = item.icon;
                     const isActive = location.pathname === item.href;
-                    
+
                     return (
                       <button
                         key={item.id}
@@ -324,7 +329,7 @@ const navigation = isAdmin ? [
                 {navigation.map((item) => {
                   const Icon = item.icon;
                   const isActive = location.pathname === item.href;
-                  
+
                   return (
                     <button
                       key={item.id}
@@ -358,8 +363,8 @@ const navigation = isAdmin ? [
 
         {/* Overlay pour fermer les menus */}
         {(userMenuOpen || notificationsOpen) && (
-          <div 
-            className="fixed inset-0 z-30" 
+          <div
+            className="fixed inset-0 z-30"
             onClick={() => {
               setUserMenuOpen(false);
               setNotificationsOpen(false);

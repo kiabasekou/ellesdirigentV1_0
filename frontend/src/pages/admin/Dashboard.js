@@ -1,12 +1,16 @@
+// ============================================================================
+// frontend/src/pages/admin/Dashboard.js - CORRECTION
+// ============================================================================
+
 /**
  * Dashboard administrateur avec statistiques et gestion
  * Affiche les métriques clés et les actions rapides
  */
 import React, { useState, useEffect } from 'react';
-import { 
-  Users, 
-  UserCheck, 
-  UserX, 
+import {
+  Users,
+  UserCheck,
+  UserX,
   Clock,
   TrendingUp,
   FileText,
@@ -20,7 +24,8 @@ import {
   Shield
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../api/axiosInstance';
+// Importe adminAPI et generalAPI depuis le fichier api.js centralisé
+import { adminAPI, generalAPI } from '../../api'; // Assurez-vous que le chemin est correct
 import { Line, Bar, Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -77,37 +82,40 @@ const AdminDashboard = () => {
   const [pendingUsers, setPendingUsers] = useState([]);
 
   useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        setLoading(true);
+
+        const [statsRes, pendingRes, activitiesRes] = await Promise.all([
+          generalAPI.getStats(), // Appel à l'API générale pour les statistiques
+          adminAPI.getPendingUsers(5), // Appel à l'API admin pour les utilisateurs en attente
+          adminAPI.getRecentActivities(10) // Appel à l'API admin pour les activités récentes
+        ]);
+
+        // Mise à jour de l'état avec les données récupérées
+        setStats(statsRes.data);
+        setPendingUsers(pendingRes.data);
+        // CORRECTION: Utiliser setRecentActivities au lieu de setActivities
+        setRecentActivities(activitiesRes.data);
+
+      } catch (error) {
+        console.error('Erreur lors du chargement du dashboard:', error);
+        // Vous pouvez ajouter une gestion d'erreur visible pour l'utilisateur ici
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchDashboardData();
-  }, []);
+  }, []); // Le tableau de dépendances est vide car ce useEffect ne doit s'exécuter qu'une fois au montage.
 
-  const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-      
-      // Récupérer toutes les données en parallèle
-      const [statsRes, pendingRes, activitiesRes] = await Promise.all([
-        axios.get('/api/admin/stats/'),
-        axios.get('/api/admin/pending-users/?limit=5'),
-        axios.get('/api/admin/recent-activities/?limit=10')
-      ]);
-
-      setStats(statsRes.data);
-      setPendingUsers(pendingRes.data.results);
-      setRecentActivities(activitiesRes.data.results);
-    } catch (error) {
-      console.error('Erreur chargement dashboard:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Configuration des graphiques
+  // Configuration des graphiques (les données sont des exemples, elles devraient venir de l'API si disponibles)
   const registrationChartData = {
     labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
     datasets: [
       {
         label: 'Nouvelles inscriptions',
-        data: [12, 19, 23, 25, 32, 45],
+        data: [12, 19, 23, 25, 32, 45], // Exemple de données
         borderColor: 'rgb(59, 130, 246)',
         backgroundColor: 'rgba(59, 130, 246, 0.1)',
         tension: 0.4,
@@ -115,7 +123,7 @@ const AdminDashboard = () => {
       },
       {
         label: 'Comptes validés',
-        data: [10, 15, 20, 22, 28, 40],
+        data: [10, 15, 20, 22, 28, 40], // Exemple de données
         borderColor: 'rgb(16, 185, 129)',
         backgroundColor: 'rgba(16, 185, 129, 0.1)',
         tension: 0.4,
@@ -150,7 +158,7 @@ const AdminDashboard = () => {
     datasets: [
       {
         label: 'Utilisateurs actifs',
-        data: [120, 150, 180, 165, 190, 145, 130],
+        data: [120, 150, 180, 165, 190, 145, 130], // Exemple de données
         backgroundColor: 'rgba(147, 51, 234, 0.8)',
         borderRadius: 8
       }
@@ -297,7 +305,7 @@ const AdminDashboard = () => {
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="text-blue-600 font-medium">
-                          {user.first_name[0]}{user.last_name[0]}
+                          {user.first_name?.[0]}{user.last_name?.[0]} {/* Ajout de ? pour éviter les erreurs si null */}
                         </span>
                       </div>
                       <div>

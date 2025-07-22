@@ -1,5 +1,10 @@
+// ============================================================================
+// frontend/src/hooks/useFormations.js - CORRECTION
+// ============================================================================
+
 import { useState, useEffect } from 'react';
-import TrainingService from '../services/api/training';
+// CORRECTION: Importe trainingAPI depuis api.js
+import { trainingAPI } from '../api'; // Assurez-vous que le chemin est correct
 
 export const useFormations = (filters = {}) => {
   const [formations, setFormations] = useState([]);
@@ -9,11 +14,14 @@ export const useFormations = (filters = {}) => {
   const fetchFormations = async () => {
     try {
       setLoading(true);
-      const data = await TrainingService.getFormations(filters);
-      setFormations(data.results || data);
+      // CORRECTION: Utilise trainingAPI.getFormations
+      const response = await trainingAPI.getFormations(filters);
+      // Supposons que les résultats sont dans response.data.results ou directement dans response.data
+      setFormations(response.data.results || response.data);
       setError(null);
     } catch (err) {
       setError(err.message);
+      console.error("Erreur lors du chargement des formations:", err);
     } finally {
       setLoading(false);
     }
@@ -21,7 +29,7 @@ export const useFormations = (filters = {}) => {
 
   useEffect(() => {
     fetchFormations();
-  }, [JSON.stringify(filters)]);
+  }, [JSON.stringify(filters)]); // Dépendance sur les filtres pour refetcher si les filtres changent
 
   return { formations, loading, error, refetch: fetchFormations };
 };
@@ -33,22 +41,24 @@ export const useFormation = (id) => {
 
   useEffect(() => {
     const fetchFormation = async () => {
-      if (!id) return;
-      
+      if (!id) return; // Ne fait rien si l'ID n'est pas fourni
+
       try {
         setLoading(true);
-        const data = await TrainingService.getFormation(id);
-        setFormation(data);
+        // CORRECTION: Utilise trainingAPI.getFormation
+        const response = await trainingAPI.getFormation(id);
+        setFormation(response.data); // Supposons que la formation est dans response.data
         setError(null);
       } catch (err) {
         setError(err.message);
+        console.error(`Erreur lors du chargement de la formation ${id}:`, err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchFormation();
-  }, [id]);
+  }, [id]); // Dépendance sur l'ID pour refetcher si l'ID change
 
   return { formation, loading, error };
 };
@@ -61,11 +71,13 @@ export const useMesFormations = () => {
   const fetchMesFormations = async () => {
     try {
       setLoading(true);
-      const data = await TrainingService.getMesFormations();
-      setInscriptions(data);
+      // CORRECTION: Utilise trainingAPI.getInscriptions pour récupérer les formations auxquelles l'utilisateur est inscrit
+      const response = await trainingAPI.getInscriptions();
+      setInscriptions(response.data.results || response.data); // Supposons que les inscriptions sont dans response.data.results ou directement dans response.data
       setError(null);
     } catch (err) {
       setError(err.message);
+      console.error("Erreur lors du chargement de mes formations:", err);
     } finally {
       setLoading(false);
     }
@@ -73,7 +85,7 @@ export const useMesFormations = () => {
 
   useEffect(() => {
     fetchMesFormations();
-  }, []);
+  }, []); // Exécute une seule fois au montage
 
   return { inscriptions, loading, error, refetch: fetchMesFormations };
 };

@@ -1,6 +1,11 @@
+// ============================================================================
+// frontend/src/components/training/CertificatesPage.js - CORRECTION
+// ============================================================================
+
 import React from 'react';
 import { Award, Download, Eye, Calendar, CheckCircle } from 'lucide-react';
-import TrainingService from '../../services/api/training';
+// CORRECTION: Importe trainingAPI depuis api.js
+import { trainingAPI } from '../../api'; // Assurez-vous que le chemin est correct
 
 const CertificatesPage = () => {
   const [certificats, setCertificats] = React.useState([]);
@@ -9,10 +14,12 @@ const CertificatesPage = () => {
   React.useEffect(() => {
     const fetchCertificats = async () => {
       try {
-        const data = await TrainingService.getCertificats();
-        setCertificats(data);
+        // CORRECTION: Utilise trainingAPI.getCertificats()
+        const response = await trainingAPI.getCertificats();
+        setCertificats(response.data); // Supposons que les certificats sont dans response.data
       } catch (error) {
-        console.error('Erreur:', error);
+        console.error('Erreur lors du chargement des certificats:', error);
+        // Gérer l'erreur, par exemple afficher un message à l'utilisateur
       } finally {
         setLoading(false);
       }
@@ -58,11 +65,11 @@ const CertificatesPage = () => {
                   <Award className="w-8 h-8 text-blue-600" />
                   <CheckCircle className="w-6 h-6 text-green-600" />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {certificat.formation_titre}
                 </h3>
-                
+
                 <div className="text-sm text-gray-600 mb-4">
                   <div className="flex items-center mb-1">
                     <Calendar className="w-4 h-4 mr-2" />
